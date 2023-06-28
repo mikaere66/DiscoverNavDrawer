@@ -42,11 +42,15 @@ Code comments are limited, as I believe that the code should speak for itself, w
 
 **App Features**
 
-Urban/rural walking routes/tracks, listed by area & place
+140 urban/rural walking routes/tracks, listed by area & place
 
 Can be filtered by accessibility, dog-friendly, public transport, return journeys, shared-use
 
 Searchable by name or feature, as above
+
+Each route/track includes photo, map, street view (if available) & help info, including description, distance, directions, start/end points, nearby conveniences (if available), dog bylaws, etc.
+
+Nearby routes/tracks are linked internally
 
 Multi-day walks:
 1. Christchurch 360
