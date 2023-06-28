@@ -54,10 +54,6 @@ Multi-day walks:
 3. Crater Rim walkways
 4. Head to Head walkway
 
-Favourites (multiple view-types can be displayed in one list)
-
-Settings and Icons legend
-
 Community Resources:
 * Battery Recyclers
 * CCC Facilities
@@ -71,3 +67,7 @@ Community Resources:
 * Public Parks
 * Street Art
 * Urban Play
+
+Favourites (multiple view-types can be displayed in one list)
+
+Icons legend and App settings
