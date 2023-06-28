@@ -41,9 +41,13 @@ Minimum SDK version: 24
 Code comments are limited, as I believe that the code should speak for itself, with descriptive function/variable names & clear-cut data-types.
 
 **App Features**
+
 Urban/rural walking routes/tracks, listed by area & place
+
 Can be filtered by accessibility, dog-friendly, public transport, return journeys, shared-use
+
 Searchable by name, feature (as above)
+
 Multi-day walks:
 1. Christchurch 360
 2. Coastal Pathways
