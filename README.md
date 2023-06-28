@@ -4,14 +4,15 @@ Discover Christchurch app (Navigation Drawer version)
 Discover Christchurch, New Zealand with this Google Maps-based Android application.
 
 TLDR: the libraries implemented indicate technologies used within the app ...
+
 **Android/Google libraries**:
 * Kotlin programming language
 * Dagger/Hilt dependency injection
 * Maps platform Secrets plugin to secure Google API keys
 * AndroidX Core
-* AppCompat
-* Material
-* ConstraintLayout
+* AppCompat compatibility
+* Material Design
+* Constraint Layout
 * Kotlinx Coroutines
 * Activity Extensions
 * Fragment Extensions
@@ -24,6 +25,7 @@ TLDR: the libraries implemented indicate technologies used within the app ...
 * RecyclerView
 * Room Database+Extensions
 * Window Manager
+
 **Third party libraries**:
 * [Collapsing Toolbar Layout](https://github.com/HendraAnggrian/collapsingtoolbarlayout-subtitle)
 * [Binary-Finary FabToast](https://android-arsenal.com/details/1/6589)
@@ -33,4 +35,9 @@ TLDR: the libraries implemented indicate technologies used within the app ...
 * [DroidIT Flat Radio Group](https://github.com/droid-it/Flat-Radio-Group)
 
 Data/view binding: true
+
 Minimum SDK version: 24
+
+Comment are limited, as I believe that the code should speak for itself, with descriptive function/variable names & clear-cut data-types.
+
+
