@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import
+            type="android.view.View" />
+        <variable
+            name="checkBox"
+            type="android.widget.CheckBox"/>
+        <import
+            type="android.graphics.Typeface" />
+        <variable
+            name="clickListener"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.listeners.BasicClickListener" />
+        <variable
+            name="longClickListener"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.listeners.FountainLongListener" />
+        <variable
+            name="fountain"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.entities.DrinkFountainKt" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/item_card_horizontal_padding"
+        android:paddingEnd="@dimen/item_card_horizontal_padding"
+        tools:showIn="@layout/fragment_fountains">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/fountain_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Theme.DiscoverChristchurch.CardView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/fountain_constraint_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/list_item_margin_medium"
+                android:padding="@dimen/list_item_padding_medium"
+                android:onClick="@{ () -> clickListener.onClick(checkBox, 0L) }"
+                android:onLongClick="@{ () -> longClickListener.onLongClick(fountain) }">
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/fountain_barrier_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:barrierDirection="end"
+                    app:constraint_referenced_ids="fountain_icon, fountain_label" />
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/fountain_barrier_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:barrierDirection="bottom"
+                    app:constraint_referenced_ids="fountain_icon, fountain_extra" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/fountain_guideline_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="@fraction/fountain_guideline_1" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/fountain_guideline_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="@fraction/fountain_guideline_2" />
+
+                <ImageView
+                    android:id="@+id/fountain_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/fountain_drink_descr"
+                    app:layout_constraintBottom_toTopOf="@id/fountain_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_baseline_local_drink_default_24"
+                    style="@style/Theme.DiscoverChristchurch.ImageView" />
+
+                <TextView
+                    android:id="@+id/fountain_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{ fountain.zStamp > 0L ? View.VISIBLE : View.GONE }"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/fountain_barrier_1"
+                    app:faveAddedDate="@{ fountain.zStamp }"
+                    style="@style/Theme.DiscoverChristchurch.CommunityText"
+                    tools:text="@string/date_tools"
+                    tools:visibility="visible" />
+
+                <CheckBox
+                    android:id="@+id/fountain_favourite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/favourite_selector"
+                    android:checked="@{ fountain.fave }"
+                    android:contentDescription="@string/toggle_fave_descr"
+                    android:onClick="@{ () -> clickListener.onClick(checkBox, fountain.id) }"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/fountain_date" />
+
+                <TextView
+                    android:id="@+id/fountain_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{ fountain.name }"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@id/fountain_favourite"
+                    app:layout_constraintStart_toEndOf="@id/fountain_barrier_1"
+                    app:layout_constraintTop_toBottomOf="@id/fountain_date"
+                    style="@style/Theme.DiscoverChristchurch.CommunityText"
+                    tools:text="Jellie Park" />
+
+                <TextView
+                    android:id="@+id/fountain_extra"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:typeface="@{ Typeface.defaultFromStyle(fountain.alt ? Typeface.NORMAL : Typeface.ITALIC) }"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toStartOf="@id/fountain_favourite"
+                    app:layout_constraintStart_toEndOf="@id/fountain_barrier_1"
+                    app:layout_constraintTop_toBottomOf="@id/fountain_name"
+                    app:fountainExtra="@{ fountain }"
+                    style="@style/Theme.DiscoverChristchurch.CommunityText"
+                    tools:text="Cast - Metal/Steel"
+                    tools:visibility="visible" />
+
+                <!-- FEATURES -->
+
+                <TextView
+                    android:id="@+id/fountain_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/list_item_margin_medium"
+                    android:layout_marginTop="@dimen/list_item_margin_large"
+                    android:gravity="center_horizontal"
+                    android:text="@string/fountain_features"
+                    android:visibility="@{ fountain.bottles || fountain.dogs || fountain.convenience ? View.VISIBLE : View.GONE }"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/fountain_icon"
+                    app:layout_constraintStart_toStartOf="@id/fountain_icon"
+                    app:layout_constraintTop_toBottomOf="@id/fountain_barrier_2"
+                    tools:visibility="visible" /><!-- Note: no Theme -->
+
+                <TextView
+                    android:id="@+id/fountain_bottles"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/fountain_drawable_padding"
+                    android:text="@string/fountain_bottles"
+                    android:visibility="@{ fountain.bottles ? View.VISIBLE : View.GONE }"
+                    app:layout_constraintStart_toEndOf="@id/fountain_barrier_1"
+                    app:layout_constraintBaseline_toBaselineOf="@id/fountain_label"
+                    app:drawableEndCompat="@drawable/ic_baseline_check_black_24"
+                    style="@style/Theme.DiscoverChristchurch.GravityStart"
+                    tools:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/fountain_dogs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/list_item_margin_medium"
+                    android:layout_marginEnd="@dimen/list_item_margin_large"
+                    android:layout_marginStart="@dimen/list_item_margin_large"
+                    android:layout_marginTop="@dimen/list_item_margin_large"
+                    android:layout_gravity="center"
+                    android:paddingEnd="@dimen/list_item_padding_small"
+                    android:paddingStart="@dimen/list_item_padding_small"
+                    android:drawablePadding="@dimen/fountain_drawable_padding"
+                    android:text="@string/fountain_dogs"
+                    android:visibility="@{ fountain.dogs ? View.VISIBLE : View.GONE }"
+                    app:layout_constraintEnd_toStartOf="@id/fountain_guideline_2"
+                    app:layout_constraintStart_toEndOf="@id/fountain_guideline_1"
+                    app:layout_constraintBaseline_toBaselineOf="@id/fountain_label"
+                    app:drawableEndCompat="@drawable/ic_baseline_check_black_24"
+                    tools:visibility="visible" /><!-- Note: no Theme -->
+
+                <TextView
+                    android:id="@+id/fountain_convenience"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/list_item_margin_medium"
+                    android:layout_marginEnd="@dimen/list_item_margin_large"
+                    android:layout_marginStart="@dimen/list_item_margin_large"
+                    android:layout_marginTop="@dimen/list_item_margin_large"
+                    android:paddingEnd="@dimen/list_item_padding_small"
+                    android:paddingStart="@dimen/list_item_padding_small"
+                    android:drawablePadding="@dimen/fountain_drawable_padding"
+                    android:text="@string/fountain_toilet"
+                    android:visibility="@{ fountain.convenience ? View.VISIBLE : View.GONE }"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBaseline_toBaselineOf="@id/fountain_label"
+                    app:drawableEndCompat="@drawable/ic_baseline_check_black_24"
+                    style="@style/Theme.DiscoverChristchurch.GravityEnd"
+                    tools:visibility="visible" /><!-- Note different theme -->
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

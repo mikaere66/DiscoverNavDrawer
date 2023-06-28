@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="imagesActivity"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.activities.ImagesActivity" />
+        <variable
+            name="imageTitle"
+            type="java.lang.String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/image_background"
+        tools:context=".activities.ImagesActivity">
+
+        <com.michaelrmossman.kotlin.discoverchristchurch.views.TouchImageView
+            android:id="@+id/fullscreen_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/fullscreen_image_descr"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ImageContrastCheck"
+            tools:src="@drawable/tracks_and_safety" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/exit_fullscreen_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fullscreen_button_margin"
+            android:padding="0dp"
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/exit_fullscreen_descr"
+            android:onClick="@{ () -> imagesActivity.finish() }"
+            app:layout_constraintEnd_toEndOf="@id/fullscreen_image"
+            app:layout_constraintTop_toTopOf="@id/fullscreen_image"
+            app:srcCompat="@drawable/ic_baseline_close_fullscreen_white_48"
+            tools:ignore="ImageContrastCheck" />
+
+        <TextView
+            android:id="@+id/fullscreen_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fullscreen_text_margin"
+            android:text="@{ @string/route_image(imageTitle) }"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Fullscreen image: Route name" />
+
+        <TextView
+            android:id="@+id/fullscreen_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fullscreen_text_margin"
+            android:text="@string/fullscreen_text"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import
+            type="android.view.View" />
+        <variable
+            name="checkBox"
+            type="android.widget.CheckBox"/>
+        <variable
+            name="clickListener"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.listeners.BasicClickListener" />
+        <variable
+            name="longClickListener"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.listeners.ConvenienceLongListener" />
+        <variable
+            name="convenience"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.entities.ConvenienceKt" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/item_card_horizontal_padding"
+        android:paddingEnd="@dimen/item_card_horizontal_padding"
+        tools:showIn="@layout/fragment_conveniences">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/convenience_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Theme.DiscoverChristchurch.CardView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/convenience_constraint_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/list_item_margin_medium"
+                android:padding="@dimen/list_item_padding_medium"
+                android:onClick="@{ () -> clickListener.onClick(checkBox, 0L) }"
+                android:onLongClick="@{ () -> longClickListener.onLongClick(convenience) }">
+
+                <ImageView
+                    android:id="@+id/convenience_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/convenience_descr"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:convenienceTypeIcon="@{ convenience.typeId }"
+                    style="@style/Theme.DiscoverChristchurch.ImageView"
+                    tools:srcCompat="@drawable/ic_baseline_wc_black_24" />
+
+                <TextView
+                    android:id="@+id/convenience_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{ convenience.zStamp > 0L ? View.VISIBLE : View.GONE }"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/convenience_icon"
+                    app:faveAddedDate="@{ convenience.zStamp }"
+                    style="@style/Theme.DiscoverChristchurch.CommunityText"
+                    tools:text="@string/date_tools"
+                    tools:visibility="visible" />
+
+                <CheckBox
+                    android:id="@+id/convenience_favourite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/favourite_selector"
+                    android:checked="@{ convenience.fave }"
+                    android:contentDescription="@string/toggle_fave_descr"
+                    android:onClick="@{ () -> clickListener.onClick(checkBox, convenience.id) }"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/convenience_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{ convenience.name }"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/convenience_extra"
+                    app:layout_constraintEnd_toStartOf="@id/convenience_favourite"
+                    app:layout_constraintStart_toEndOf="@id/convenience_icon"
+                    app:layout_constraintTop_toBottomOf="@id/convenience_date"
+                    style="@style/Theme.DiscoverChristchurch.CommunityText"
+                    tools:text="Opouria Knights Stream Park Toilets" />
+
+                <TextView
+                    android:id="@+id/convenience_extra"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@id/convenience_hours"
+                    app:layout_constraintEnd_toStartOf="@id/convenience_favourite"
+                    app:layout_constraintStart_toEndOf="@id/convenience_icon"
+                    app:layout_constraintTop_toBottomOf="@id/convenience_name"
+                    app:convenienceExtra="@{ convenience }"
+                    style="@style/Theme.DiscoverChristchurch.CommunityText"
+                    tools:text="Sports Pavilion"
+                    tools:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/convenience_hours"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/convenience_favourite"
+                    app:layout_constraintStart_toEndOf="@id/convenience_icon"
+                    app:layout_constraintTop_toBottomOf="@id/convenience_extra"
+                    app:convenienceHours="@{ convenience }"
+                    style="@style/Theme.DiscoverChristchurch.CommunityText"
+                    tools:text="Open Daily"
+                    tools:visibility="visible" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

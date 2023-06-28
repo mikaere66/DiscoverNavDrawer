@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="ccc_day_night">@color/ccc_light</color>
+
+    <color name="community_icon">@android:color/white</color>
+
+    <color name="dialog_text_color">@android:color/white</color>
+
+    <!-- Linked Routes -->
+    <color name="highlight_color">@color/ccc_light</color>
+
+    <color name="icon_surface">#FFFFFF</color>
+
+    <color name="info_header">@android:color/white</color>
+
+    <color name="legend_header">@android:color/white</color>
+
+    <color name="polyline_boundary">@color/white</color>
+
+</resources>

@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--suppress InjectedReferences-->
+<navigation
+    android:id="@+id/nav_graph.xml"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/communityFragment">
+
+    <!-- FRAGMENTS -->
+
+    <action
+        android:id="@+id/action_anyFragment_to_detailsActivity"
+        app:destination="@id/detailsActivity">
+        <argument
+            android:name="routeId"
+            app:argType="long"
+            android:defaultValue="0L" />
+    </action>
+    <action
+        android:id="@+id/action_anyFragment_to_routesActivity"
+        app:destination="@id/routesActivity">
+        <argument
+            android:name="routesIndex"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </action>
+
+    <fragment
+        android:id="@+id/areasFragment"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.fragments.AreasFragment"
+        tools:layout="@layout/fragment_areas">
+        <action
+            android:id="@+id/action_areasFragment_to_placesFragment"
+            app:destination="@id/placesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/batteryRecyclersFragment"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.fragments.BatteryRecyclersFragment"
+        tools:layout="@layout/fragment_battery_recyclers">
+        <action
+            android:id="@+id/action_batteryRecyclersFragment_to_batteryRecyclersActivity"
+            app:destination="@id/batteryRecyclersActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/bikeTracksFragment"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.fragments.BikeTracksFragment"
+        tools:layout="@layout/fragment_bike_tracks">
+        <action
+            android:id="@+id/action_bikeTracksFragment_to_bikeDetailsActivity"
+            app:destination="@id/bikeDetailsActivity" />
+        <action
+            android:id="@+id/action_bikeTracksFragment_to_bikeTracksActivity"
+            app:destination="@id/bikeTracksActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/chCh360ListFragment"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.fragments.ChCh360ListFragment"
+        tools:layout="@layout/fragment_ch_ch_360_list">
+        <action
+            android:id="@+id/action_chCh360ListFragment_to_chCh360Activity"
+            app:destination="@id/chCh360Activity" />
+        <action
+            android:id="@+id/action_chCh360ListFragment_to_chCh361Activity"
+            app:destination="@id/chCh361Activity" />
+        <action
+            android:id="@+id/action_chCh360ListFragment_to_chCh362Activity"
+            app:destination="@id/chCh362Activity" />
+    </fragment>
+    <fragment
+        android:id="@+id/communityFragment"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.fragments.CommunityFragment"
+        tools:layout="@layout/fragment_community">
+        <action
+            android:id="@+id/action_communityFragment_to_batteryRecyclersFragment"
+            app:destination="@id/batteryRecyclersFragment" />
+        <action
+            android:id="@+id/action_communityFragment_to_bikeTracksFragment"
+            app:destination="@id/bikeTracksFragment" />
+        <action
+            android:id="@+id/action_communityFragment_to_conveniencesFragment"
+            app:destination="@id/conveniencesFragment" />
+        <action
+            android:id="@+id/action_communityFragment_to_dogParksFragment"
+            app:destination="@id/dogParksFragment" />
+        <action
+            android:id="@+id/action_communityFragment_to_facilitiesFragment"
+            app:destination="@id/facilitiesFragment" />
+        <action
+            android:id="@+id/action_communityFragment_to_fountainsFragment"
+            app:destination="@id/fountainsFragment" />
+        <action
+            android:id="@+id/action_communityFragment_to_freeWiFiFragment"
+            app:destination="@id/freeWiFiFragment" />
+        <action
+            android:id="@+id/action_communityFragment_to_fruitTypesFragment"
+            app:destination="@id/fruitTypesFragment" />
+        <action
+            android:id="@+id/action_communityFragment_to_heritageSitesFragment"
+            app:destination="@id/heritageSitesFragment" />
+        <action
+            android:id="@+id/action_communityFragment_to_parksFragment"
+            app:destination="@id/parksFragment" />
+        <action
+            android:id="@+id/action_communityFragment_to_streetArtFragment"
+            app:destination="@id/streetArtFragment" />
+        <action
+            android:id="@+id/action_communityFragment_to_urbanPlayFragment"
+            app:destination="@id/urbanPlayFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/conveniencesFragment"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.fragments.ConveniencesFragment"
+        tools:layout="@layout/fragment_conveniences">
+        <action
+            android:id="@+id/action_conveniencesFragment_to_conveniencesActivity"
+            app:destination="@id/conveniencesActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/dogLinksFragment"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.fragments.DogLinksFragment"
+        tools:layout="@layout/fragment_routes">
+        <action
+            android:id="@+id/action_dogLinksFragment_to_basicActivity"
+            app:destination="@id/basicActivity" />
+        <action
+            android:id="@+id/action_dogLinksFragment_to_detailsActivity"
+            app:destination="@id/detailsActivity" />
+        <action
+            android:id="@+id/action_dogLinksFragment_to_extendedActivity"
+            app:destination="@id/extendedActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/dogParksFragment"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.fragments.DogParksFragment"
+        tools:layout="@layout/fragment_dog_parks">
+        <action
+            android:id="@+id/action_dogParksFragment_to_detailsActivity"
+            app:destination="@id/detailsActivity" /><!-- Single linked route -->
+        <action
+            android:id="@+id/action_dogParksFragment_to_dogLinksFragment"
+            app:destination="@id/dogLinksFragment" /><!-- Multiple linked routes -->
+        <action
+            android:id="@+id/action_dogParksFragment_to_dogDetailsActivity"
+            app:destination="@id/dogDetailsActivity" />
+        <action
+            android:id="@+id/action_dogParksFragment_to_dogParksActivity"
+            app:destination="@id/dogParksActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/facilitiesFragment"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.fragments.FacilitiesFragment"
+        tools:layout="@layout/fragment_facilities">
+        <action
+            android:id="@+id/action_facilitiesFragment_to_facilitiesActivity"
+            app:destination="@id/facilitiesActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/favouritesFragment"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.fragments.FavouritesFragment"
+        tools:layout="@layout/fragment_routes">
+        <action
+            android:id="@+id/action_favouritesFragment_to_basicActivity"
+            app:destination="@id/basicActivity" />
+        <action
+            android:id="@+id/action_favouritesFragment_to_batteryRecyclersActivity"
+            app:destination="@id/batteryRecyclersActivity" />
+        <action
+            android:id="@+id/action_favouritesFragment_to_bikeDetailsActivity"
+            app:destination="@id/bikeDetailsActivity" />
+        <action
+            android:id="@+id/action_favouritesFragment_to_bikeTracksActivity"
+            app:destination="@id/bikeTracksActivity" />
+        <action
+            android:id="@+id/action_favouritesFragment_to_chCh360Activity"
+            app:destination="@id/chCh360Activity" />
+        <action
+            android:id="@+id/action_favouritesFragment_to_chCh361Activity"
+            app:destination="@id/chCh361Activity" />
+        <action
+            android:id="@+id/action_favouritesFragment_to_conveniencesActivity"
+            app:destination="@id/conveniencesActivity" />
+        <action
+            android:id="@+id/action_favouritesFragment_to_detailsActivity"
+            app:destination="@id/detailsActivity" />
+        <action
+            android:id="@+id/action_favouritesFragment_to_dogDetailsActivity"
+            app:destination="@id/dogDetailsActivity" />
+        <action
+            android:id="@+id/action_favouritesFragment_to_dogLinksFragment"
+            app:destination="@id/dogLinksFragment" />
+        <action
+            android:id="@+id/action_favouritesFragment_to_dogParksActivity"
+            app:destination="@id/dogParksActivity" />
+        <action
+            android:id="@+id/action_favouritesFragment_to_extendedActivity"
+            app:destination="@id/extendedActivity" />
+        <action
+            android:id="@+id/action_favouritesFragment_to_facilitiesActivity"
+            app:destination="@id/facilitiesActivity" />
+        <action
+            android:id="@+id/action_favouritesFragment_to_fountainsActivity"
+            app:destination="@id/fountainsActivity" />
+        <action
+            android:id="@+id/action_favouritesFragment_to_freeWiFiActivity"
+            app:destination="@id/freeWiFiActivity" />
+        <action
+            android:id="@+id/action_favouritesFragment_to_fruitTreesActivity"
+            app:destination="@id/fruitTreesActivity" />
+        <action
+            android:id="@+id/action_favouritesFragment_to_heritageSitesActivity"
+            app:destination="@id/heritageSitesActivity" />
+        <action
+            android:id="@+id/action_favouritesFragment_to_parksActivity"
+            app:destination="@id/parksActivity" />
+        <action
+            android:id="@+id/action_favouritesFragment_to_streetArtActivity"
+            app:destination="@id/streetArtActivity" />
+        <action
+            android:id="@+id/action_favouritesFragment_to_streetDetailsActivity"
+            app:destination="@id/streetDetailsActivity" />
+        <action
+            android:id="@+id/action_favouritesFragment_to_urbanPlayActivity"
+            app:destination="@id/urbanPlayActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/fountainsFragment"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.fragments.FountainsFragment"
+        tools:layout="@layout/fragment_fruit_types">
+        <action
+            android:id="@+id/action_fountainsFragment_to_fountainsActivity"
+            app:destination="@id/fountainsActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/freeWiFiFragment"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.fragments.FreeWiFiFragment"
+        tools:layout="@layout/fragment_free_wi_fi">
+        <action
+            android:id="@+id/action_freeWiFiFragment_to_freeWiFiActivity"
+            app:destination="@id/freeWiFiActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/fruitTypesFragment"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.fragments.FruitTypesFragment"
+        tools:layout="@layout/fragment_fruit_types">
+        <action
+            android:id="@+id/action_fruitTypesFragment_to_fruitTreesActivity"
+            app:destination="@id/fruitTreesActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/heritageSitesFragment"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.fragments.HeritageSitesFragment"
+        tools:layout="@layout/fragment_heritage_sites">
+        <action
+            android:id="@+id/action_heritageSitesFragment_to_heritageSitesActivity"
+            app:destination="@id/heritageSitesActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/legendFragment"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.fragments.LegendFragment"
+        tools:layout="@layout/fragment_legend">
+    </fragment>
+    <fragment
+        android:id="@+id/multiDayFragment"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.fragments.MultiDayFragment"
+        tools:layout="@layout/fragment_multi_day">
+        <action
+            android:id="@+id/action_multiDayFragment_to_chCh360ListFragment"
+            app:destination="@id/chCh360ListFragment" />
+        <action
+            android:id="@+id/action_multiDayFragment_to_multiRouteFragment"
+            app:destination="@id/multiRouteFragment" />
+        <action
+            android:id="@+id/action_multiDayFragment_to_multiDayActivity"
+            app:destination="@id/multiDayActivity" />
+        <action
+            android:id="@+id/action_multiDayFragment_to_chCh362Activity"
+            app:destination="@id/chCh362Activity" />
+    </fragment>
+    <fragment
+        android:id="@+id/multiRouteFragment"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.fragments.MultiRouteFragment"
+        tools:layout="@layout/fragment_routes">
+        <action
+            android:id="@+id/action_multiRouteFragment_to_basicActivity"
+            app:destination="@id/basicActivity" />
+        <action
+            android:id="@+id/action_multiRouteFragment_to_detailsActivity"
+            app:destination="@id/detailsActivity" />
+        <action
+            android:id="@+id/action_multiRouteFragment_to_extendedActivity"
+            app:destination="@id/extendedActivity" />
+        <action
+            android:id="@+id/action_multiRouteFragment_to_multiDayActivity"
+            app:destination="@id/multiDayActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/parksFragment"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.fragments.ParksFragment"
+        tools:layout="@layout/fragment_parks">
+        <action
+            android:id="@+id/action_parksFragment_to_parksActivity"
+            app:destination="@id/parksActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/placesFragment"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.fragments.PlacesFragment"
+        tools:layout="@layout/fragment_places">
+        <action
+            android:id="@+id/action_placesFragment_to_communityFragment"
+            app:destination="@id/communityFragment"
+            app:popUpTo="@id/communityFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_placesFragment_to_routesFragment"
+            app:destination="@id/routesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultsFragment"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.fragments.ResultsFragment"
+        tools:layout="@layout/fragment_routes">
+        <action
+            android:id="@+id/action_resultsFragment_to_detailsActivity"
+            app:destination="@id/detailsActivity" />
+        <action
+            android:id="@+id/action_resultsFragment_to_basicActivity"
+            app:destination="@id/basicActivity" />
+        <action
+            android:id="@+id/action_resultsFragment_to_extendedActivity"
+            app:destination="@id/extendedActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/routesFragment"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.fragments.RoutesFragment"
+        tools:layout="@layout/fragment_routes">
+        <action
+            android:id="@+id/action_routesFragment_to_areasFragment"
+            app:destination="@id/areasFragment"
+            app:popUpTo="@id/areasFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_routesFragment_to_communityFragment"
+            app:destination="@id/communityFragment"
+            app:popUpTo="@id/communityFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_routesFragment_to_basicActivity"
+            app:destination="@id/basicActivity" />
+        <action
+            android:id="@+id/action_routesFragment_to_detailsActivity"
+            app:destination="@id/detailsActivity" />
+        <action
+            android:id="@+id/action_routesFragment_to_extendedActivity"
+            app:destination="@id/extendedActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.fragments.SearchFragment"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_searchFragment_to_communityFragment"
+            app:destination="@id/communityFragment"
+            app:popUpTo="@id/communityFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_searchFragment_to_resultsFragment"
+            app:destination="@id/resultsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.fragments.SettingsFragment"
+        tools:layout="@layout/fragment_settings">
+        <action
+            android:id="@+id/action_settingsFragment_to_basicActivity"
+            app:destination="@id/basicActivity" />
+        <action
+            android:id="@+id/action_settingsFragment_to_detailsActivity"
+            app:destination="@id/detailsActivity" />
+        <action
+            android:id="@+id/action_settingsFragment_to_extendedActivity"
+            app:destination="@id/extendedActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/streetArtFragment"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.fragments.StreetArtFragment"
+        tools:layout="@layout/fragment_street_art">
+        <action
+            android:id="@+id/action_streetArtFragment_to_streetArtActivity"
+            app:destination="@id/streetArtActivity" />
+        <action
+            android:id="@+id/action_streetArtFragment_to_streetDetailsActivity"
+            app:destination="@id/streetDetailsActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/urbanPlayFragment"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.fragments.UrbanPlayFragment"
+        tools:layout="@layout/fragment_urban_play">
+        <action
+            android:id="@+id/action_urbanPlayFragment_to_urbanPlayActivity"
+            app:destination="@id/urbanPlayActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.fragments.ListFragment"
+        tools:layout="@layout/fragment_routes">
+        <action
+            android:id="@+id/action_listFragment_to_basicActivity"
+            app:destination="@id/basicActivity" />
+        <action
+            android:id="@+id/action_listFragment_to_detailsActivity"
+            app:destination="@id/detailsActivity" />
+        <action
+            android:id="@+id/action_listFragment_to_extendedActivity"
+            app:destination="@id/extendedActivity" />
+    </fragment>
+
+    <!-- ACTIVITIES -->
+
+    <activity
+        android:id="@+id/basicActivity"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.activities.BasicActivity"
+        tools:layout="@layout/activity_waypoints" />
+    <activity
+        android:id="@+id/batteryRecyclersActivity"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.activities.BatteryRecyclersActivity"
+        tools:layout="@layout/activity_common" />
+    <activity
+        android:id="@+id/bikeDetailsActivity"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.activities.BikeDetailsActivity"
+        tools:layout="@layout/activity_details" />
+    <activity
+        android:id="@+id/bikeTracksActivity"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.activities.BikeTracksActivity"
+        tools:layout="@layout/activity_bike_tracks" />
+    <activity
+        android:id="@+id/chCh360Activity"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.activities.ChCh360Activity"
+        tools:layout="@layout/activity_details" />
+    <activity
+        android:id="@+id/chCh361Activity"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.activities.ChCh361Activity"
+        tools:layout="@layout/activity_waypoints" />
+    <activity
+        android:id="@+id/chCh362Activity"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.activities.ChCh362Activity"
+        tools:layout="@layout/activity_routes" />
+    <activity
+        android:id="@+id/conveniencesActivity"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.activities.ConveniencesActivity"
+        tools:layout="@layout/activity_common" />
+    <activity
+        android:id="@+id/detailsActivity"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.activities.DetailsActivity"
+        tools:layout="@layout/activity_details" />
+    <activity
+        android:id="@+id/dogDetailsActivity"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.activities.DogDetailsActivity"
+        tools:layout="@layout/activity_dog_details" />
+    <activity
+        android:id="@+id/dogParksActivity"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.activities.DogParksActivity"
+        tools:layout="@layout/activity_dog_parks" />
+    <activity
+        android:id="@+id/extendedActivity"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.activities.ExtendedActivity"
+        tools:layout="@layout/activity_waypoints" />
+    <activity
+        android:id="@+id/facilitiesActivity"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.activities.FacilitiesActivity"
+        tools:layout="@layout/activity_common" />
+    <activity
+        android:id="@+id/fountainsActivity"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.activities.FountainsActivity"
+        tools:layout="@layout/activity_common" />
+    <activity
+        android:id="@+id/freeWiFiActivity"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.activities.FreeWiFiActivity"
+        tools:layout="@layout/activity_common" />
+    <activity
+        android:id="@+id/fruitTreesActivity"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.activities.FruitTreesActivity"
+        tools:layout="@layout/activity_common" />
+    <activity
+        android:id="@+id/heritageSitesActivity"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.activities.HeritageSitesActivity"
+        tools:layout="@layout/activity_common" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.MainActivity"
+        tools:layout="@layout/activity_main" />
+    <activity
+        android:id="@+id/multiDayActivity"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.activities.MultiDayActivity"
+        tools:layout="@layout/activity_waypoints" />
+    <activity
+        android:id="@+id/parksActivity"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.activities.ParksActivity"
+        tools:layout="@layout/activity_common" />
+    <activity
+        android:id="@+id/routesActivity"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.activities.RoutesActivity"
+        tools:layout="@layout/activity_routes" />
+    <activity
+        android:id="@+id/streetArtActivity"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.activities.StreetArtActivity"
+        tools:layout="@layout/activity_common" />
+    <activity
+        android:id="@+id/streetDetailsActivity"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.activities.StreetDetailsActivity"
+        tools:layout="@layout/activity_street_details" />
+    <activity
+        android:id="@+id/urbanPlayActivity"
+        android:name="com.michaelrmossman.kotlin.discoverchristchurch.activities.UrbanPlayActivity"
+        tools:layout="@layout/activity_common" />
+
+</navigation>

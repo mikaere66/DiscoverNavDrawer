@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="geo" />
+        </intent>
+        <package android:name="com.google.android.webview" />
+    </queries>
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:name=".DiscoverApp"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.DiscoverChristchurch"
+        tools:targetApi="31">
+
+        <activity
+            android:name=".activities.BasicActivity"
+            android:exported="true"><!-- TODO -->
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.BatteryRecyclersActivity"
+            android:exported="true"><!-- TODO -->
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.BikeDetailsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.DiscoverChristchurch.NoActionBar" />
+        <activity
+            android:name=".activities.BikeTracksActivity"
+            android:exported="true"><!-- TODO -->
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.ChCh360Activity"
+            android:theme="@style/Theme.DiscoverChristchurch.NoActionBar"
+            android:exported="true"><!-- TODO -->
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.ChCh361Activity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ChCh362Activity"
+            android:exported="true"><!-- TODO -->
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.ConveniencesActivity"
+            android:exported="true"><!-- TODO -->
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.DogDetailsActivity"
+            android:theme="@style/Theme.DiscoverChristchurch.NoActionBar"
+            android:exported="true"><!-- TODO -->
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.DogParksActivity"
+            android:exported="true"><!-- TODO -->
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.DetailsActivity"
+            android:theme="@style/Theme.DiscoverChristchurch.NoActionBar"
+            android:exported="true"><!-- TODO -->
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.ExtendedActivity"
+            android:exported="true"><!-- TODO -->
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.FacilitiesActivity"
+            android:exported="true"><!-- TODO -->
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.FountainsActivity"
+            android:exported="true"><!-- TODO -->
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.FreeWiFiActivity"
+            android:exported="true"><!-- TODO -->
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.FruitTreesActivity"
+            android:exported="true"><!-- TODO -->
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.HeritageSitesActivity"
+            android:exported="true"><!-- TODO -->
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.ImagesActivity"
+            android:exported="false"
+            android:theme="@style/Theme.DiscoverChristchurch.FullScreen" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.DiscoverChristchurch.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.MultiDayActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ParksActivity"
+            android:exported="true"><!-- TODO -->
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.RoutesActivity"
+            android:exported="true"><!-- TODO -->
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.StreetArtActivity"
+            android:exported="true"><!-- TODO -->
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.StreetDetailsActivity"
+            android:theme="@style/Theme.DiscoverChristchurch.NoActionBar"
+            android:exported="true"><!-- TODO -->
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.StreetViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.UrbanPlayActivity"
+            android:exported="true"><!-- TODO -->
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${MAPS_API_KEY}" /><!-- No spaces allowed -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+    </application>
+
+</manifest>

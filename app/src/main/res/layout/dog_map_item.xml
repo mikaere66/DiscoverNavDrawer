@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"><!-- See also layout-land -->
+
+    <data>
+        <variable
+            name="dogPark"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.entities.DogParkKt" />
+        <variable
+            name="clickListener"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.adapters.DogParkMapListener" />
+        <variable
+            name="longClickListener"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.adapters.DogParkMapLongListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:showIn="@layout/activity_dog_parks">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/dog_park_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Theme.DiscoverChristchurch.CardView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dog_park_constraint_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/list_item_padding_small">
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/vertical_barrier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:barrierDirection="start"
+                    app:constraint_referenced_ids="dog_park_color" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/dog_park_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dog_map_item_vertical_margin"
+                    android:layout_marginEnd="@dimen/dog_map_item_horizontal_margin"
+                    android:layout_marginStart="@dimen/dog_map_item_horizontal_margin"
+                    android:layout_marginTop="@dimen/dog_map_item_vertical_margin"
+                    android:onClick="@{ () -> clickListener.onClick(dogPark, 0) }"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:dogParkArrowPortrait="@{ dogPark }"
+                    style="@style/Theme.DiscoverChristchurch.ImageButton"
+                    tools:ignore="ImageContrastCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck"
+                    tools:srcCompat="@drawable/ic_baseline_arrow_circle_right_default_24"
+                    tools:tint="@color/color_green" /><!-- Content description set programmatically -->
+
+                <!-- -->
+
+                <TextView
+                    android:id="@+id/dog_park_environment"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/list_item_margin_medium"
+                    android:layout_marginStart="@dimen/list_item_margin_medium"
+                    android:paddingEnd="@dimen/list_item_padding_small"
+                    android:paddingStart="@dimen/list_item_padding_small"
+                    android:text="@{ dogPark.dogPark }"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/dog_park_extra"
+                    app:layout_constraintStart_toEndOf="@id/dog_park_arrow"
+                    app:layout_constraintEnd_toStartOf="@id/vertical_barrier"
+                    app:layout_constraintTop_toTopOf="parent"
+                    style="@style/Theme.DiscoverChristchurch.GravityStart"
+                    tools:text="Dog Park Name" />
+
+                <TextView
+                    android:id="@+id/dog_park_extra"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/list_item_margin_medium"
+                    android:layout_marginStart="@dimen/list_item_margin_medium"
+                    android:paddingEnd="@dimen/list_item_padding_small"
+                    android:paddingStart="@dimen/list_item_padding_small"
+                    android:ellipsize="end"
+                    android:maxLines="@integer/community_extra_max_lines"
+                    android:minLines="@integer/community_extra_max_lines"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toTopOf="@id/dog_park_subtitle"
+                    app:layout_constraintStart_toEndOf="@id/dog_park_arrow"
+                    app:layout_constraintEnd_toStartOf="@id/vertical_barrier"
+                    app:layout_constraintTop_toBottomOf="@id/dog_park_environment"
+                    app:dogParkExtra="@{ dogPark }"
+                    style="@style/Theme.DiscoverChristchurch.GravityStart"
+                    tools:text="Dog Park Extra"
+                    tools:visibility="visible" /><!-- Note: no theme -->
+
+                <TextView
+                    android:id="@+id/dog_park_subtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/list_item_margin_medium"
+                    android:layout_marginStart="@dimen/list_item_margin_medium"
+                    android:paddingEnd="@dimen/list_item_padding_small"
+                    android:paddingStart="@dimen/list_item_padding_small"
+                    android:textColor="?attr/colorSecondaryVariant"
+                    app:layout_constraintBottom_toTopOf="@id/dog_park_bylaw"
+                    app:layout_constraintStart_toEndOf="@id/dog_park_arrow"
+                    app:layout_constraintTop_toBottomOf="@id/dog_park_extra"
+                    app:waypointSubtitle="@{ dogPark.subtitle }"
+                    style="@style/Theme.DiscoverChristchurch.GravityStart"
+                    tools:ignore="TextContrastCheck"
+                    tools:text="Environment 5/55" />
+
+                <TextView
+                    android:id="@+id/dog_park_bylaw"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/list_item_margin_medium"
+                    android:layout_marginStart="@dimen/list_item_margin_medium"
+                    android:paddingEnd="@dimen/list_item_padding_small"
+                    android:paddingStart="@dimen/list_item_padding_small"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/dog_park_arrow"
+                    app:layout_constraintTop_toBottomOf="@id/dog_park_subtitle"
+                    app:dogParkBylaw="@{ dogPark }"
+                    style="@style/Theme.DiscoverChristchurch.GravityStart"
+                    tools:text="Dog Park Bylaw" />
+
+                <!-- -->
+
+                <ImageView
+                    android:id="@+id/dog_park_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/image_button_margin_medium"
+                    android:layout_marginStart="@dimen/image_button_margin_medium"
+                    android:contentDescription="@string/dog_type_descr"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/dog_park_info_button"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:dogParkIconColor="@{ dogPark }"
+                    app:srcCompat="@drawable/ic_baseline_circle_default_24" /><!-- Note: no theme -->
+
+                <!-- ImageButtons -->
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/dog_park_info_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/image_button_margin_small"
+                    android:layout_marginStart="@dimen/image_button_margin_medium"
+                    android:contentDescription="@string/dog_info_descr"
+                    android:onClick="@{ () -> clickListener.onClick(dogPark, 1) }"
+                    android:onLongClick="@{ () -> longClickListener.onLongClick(9) }"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/dog_park_zoom_button"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_outline_info_black_24"
+                    style="@style/Theme.DiscoverChristchurch.ImageButton" /><!-- -->
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/dog_park_zoom_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/image_button_margin_small"
+                    android:layout_marginStart="@dimen/image_button_margin_small"
+                    android:contentDescription="@string/locate_descr"
+                    android:onClick="@{ () -> clickListener.onClick(dogPark, 2) }"
+                    android:onLongClick="@{ () -> longClickListener.onLongClick(7) }"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_baseline_zoom_in_map_black_24"
+                    style="@style/Theme.DiscoverChristchurch.ImageButton" /><!-- -->
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

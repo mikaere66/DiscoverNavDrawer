@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="environ_count">Environ %1$d/%2$d</string>
+
+    <string name="ch_ch_360_title">Christchurch 360 Trail</string>
+
+    <string name="dog_links_title">Dog Friendly Tracks/Routes</string>
+    <string
+        tools:ignore="PluralsCandidate"
+        name="dogs_fragment_subtitle">%1$d/%2$d Environments (long press: Map)</string>
+
+    <string name="location_intro">Hide current location on
+        All maps (overrides individual map setting):</string>
+
+    <string name="maps_intro">Go directly to Map rather than
+        Details when hitting the green Random icon:</string>
+
+    <string name="markers_intro">Always show map markers, even for Basic
+        Info tracks/routes (only relevant to 4 or more waypoints):</string>
+
+    <string name="polyline_intro">Always show polyline, even for Extended
+        Info tracks/routes (only relevant to 4 or more waypoints):</string>
+
+    <string name="toast_on_back_press_a">When on home
+        screen, do not prompt with %s message:</string>
+
+<!--
+    <string name="walks_intro_1">Use the hamburger menu at top left to
+        check out many city walks,\nas well as the more adventurous</string>
+-->
+
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <fraction name="community_guideline">0.2</fraction>
+
+    <fraction name="fountain_guideline_1">0.47</fraction>
+
+    <fraction name="fountain_guideline_2">0.73</fraction>
+
+    <fraction name="map_lite_guideline">0.5</fraction>
+
+    <fraction name="street_view_bias">0.66</fraction>
+
+    <!-- First one is used in layout-land/activity_waypoints.xml ...
+    Second one is used to setGuidelinePercent() programmatically -->
+    <fraction name="waypoints_guideline">0.125</fraction>
+    <item name="waypoints_guideline_p" type="fraction">12.5%</item>
+
+</resources>

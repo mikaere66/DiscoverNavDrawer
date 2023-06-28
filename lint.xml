@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+
+    <!-- Disable these COLOR ID checks in this project -->
+
+    <issue id="UnusedResources">
+        <ignore path="res/values/fruits.xml" />
+    </issue>
+
+</lint>

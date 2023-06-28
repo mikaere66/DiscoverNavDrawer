@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Fruit Tree Types : see also DB  -->
+    <color name="fruit_type_color_01">#FFFF00</color>
+    <color name="fruit_type_color_02">#FF0000</color>
+    <color name="fruit_type_color_03">#FF7C80</color>
+    <color name="fruit_type_color_04">#FF0066</color>
+    <color name="fruit_type_color_05">#F00000</color>
+    <color name="fruit_type_color_06">#FFF000</color>
+    <color name="fruit_type_color_07">#A6A6A6</color>
+    <color name="fruit_type_color_08">#808000</color>
+    <color name="fruit_type_color_09">#A9D08E</color>
+    <color name="fruit_type_color_10">#3366FF</color>
+    <color name="fruit_type_color_11">#F5EC3D</color>
+    <color name="fruit_type_color_12">#6600FF</color>
+    <color name="fruit_type_color_13">#000000</color>
+    <color name="fruit_type_color_14">#FF5050</color>
+    <color name="fruit_type_color_15">#F5EC3D</color>
+    <color name="fruit_type_color_16">#CC3399</color>
+    <color name="fruit_type_color_17">#CCFF33</color>
+    <color name="fruit_type_color_18">#FF0066</color>
+    <color name="fruit_type_color_19">#00CC00</color>
+    <color name="fruit_type_color_20">#CC3300</color>
+    <color name="fruit_type_color_21">#C65911</color>
+
+</resources>

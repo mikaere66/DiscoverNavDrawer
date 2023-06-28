@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="details_double_line_vertical_margin">14dp</dimen>
+
+    <dimen name="item_card_vertical_padding">8dp</dimen>
+
+    <dimen name="legend_text_multi_margin">8dp</dimen>
+
+    <dimen name="map_type_width_height">102dp</dimen>
+
+    <dimen name="search_by_feature_vertical_margin">24dp</dimen>
+    <dimen name="search_by_feature_vertical_padding">4dp</dimen>
+
+</resources>

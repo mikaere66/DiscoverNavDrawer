@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="chCh360"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.entities.ChCh360Kt" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ch_ch_360_include_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:showIn="@layout/fragment_ch_ch_360_details">
+
+        <ImageView
+            android:id="@+id/ch_ch_360_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/ch_ch_360_logo_descr"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ch_ch_360_logo" />
+
+        <ImageView
+            android:id="@+id/ch_ch_360_leg_color_1"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/ch_ch_360_leg_color_height"
+            tools:background="@drawable/ch_ch_360_leg_color"
+            android:contentDescription="@string/ch_ch_360_leg_color_descr"
+            app:chCh360BackgroundColor="@{ chCh360 }"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ch_ch_360_logo"
+            tools:ignore="ImageContrastCheck" />
+
+        <TextView
+            android:id="@+id/ch_ch_360_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/ch_ch_360_text_padding"
+            android:paddingTop="@dimen/ch_ch_360_text_padding"
+            android:text="@{ chCh360.description }"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ch_ch_360_leg_color_1"
+            tools:text="@string/ch_ch_360_text_1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

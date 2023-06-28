@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="detailedFragment"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.fragments.DetailedFragment" />
+        <variable
+            name="route"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.entities.RouteKt" /><!--
+        <variable
+            name="discoverViewModel"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.viewmodel.DiscoverViewModel" /> -->
+    </data>
+
+    <TextView
+        android:id="@+id/linked_item_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{ () -> detailedFragment.showInfoFragment(route) }"
+        android:text="@{ route.route }"
+        android:textColor="@color/highlight_color"
+        android:textAppearance="?android:attr/textAppearanceListItem"
+        android:gravity="center_vertical"
+        tools:drawableEndCompat="@drawable/ic_outline_preview_black_18"
+        tools:text="Linked Route Name" /><!-- End drawable set programmatically -->
+
+</layout>

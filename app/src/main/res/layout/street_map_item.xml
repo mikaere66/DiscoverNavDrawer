@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"><!-- See also layout-land -->
+
+    <data>
+        <variable
+            name="streetArt"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.entities.StreetArtKt" />
+        <variable
+            name="clickListener"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.adapters.StreetArtMapListener" />
+        <variable
+            name="longClickListener"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.adapters.StreetArtMapLongListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:showIn="@layout/activity_street_art">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/street_art_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Theme.DiscoverChristchurch.CardView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/street_art_constraint_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/list_item_padding_small">
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/vertical_barrier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:barrierDirection="start"
+                    app:constraint_referenced_ids="street_art_info_button" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/street_art_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dog_map_item_vertical_margin"
+                    android:layout_marginEnd="@dimen/dog_map_item_horizontal_margin"
+                    android:layout_marginStart="@dimen/dog_map_item_horizontal_margin"
+                    android:layout_marginTop="@dimen/dog_map_item_vertical_margin"
+                    android:onClick="@{ () -> clickListener.onClick(streetArt, 0) }"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:streetArtArrowPortrait="@{ streetArt }"
+                    style="@style/Theme.DiscoverChristchurch.ImageButton"
+                    tools:ignore="ImageContrastCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck"
+                    tools:srcCompat="@drawable/ic_baseline_arrow_circle_right_default_24"
+                    tools:tint="@color/color_green" /><!-- Content description set programmatically -->
+
+                <!-- -->
+
+                <TextView
+                    android:id="@+id/street_art_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/list_item_margin_medium"
+                    android:layout_marginStart="@dimen/list_item_margin_medium"
+                    android:paddingEnd="@dimen/list_item_padding_small"
+                    android:paddingStart="@dimen/list_item_padding_small"
+                    android:text="@{ streetArt.title }"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/street_art_extra"
+                    app:layout_constraintStart_toEndOf="@id/street_art_arrow"
+                    app:layout_constraintEnd_toStartOf="@id/vertical_barrier"
+                    app:layout_constraintTop_toTopOf="parent"
+                    style="@style/Theme.DiscoverChristchurch.GravityStart"
+                    tools:text="Street Art Title" />
+
+                <TextView
+                    android:id="@+id/street_art_extra"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/list_item_margin_medium"
+                    android:layout_marginStart="@dimen/list_item_margin_medium"
+                    android:paddingEnd="@dimen/list_item_padding_small"
+                    android:paddingStart="@dimen/list_item_padding_small"
+                    android:ellipsize="end"
+                    android:maxLines="@integer/community_extra_max_lines"
+                    android:minLines="@integer/community_extra_max_lines"
+                    app:layout_constraintBottom_toTopOf="@id/street_art_subtitle"
+                    app:layout_constraintStart_toEndOf="@id/street_art_arrow"
+                    app:layout_constraintEnd_toStartOf="@id/vertical_barrier"
+                    app:layout_constraintTop_toBottomOf="@id/street_art_title"
+                    app:streetArtExtraKt="@{ streetArt }"
+                    style="@style/Theme.DiscoverChristchurch.GravityStart"
+                    tools:text="Street Art Extra" /><!-- Note: no theme -->
+
+                <TextView
+                    android:id="@+id/street_art_subtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/list_item_margin_medium"
+                    android:layout_marginStart="@dimen/list_item_margin_medium"
+                    android:paddingEnd="@dimen/list_item_padding_small"
+                    android:paddingStart="@dimen/list_item_padding_small"
+                    android:textColor="?attr/colorSecondaryVariant"
+                    app:layout_constraintBottom_toTopOf="@id/street_art_viewable"
+                    app:layout_constraintStart_toEndOf="@id/street_art_arrow"
+                    app:layout_constraintTop_toBottomOf="@id/street_art_extra"
+                    app:waypointSubtitle="@{ streetArt.subtitle }"
+                    style="@style/Theme.DiscoverChristchurch.GravityStart"
+                    tools:ignore="TextContrastCheck"
+                    tools:text="Location 5/55" />
+
+                <TextView
+                    android:id="@+id/street_art_viewable"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/list_item_margin_medium"
+                    android:layout_marginStart="@dimen/list_item_margin_medium"
+                    android:paddingEnd="@dimen/list_item_padding_small"
+                    android:paddingStart="@dimen/list_item_padding_small"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/street_art_arrow"
+                    app:layout_constraintTop_toBottomOf="@id/street_art_subtitle"
+                    app:streetArtViewable="@{ streetArt }"
+                    style="@style/Theme.DiscoverChristchurch.GravityStart"
+                    tools:text="Street Art Viewable?" />
+
+                <!-- ImageButtons -->
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/street_art_info_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/image_button_margin_small"
+                    android:layout_marginStart="@dimen/image_button_margin_medium"
+                    android:contentDescription="@string/street_art_info_descr"
+                    android:onClick="@{ () -> clickListener.onClick(streetArt, 1) }"
+                    android:onLongClick="@{ () -> longClickListener.onLongClick(11) }"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/street_art_zoom_button"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_outline_info_black_24"
+                    style="@style/Theme.DiscoverChristchurch.ImageButton" /><!-- -->
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/street_art_zoom_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/image_button_margin_small"
+                    android:layout_marginStart="@dimen/image_button_margin_small"
+                    android:contentDescription="@string/locate_descr"
+                    android:onClick="@{ () -> clickListener.onClick(streetArt, 2) }"
+                    android:onLongClick="@{ () -> longClickListener.onLongClick(2) }"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_baseline_zoom_in_map_black_24"
+                    style="@style/Theme.DiscoverChristchurch.ImageButton" /><!-- -->
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

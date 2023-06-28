@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/menu_map"
+        android:icon="@drawable/ic_baseline_map_white_24"
+        android:title="@string/menu_map"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menu_street_view"
+        android:icon="@drawable/ic_baseline_streetview_white_24"
+        android:title="@string/menu_street_view"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menu_fave"
+        android:title="@null"
+        app:showAsAction="never"
+        tools:title="@string/menu_fave_add" /><!-- Title set programmatically -->
+
+</menu>

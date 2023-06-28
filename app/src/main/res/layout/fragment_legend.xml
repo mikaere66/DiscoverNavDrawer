@@ -1,0 +1,803 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="legendFragment"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.fragments.LegendFragment" />
+    </data>
+
+    <ScrollView
+        android:id="@+id/legend_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/fragment_vertical_padding"
+        android:paddingEnd="@dimen/fragment_horizontal_padding"
+        android:paddingStart="@dimen/fragment_horizontal_padding"
+        android:scrollbars="none"
+        tools:context=".fragments.LegendFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/legend_constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/legend_dialog_view_padding">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/legend_jump_down_fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/legend_jump_down_fab_margin"
+                android:contentDescription="@string/jump_down_fab_descr"
+                android:onClick="@{ () -> legendFragment.jumpAround(true) }"
+                app:fabSize="mini"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_baseline_vertical_align_bottom_white_24"
+                tools:ignore="ImageContrastCheck" />
+
+            <!-- Common Icons -->
+
+            <TextView
+                android:id="@+id/legend_header_text_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/legend_header"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                style="@style/Theme.DiscoverChristchurch.LegendHeader" />
+
+            <TextView
+                android:id="@+id/legend_header_text_00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/legend_header_home"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_header_text_0"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <TextView
+                android:id="@+id/legend_item_text_01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/legend_community_filter"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_header_text_00"
+                app:drawableStartCompat="@drawable/ic_outline_filter_alt_black_24"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <TextView
+                android:id="@+id/legend_item_text_02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/legend_community_filter_off"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_01"
+                app:drawableStartCompat="@drawable/ic_outline_filter_alt_off_black_24"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <TextView
+                android:id="@+id/legend_item_text_03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/legend_community_search"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_02"
+                app:drawableStartCompat="@drawable/ic_baseline_search_black_24"
+                style="@style/Theme.DiscoverChristchurch.LegendText"
+                tools:text="@string/legend_linear_a" />
+
+            <TextView
+                android:id="@+id/legend_header_text_01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/legend_header_routes"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_03"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <TextView
+                android:id="@+id/legend_item_text_04"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/legend_sort"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_header_text_01"
+                app:drawableStartCompat="@drawable/ic_baseline_sort_by_alpha_black_24"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <TextView
+                android:id="@+id/legend_item_text_05"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/legend_sort_asc"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_04"
+                app:drawableStartCompat="@drawable/ic_baseline_sort_black_24"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <TextView
+                android:id="@+id/legend_item_text_06"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/legend_sort_desc"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_05"
+                app:drawableStartCompat="@drawable/ic_baseline_sort_reversed_black_24"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <TextView
+                android:id="@+id/legend_header_text_02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dog_parks_title"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_06"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <TextView
+                android:id="@+id/legend_item_text_07"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/linked_descr"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_header_text_02"
+                app:drawableStartCompat="@drawable/ic_baseline_link_black_24"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <ImageView
+                android:id="@+id/legend_item_image_08"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                android:contentDescription="@null"
+                app:layout_constraintBottom_toBottomOf="@id/legend_item_text_08"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/legend_item_text_08"
+                app:srcCompat="@drawable/ic_baseline_link_black_24" />
+
+            <TextView
+                android:id="@+id/legend_item_text_08"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/legend_text_view_margin"
+                android:drawablePadding="@dimen/legend_drawable_padding"
+                android:text="@string/legend_linked_multi"
+                app:layout_constraintStart_toEndOf="@id/legend_item_image_08"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_07"
+                app:drawableStartCompat="@drawable/ic_baseline_link_black_24"
+                style="@style/Theme.DiscoverChristchurch" /><!-- Note different theme -->
+
+            <TextView
+                android:id="@+id/legend_item_text_09"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dog_info_descr"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_08"
+                app:drawableStartCompat="@drawable/ic_outline_preview_black_24"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <TextView
+                android:id="@+id/legend_header_text_03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/legend_header_maps"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_09"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <TextView
+                android:id="@+id/legend_item_text_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/menu_show_all"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_header_text_03"
+                app:drawableStartCompat="@drawable/ic_baseline_zoom_out_map_black_24"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <!-- Detailed Info -->
+
+            <TextView
+                android:id="@+id/legend_header_text_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/legend_header_text_margin"
+                android:text="@string/legend_header_details"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_10"
+                style="@style/Theme.DiscoverChristchurch.LegendHeader" />
+
+            <TextView
+                android:id="@+id/legend_item_text_11"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/details_start"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_header_text_1"
+                app:drawableStartCompat="@drawable/ic_baseline_start_black_24"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <TextView
+                android:id="@+id/legend_item_text_12"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/details_finish"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_11"
+                app:drawableStartCompat="@drawable/ic_baseline_start_rotated_black_24"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <TextView
+                android:id="@+id/legend_item_text_13"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/details_conveniences"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_12"
+                app:drawableStartCompat="@drawable/ic_baseline_wc_black_24"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <TextView
+                android:id="@+id/legend_item_text_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/legend_header_text_margin"
+                android:text="@string/details_dogs"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_13"
+                app:drawableStartCompat="@drawable/ic_baseline_pets_black_24"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <!-- Distance/Duration -->
+
+            <TextView
+                android:id="@+id/legend_header_text_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/legend_header_text_margin"
+                android:text="@string/journey_types"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_14"
+                style="@style/Theme.DiscoverChristchurch.LegendHeader" />
+
+            <TextView
+                android:id="@+id/legend_item_text_21"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/journey_one_way_basic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_header_text_2"
+                app:drawableStartCompat="@drawable/ic_baseline_keyboard_arrow_right_black_24"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <TextView
+                android:id="@+id/legend_item_text_22"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/journey_one_way_extended"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_21"
+                app:drawableStartCompat="@drawable/ic_baseline_keyboard_double_arrow_right_black_24"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <TextView
+                android:id="@+id/legend_item_text_23"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/journey_round_trip"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_22"
+                app:drawableStartCompat="@drawable/ic_baseline_code_black_24"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <TextView
+                android:id="@+id/legend_item_text_extended"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/legend_header_text_margin"
+                android:text="@string/journey_extended_note_a"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_23"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <!-- Indicator Icon Types -->
+
+            <TextView
+                android:id="@+id/legend_header_text_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/legend_header_text_margin"
+                android:text="@string/icon_types"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_extended"
+                style="@style/Theme.DiscoverChristchurch.LegendHeader" />
+
+            <TextView
+                android:id="@+id/legend_intro_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/legend_header_text_margin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_header_text_3"
+                style="@style/Theme.DiscoverChristchurch.LegendText"
+                tools:text="@string/icon_intro_1a" />
+
+            <!-- -->
+
+            <ImageView
+                android:id="@+id/legend_item_image_31a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/inaccessible_descr"
+                app:layout_constraintBottom_toBottomOf="@id/legend_item_text_31d"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/legend_item_text_31d"
+                app:srcCompat="@drawable/ic_baseline_not_accessible_default_24"
+                style="@style/Theme.DiscoverChristchurch.LegendMultiIconStart" />
+
+            <ImageView
+                android:id="@+id/legend_item_image_31b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/stroller_descr"
+                app:layout_constraintBottom_toBottomOf="@id/legend_item_text_31d"
+                app:layout_constraintStart_toEndOf="@+id/legend_item_image_31a"
+                app:layout_constraintTop_toTopOf="@id/legend_item_text_31d"
+                app:srcCompat="@drawable/ic_baseline_stroller_default_24"
+                style="@style/Theme.DiscoverChristchurch.LegendMultiIconCentre"
+                tools:ignore="ImageContrastCheck" />
+
+            <ImageView
+                android:id="@+id/legend_item_image_31c"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/accessible_descr"
+                app:layout_constraintBottom_toBottomOf="@id/legend_item_text_31d"
+                app:layout_constraintStart_toEndOf="@+id/legend_item_image_31b"
+                app:layout_constraintTop_toTopOf="@id/legend_item_text_31d"
+                app:srcCompat="@drawable/ic_baseline_accessible_default_24"
+                style="@style/Theme.DiscoverChristchurch.LegendMultiIconEnd"
+                tools:ignore="ImageContrastCheck" />
+
+            <TextView
+                android:id="@+id/legend_item_text_31d"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/accessibility_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/legend_item_image_31c"
+                app:layout_constraintTop_toBottomOf="@id/legend_intro_text"
+                style="@style/Theme.DiscoverChristchurch.LegendMultiText" />
+
+            <!-- -->
+
+            <ImageView
+                android:id="@+id/legend_item_image_32a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/no_dogs_descr"
+                app:layout_constraintBottom_toBottomOf="@id/legend_item_text_32d"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/legend_item_text_32d"
+                app:srcCompat="@drawable/ic_baseline_pets_default_24"
+                style="@style/Theme.DiscoverChristchurch.LegendMultiIconStart" />
+
+            <ImageView
+                android:id="@+id/legend_item_image_32b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/dogs_leash_descr"
+                app:layout_constraintBottom_toBottomOf="@id/legend_item_text_32d"
+                app:layout_constraintStart_toEndOf="@+id/legend_item_image_32a"
+                app:layout_constraintTop_toTopOf="@id/legend_item_text_32d"
+                app:srcCompat="@drawable/ic_baseline_pets_default_24"
+                style="@style/Theme.DiscoverChristchurch.LegendMultiIconCentre"
+                tools:ignore="ImageContrastCheck" />
+
+            <ImageView
+                android:id="@+id/legend_item_image_32c"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/dogs_controlled_descr"
+                app:layout_constraintBottom_toBottomOf="@id/legend_item_text_32d"
+                app:layout_constraintStart_toEndOf="@+id/legend_item_image_32b"
+                app:layout_constraintTop_toTopOf="@id/legend_item_text_32d"
+                app:srcCompat="@drawable/ic_baseline_pets_default_24"
+                style="@style/Theme.DiscoverChristchurch.LegendMultiIconEnd"
+                tools:ignore="ImageContrastCheck" />
+
+            <TextView
+                android:id="@+id/legend_item_text_32d"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/dogs_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/legend_item_image_32c"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_31d"
+                style="@style/Theme.DiscoverChristchurch.LegendMultiText" />
+
+            <!-- -->
+
+            <ImageView
+                android:id="@+id/legend_item_image_33a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/not_shared_descr"
+                app:layout_constraintBottom_toBottomOf="@id/legend_item_text_33d"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/legend_item_text_33d"
+                app:srcCompat="@drawable/ic_baseline_bike_scooter_default_24"
+                style="@style/Theme.DiscoverChristchurch.LegendMultiIconStart" />
+
+            <ImageView
+                android:id="@+id/legend_item_image_33b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/some_shared_descr"
+                app:layout_constraintBottom_toBottomOf="@id/legend_item_text_33d"
+                app:layout_constraintStart_toEndOf="@+id/legend_item_image_33a"
+                app:layout_constraintTop_toTopOf="@id/legend_item_text_33d"
+                app:srcCompat="@drawable/ic_baseline_bike_scooter_default_24"
+                style="@style/Theme.DiscoverChristchurch.LegendMultiIconCentre"
+                tools:ignore="ImageContrastCheck" />
+
+            <ImageView
+                android:id="@+id/legend_item_image_33c"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/all_shared_descr"
+                app:layout_constraintBottom_toBottomOf="@id/legend_item_text_33d"
+                app:layout_constraintStart_toEndOf="@+id/legend_item_image_33b"
+                app:layout_constraintTop_toTopOf="@id/legend_item_text_33d"
+                app:srcCompat="@drawable/ic_baseline_bike_scooter_default_24"
+                style="@style/Theme.DiscoverChristchurch.LegendMultiIconEnd"
+                tools:ignore="ImageContrastCheck" />
+
+            <TextView
+                android:id="@+id/legend_item_text_33d"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/shared_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/legend_item_image_33c"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_32d"
+                style="@style/Theme.DiscoverChristchurch.LegendMultiText" />
+
+            <!-- -->
+
+            <ImageView
+                android:id="@+id/legend_item_image_34a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/no_buses_descr"
+                app:layout_constraintBottom_toBottomOf="@id/legend_item_text_34d"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/legend_item_text_34d"
+                app:srcCompat="@drawable/ic_baseline_directions_bus_default_24"
+                style="@style/Theme.DiscoverChristchurch.LegendMultiIconStart" />
+
+            <ImageView
+                android:id="@+id/legend_item_image_34b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/some_buses_descr"
+                app:layout_constraintBottom_toBottomOf="@id/legend_item_text_34d"
+                app:layout_constraintStart_toEndOf="@+id/legend_item_image_34a"
+                app:layout_constraintTop_toTopOf="@id/legend_item_text_34d"
+                app:srcCompat="@drawable/ic_baseline_directions_bus_default_24"
+                style="@style/Theme.DiscoverChristchurch.LegendMultiIconCentre"
+                tools:ignore="ImageContrastCheck" />
+
+            <ImageView
+                android:id="@+id/legend_item_image_34c"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/bus_ok_descr"
+                app:layout_constraintBottom_toBottomOf="@id/legend_item_text_34d"
+                app:layout_constraintStart_toEndOf="@+id/legend_item_image_34b"
+                app:layout_constraintTop_toTopOf="@id/legend_item_text_34d"
+                app:srcCompat="@drawable/ic_baseline_directions_bus_default_24"
+                style="@style/Theme.DiscoverChristchurch.LegendMultiIconEnd"
+                tools:ignore="ImageContrastCheck" />
+
+            <TextView
+                android:id="@+id/legend_item_text_34d"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/buses_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/legend_item_image_34c"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_33d"
+                style="@style/Theme.DiscoverChristchurch.LegendMultiText" />
+
+            <!-- -->
+
+            <ImageView
+                android:id="@+id/legend_item_image_35a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/no_linked_descr"
+                app:layout_constraintBottom_toBottomOf="@id/legend_item_text_35d"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/legend_item_text_35d"
+                app:srcCompat="@drawable/ic_baseline_link_black_24"
+                style="@style/Theme.DiscoverChristchurch.LegendMultiIconStart" />
+
+            <ImageView
+                android:id="@+id/legend_item_image_35b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/some_linked_descr"
+                app:layout_constraintBottom_toBottomOf="@id/legend_item_text_35d"
+                app:layout_constraintStart_toEndOf="@+id/legend_item_image_35a"
+                app:layout_constraintTop_toTopOf="@id/legend_item_text_35d"
+                app:srcCompat="@drawable/ic_baseline_link_black_24"
+                style="@style/Theme.DiscoverChristchurch.LegendMultiIconCentre"
+                tools:ignore="ImageContrastCheck" />
+
+            <ImageView
+                android:id="@+id/legend_item_image_35c"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/all_linked_descr"
+                app:layout_constraintBottom_toBottomOf="@id/legend_item_text_35d"
+                app:layout_constraintStart_toEndOf="@+id/legend_item_image_35b"
+                app:layout_constraintTop_toTopOf="@id/legend_item_text_35d"
+                app:srcCompat="@drawable/ic_baseline_link_black_24"
+                style="@style/Theme.DiscoverChristchurch.LegendMultiIconEnd"
+                tools:ignore="ImageContrastCheck" />
+
+            <TextView
+                android:id="@+id/legend_item_text_35d"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/linked_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/legend_item_image_35c"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_34d"
+                style="@style/Theme.DiscoverChristchurch.LegendMultiText" />
+
+            <!-- -->
+
+            <TextView
+                android:id="@+id/legend_item_text_35e"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/legend_header_text_margin"
+                android:text="@string/linked_note"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_35d"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <!-- Maps/Marker Colours -->
+
+            <TextView
+                android:id="@+id/legend_header_text_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/legend_header_text_margin"
+                android:text="@string/maps_markers_colors"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_35e"
+                style="@style/Theme.DiscoverChristchurch.LegendHeader" />
+
+            <TextView
+                android:id="@+id/legend_item_text_41"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/toggle_fave_descr"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_header_text_4"
+                app:drawableStartCompat="@drawable/ic_outline_bookmark_add_black_24"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <TextView
+                android:id="@+id/legend_item_text_42"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/toggle_markers"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_41"
+                app:drawableStartCompat="@drawable/ic_outline_maps_ugc_black_24"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <TextView
+                android:id="@+id/legend_item_text_43"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/toggle_polylines"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_42"
+                app:drawableStartCompat="@drawable/ic_outline_polyline_black_24"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <TextView
+                android:id="@+id/legend_item_text_44"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/waypoint_start"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_43"
+                app:drawableStartCompat="@drawable/ic_baseline_place_default_24"
+                app:drawableTint="@color/color_green"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <TextView
+                android:id="@+id/legend_item_text_45"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/waypoint_point"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_44"
+                app:drawableStartCompat="@drawable/ic_baseline_place_default_24"
+                app:drawableTint="@color/color_orange"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <TextView
+                android:id="@+id/legend_item_text_46"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/waypoint_end"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_45"
+                app:drawableStartCompat="@drawable/ic_baseline_place_default_24"
+                app:drawableTint="@color/color_red"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <!-- Map Specific Buttons -->
+
+            <TextView
+                android:id="@+id/legend_header_text_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/legend_header_text_margin"
+                android:text="@string/map_info"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_46"
+                style="@style/Theme.DiscoverChristchurch.LegendHeader" />
+
+            <TextView
+                android:id="@+id/legend_item_text_51"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/waypoint_info_descr"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_header_text_5"
+                app:drawableStartCompat="@drawable/ic_outline_info_black_24"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <TextView
+                android:id="@+id/legend_item_text_52"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/zoom_descr"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_51"
+                app:drawableStartCompat="@drawable/ic_baseline_zoom_in_map_black_24"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <TextView
+                android:id="@+id/legend_item_text_53"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/street_view"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_52"
+                app:drawableStartCompat="@drawable/ic_baseline_streetview_black_24"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <!-- Polylines -->
+
+            <TextView
+                android:id="@+id/legend_header_text_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/legend_header_text_margin"
+                android:text="@string/polylines"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_53"
+                style="@style/Theme.DiscoverChristchurch.LegendHeader" />
+
+            <TextView
+                android:id="@+id/legend_item_text_61"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/polyline_track"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_header_text_6"
+                app:drawableStartCompat="@drawable/ic_baseline_linear_scale_default_27"
+                app:drawableTint="@color/polyline_track"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <TextView
+                android:id="@+id/legend_item_text_62"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/polyline_shared"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_61"
+                app:drawableStartCompat="@drawable/ic_menu_overflow_rotated_default_27"
+                app:drawableTint="@color/polyline_shared"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <TextView
+                android:id="@+id/legend_item_text_63"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/polyline_boundary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_62"
+                app:drawableStartCompat="@drawable/ic_menu_overflow_rotated_default_27"
+                app:drawableTint="@color/polyline_boundary"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <!-- Street View -->
+
+            <TextView
+                android:id="@+id/legend_header_text_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/legend_header_text_margin"
+                android:text="@string/street_names"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_63"
+                style="@style/Theme.DiscoverChristchurch.LegendHeader" />
+
+            <TextView
+                android:id="@+id/legend_item_text_71"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/hide_names_descr"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_header_text_7"
+                app:drawableStartCompat="@drawable/ic_baseline_speaker_notes_off_default_24"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <TextView
+                android:id="@+id/legend_item_text_72"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/show_names_descr"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_71"
+                app:drawableStartCompat="@drawable/ic_baseline_speaker_notes_default_24"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <TextView
+                android:id="@+id/legend_item_text_73"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/reset_camera_descr"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legend_item_text_72"
+                app:drawableStartCompat="@drawable/ic_baseline_reset_tv_black_24"
+                style="@style/Theme.DiscoverChristchurch.LegendText" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/legend_back_to_top_fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/legend_jump_up_fab_margin"
+                android:contentDescription="@string/back_to_top_fab_descr"
+                android:onClick="@{ () -> legendFragment.jumpAround(false) }"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:fabSize="mini"
+                app:srcCompat="@drawable/ic_baseline_vertical_align_top_white_24"
+                tools:ignore="ImageContrastCheck" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

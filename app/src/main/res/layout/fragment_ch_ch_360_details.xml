@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"><!-- See also layout-land -->
+    <!-- Difference between this layout and landscape is the added leg color -->
+
+    <data>
+        <variable
+            name="chCh360"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.entities.ChCh360Kt" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/ch_ch_360_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="false"
+        android:scrollbars="none"
+        tools:context=".fragments.ChCh360IntroFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include
+                android:id="@+id/ch_ch_360_layout"
+                layout="@layout/fragment_ch_ch_360_include"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ch_ch_360_leg_color_2"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/ch_ch_360_leg_color_height"
+                tools:background="@drawable/ch_ch_360_leg_color"
+                android:contentDescription="@string/ch_ch_360_leg_color_descr"
+                app:chCh360BackgroundColor="@{ chCh360 }"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ch_ch_360_layout"
+                tools:ignore="ImageContrastCheck" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

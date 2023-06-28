@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"><!-- See also layout-land -->
+
+    <data>
+        <import
+            type="android.view.View" />
+        <variable
+            name="bikeTrack"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.entities.BikeTrackKt" />
+        <variable
+            name="clickListener"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.adapters.BikeTrackMapListener" />
+        <variable
+            name="longClickListener"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.adapters.BikeTrackMapLongListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:showIn="@layout/activity_bike_tracks">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/bike_track_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Theme.DiscoverChristchurch.CardView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/bike_track_constraint_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/list_item_padding_small">
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/vertical_barrier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:barrierDirection="start"
+                    app:constraint_referenced_ids="bike_grade_icon" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/bike_track_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{ () -> clickListener.onClick(bikeTrack, 0) }"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:bikeTrackArrowPortrait="@{ bikeTrack }"
+                    style="@style/Theme.DiscoverChristchurch.ImageButton"
+                    tools:ignore="ImageContrastCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck"
+                    tools:srcCompat="@drawable/ic_baseline_arrow_circle_right_default_24"
+                    tools:tint="@color/color_green" /><!-- Content description set programmatically -->
+
+                <!-- -->
+
+                <TextView
+                    android:id="@+id/bike_track_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/list_item_margin_medium"
+                    android:paddingEnd="@dimen/list_item_padding_small"
+                    android:paddingStart="@dimen/list_item_padding_small"
+                    android:text="@{ bikeTrack.track }"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/bike_track_subtitle"
+                    app:layout_constraintStart_toEndOf="@id/bike_track_arrow"
+                    app:layout_constraintEnd_toStartOf="@id/vertical_barrier"
+                    app:layout_constraintTop_toTopOf="parent"
+                    style="@style/Theme.DiscoverChristchurch.GravityStart"
+                    tools:text="Bike Track Name" /><!--
+                    android:minLines="2" -->
+
+                <TextView
+                    android:id="@+id/bike_track_subtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/list_item_margin_medium"
+                    android:paddingEnd="@dimen/list_item_padding_small"
+                    android:paddingStart="@dimen/list_item_padding_small"
+                    android:textColor="?attr/colorSecondaryVariant"
+                    app:layout_constraintBottom_toTopOf="@id/bike_track_length"
+                    app:layout_constraintStart_toEndOf="@id/bike_track_arrow"
+                    app:layout_constraintTop_toBottomOf="@id/bike_track_name"
+                    app:waypointSubtitle="@{ bikeTrack.subtitle }"
+                    style="@style/Theme.DiscoverChristchurch.GravityStart"
+                    tools:ignore="TextContrastCheck"
+                    tools:text="Track 5/55" /><!--
+                    android:text="@{ bikeTrack.subtitle }" -->
+
+                <TextView
+                    android:id="@+id/bike_track_length"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/list_item_margin_medium"
+                    android:paddingEnd="@dimen/list_item_padding_small"
+                    android:paddingStart="@dimen/list_item_padding_small"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/bike_track_arrow"
+                    app:layout_constraintTop_toBottomOf="@id/bike_track_subtitle"
+                    app:bikeTrackLength="@{ bikeTrack.length }"
+                    style="@style/Theme.DiscoverChristchurch.GravityStart"
+                    tools:text="Length: 1.25 km" />
+
+                <!-- -->
+
+                <ImageView
+                    android:id="@+id/bike_grade_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/image_button_margin_medium"
+                    android:layout_marginStart="@dimen/image_button_margin_medium"
+                    android:contentDescription="@string/bike_grade_descr"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/bike_track_info_button"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:imageIndex="@{ bikeTrack.grade }"
+                    app:images="@{ @typedArray/bike_track_grades }"
+                    tools:srcCompat="@drawable/ic_outline_looks_3_black_24" /><!-- Note: no theme -->
+
+                <!-- ImageButtons -->
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/bike_track_info_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/image_button_margin_small"
+                    android:layout_marginStart="@dimen/image_button_margin_medium"
+                    android:contentDescription="@string/bike_info_descr"
+                    android:onClick="@{ () -> clickListener.onClick(bikeTrack, 1) }"
+                    android:onLongClick="@{ () -> longClickListener.onLongClick(8) }"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/bike_track_zoom_button"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_outline_info_black_24"
+                    style="@style/Theme.DiscoverChristchurch.ImageButton" /><!-- -->
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/bike_track_zoom_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/image_button_margin_small"
+                    android:layout_marginStart="@dimen/image_button_margin_small"
+                    android:contentDescription="@string/locate_descr"
+                    android:onClick="@{ () -> clickListener.onClick(bikeTrack, 2) }"
+                    android:onLongClick="@{ () -> longClickListener.onLongClick(6) }"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_baseline_zoom_in_map_black_24"
+                    style="@style/Theme.DiscoverChristchurch.ImageButton" /><!-- -->
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

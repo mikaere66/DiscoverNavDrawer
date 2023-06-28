@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="checkBox"
+            type="android.widget.CheckBox"/>
+        <import
+            type="android.view.View" />
+        <variable
+            name="clickListener"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.listeners.RouteListener" />
+        <variable
+            name="faveListener"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.listeners.RouteFaveListener" />
+        <variable
+            name="longClickListener"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.listeners.RouteLongListener" />
+        <variable
+            name="route"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.entities.RouteKt" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/item_card_horizontal_padding"
+        android:paddingEnd="@dimen/item_card_horizontal_padding"
+        android:paddingBottom="@dimen/item_card_vertical_padding"
+        tools:showIn="@layout/fragment_routes">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/item_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Theme.DiscoverChristchurch.CardView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/route_constraint_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/list_item_margin_small"
+                android:padding="@dimen/list_item_padding_small"
+                android:onClick="@{ () -> clickListener.onClick(route) }"
+                android:onLongClick="@{ () -> longClickListener.onLongClick(route) }">
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/route_barrier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:barrierDirection="start"
+                    app:constraint_referenced_ids="route_time, route_distance" />
+
+                <ImageView
+                    android:id="@+id/route_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/route_descr"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_baseline_route_black_24"
+                    style="@style/Theme.DiscoverChristchurch.ImageView" />
+
+                <TextView
+                    android:id="@+id/route_date"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/list_item_margin_small"
+                    android:layout_marginStart="@dimen/list_item_margin_small"
+                    android:visibility="@{ route.zStamp > 0L ? View.VISIBLE : View.GONE }"
+                    app:layout_constraintEnd_toStartOf="@id/route_favourite"
+                    app:layout_constraintStart_toEndOf="@id/route_icon"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:faveAddedDate="@{ route.zStamp }"
+                    style="@style/Theme.DiscoverChristchurch.GravityStart"
+                    tools:text="@string/date_tools"
+                    tools:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/route_route"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/list_item_margin_small"
+                    android:layout_marginStart="@dimen/list_item_margin_small"
+                    android:text="@{ route.route }"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/route_start"
+                    app:layout_constraintEnd_toStartOf="@id/route_favourite"
+                    app:layout_constraintStart_toEndOf="@id/route_icon"
+                    app:layout_constraintTop_toBottomOf="@id/route_date"
+                    style="@style/Theme.DiscoverChristchurch.GravityStartTop"
+                    tools:text="Track/Route Name" />
+
+                <!-- CheckBox -->
+
+                <CheckBox
+                    android:id="@+id/route_favourite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:button="@drawable/favourite_selector"
+                    android:checked="@{ route.fave }"
+                    android:contentDescription="@string/toggle_fave_descr"
+                    android:onClick="@{ () -> faveListener.onClick(checkBox, route) }"
+                    app:layout_constraintEnd_toStartOf="@id/route_barrier"
+                    app:layout_constraintBaseline_toBaselineOf="@id/route_route" /><!--
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" -->
+
+                <!-- End CheckBox -->
+
+                <TextView
+                    android:id="@+id/route_start"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/list_item_margin_small"
+                    android:layout_marginStart="@dimen/list_item_margin_small"
+                    android:padding="@dimen/list_item_padding_small"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/route_favourite"
+                    app:layout_constraintStart_toEndOf="@id/route_icon"
+                    app:layout_constraintTop_toBottomOf="@id/route_route"
+                    app:introOrStartPoint="@{ route }"
+                    style="@style/Theme.DiscoverChristchurch.GravityStart"
+                    tools:text="Route Intro/Start Point" />
+
+                <TextView
+                    android:id="@+id/route_distance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@id/route_accessibility"
+                    app:layout_constraintStart_toStartOf="@id/route_time"
+                    app:layout_constraintBaseline_toBaselineOf="@id/route_route"
+                    app:distance="@{ route }"
+                    tools:text="900 m" />
+
+                <ImageView
+                    android:id="@+id/route_journey"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/list_item_padding_small"
+                    android:contentDescription="@string/journey_type_descr"
+                    app:layout_constraintBottom_toTopOf="@id/route_time"
+                    app:layout_constraintEnd_toEndOf="@id/route_distance"
+                    app:layout_constraintStart_toStartOf="@id/route_distance"
+                    app:layout_constraintTop_toBottomOf="@id/route_distance"
+                    app:journeyType="@{ route }"
+                    tools:srcCompat="@drawable/ic_baseline_code_black_24" />
+
+                <TextView
+                    android:id="@+id/route_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/route_accessibility"
+                    app:layout_constraintTop_toBottomOf="@id/route_journey"
+                    app:time="@{ route }"
+                    tools:text="30 mins" /><!--
+                    android:layout_marginBottom="@dimen/list_item_margin_small" -->
+
+                <ImageView
+                    android:id="@+id/route_accessibility"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="@dimen/indicator_padding_medium"
+                    android:paddingStart="@dimen/indicator_padding_large"
+                    android:contentDescription="@string/accessibility_descr"
+                    app:layout_constraintBottom_toBottomOf="@id/route_journey"
+                    app:layout_constraintEnd_toStartOf="@id/route_dogs"
+                    app:layout_constraintTop_toTopOf="@id/route_journey"
+                    app:routeAccessibilityColor="@{ route }"
+                    app:srcCompat="@drawable/ic_baseline_accessible_default_18"
+                    style="@style/Theme.DiscoverChristchurch.StatusIcon.Normal" />
+
+                <ImageView
+                    android:id="@+id/route_dogs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="@dimen/indicator_padding_medium"
+                    android:paddingStart="@dimen/indicator_padding_medium"
+                    android:contentDescription="@string/dogs_descr"
+                    app:layout_constraintBottom_toBottomOf="@id/route_journey"
+                    app:layout_constraintEnd_toStartOf="@id/route_shared"
+                    app:layout_constraintTop_toTopOf="@id/route_journey"
+                    app:routeDogsAllowedColor="@{ route }"
+                    app:srcCompat="@drawable/ic_baseline_pets_default_18"
+                    style="@style/Theme.DiscoverChristchurch.StatusIcon.Normal" />
+
+                <ImageView
+                    android:id="@+id/route_shared"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="@dimen/indicator_padding_medium"
+                    android:paddingStart="@dimen/indicator_padding_medium"
+                    android:contentDescription="@string/shared_descr"
+                    app:layout_constraintBottom_toBottomOf="@id/route_journey"
+                    app:layout_constraintEnd_toStartOf="@id/route_transport"
+                    app:layout_constraintTop_toTopOf="@id/route_journey"
+                    app:routeSharedUseColor="@{ route }"
+                    app:srcCompat="@drawable/ic_baseline_bike_scooter_default_18"
+                    style="@style/Theme.DiscoverChristchurch.StatusIcon.Normal" />
+
+                <ImageView
+                    android:id="@+id/route_transport"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="@dimen/indicator_padding_medium"
+                    android:paddingStart="@dimen/indicator_padding_medium"
+                    android:contentDescription="@string/transport_descr"
+                    app:layout_constraintBottom_toBottomOf="@id/route_journey"
+                    app:layout_constraintEnd_toStartOf="@id/route_linked"
+                    app:layout_constraintTop_toTopOf="@id/route_journey"
+                    app:routeTransportReqdColor="@{ route }"
+                    app:srcCompat="@drawable/ic_baseline_directions_bus_default_18"
+                    style="@style/Theme.DiscoverChristchurch.StatusIcon.Normal" />
+
+                <ImageView
+                    android:id="@+id/route_linked"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="@dimen/indicator_padding_medium"
+                    android:paddingStart="@dimen/indicator_padding_medium"
+                    android:contentDescription="@string/linked_descr"
+                    app:layout_constraintBottom_toBottomOf="@id/route_journey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/route_journey"
+                    app:routesLinkedColor="@{ route }"
+                    app:srcCompat="@drawable/ic_baseline_link_default_24"
+                    style="@style/Theme.DiscoverChristchurch.StatusIcon.Normal" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

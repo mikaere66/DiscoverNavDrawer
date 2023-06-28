@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:id="@+id/map_lite_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="@dimen/activity_horizontal_padding"
+        android:paddingEnd="@dimen/activity_horizontal_padding"
+        android:paddingTop="@dimen/activity_vertical_padding"
+        android:scrollbars="none">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/map_lite_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="@fraction/map_lite_guideline" />
+
+            <!-- Normal -->
+
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/map_lite_normal_map"
+                android:layout_width="@dimen/map_type_width_height"
+                android:layout_height="@dimen/map_type_width_height"
+                android:contentDescription="@string/map_type_normal_descr"
+                app:layout_constraintEnd_toStartOf="@id/map_lite_guideline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:liteMode="true"
+                app:mapType="none" />
+
+            <!-- Satellite -->
+
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/map_lite_satellite_map"
+                android:layout_width="@dimen/map_type_width_height"
+                android:layout_height="@dimen/map_type_width_height"
+                android:contentDescription="@string/map_type_satellite_descr"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/map_lite_guideline"
+                app:layout_constraintTop_toTopOf="parent"
+                app:liteMode="true"
+                app:mapType="none" />
+
+            <!-- RadioGroup -->
+
+            <com.michaelrmossman.kotlin.discoverchristchurch.views.RadioGridGroup
+                android:id="@+id/map_lite_radio_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:padding="@dimen/list_item_padding_small"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="@id/map_lite_satellite_map"
+                app:layout_constraintStart_toStartOf="@id/map_lite_normal_map"
+                app:layout_constraintTop_toBottomOf="@id/map_lite_normal_map"
+                app:columnCount="2">
+                <RadioButton
+                    android:id="@+id/map_type_normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/map_type_normal"
+                    style="@style/Theme.DiscoverChristchurch.RadioGridGroup.RadioButton" />
+                <RadioButton
+                    android:id="@+id/map_type_satellite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/map_type_satellite"
+                    style="@style/Theme.DiscoverChristchurch.RadioGridGroup.RadioButton" />
+                <RadioButton
+                    android:id="@+id/map_type_terrain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/map_type_terrain"
+                    style="@style/Theme.DiscoverChristchurch.RadioGridGroup.RadioButton" />
+                <RadioButton
+                    android:id="@+id/map_type_hybrid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/map_type_hybrid"
+                    style="@style/Theme.DiscoverChristchurch.RadioGridGroup.RadioButton" />
+            </com.michaelrmossman.kotlin.discoverchristchurch.views.RadioGridGroup>
+
+            <!-- Terrain -->
+
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/map_lite_terrain_map"
+                android:layout_width="@dimen/map_type_width_height"
+                android:layout_height="@dimen/map_type_width_height"
+                android:contentDescription="@string/map_type_terrain_descr"
+                app:layout_constraintEnd_toStartOf="@id/map_lite_guideline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/map_lite_radio_group"
+                app:liteMode="true"
+                app:mapType="none" />
+
+            <!-- Hybrid -->
+
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/map_lite_hybrid_map"
+                android:layout_width="@dimen/map_type_width_height"
+                android:layout_height="@dimen/map_type_width_height"
+                android:contentDescription="@string/map_type_hybrid_descr"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/map_lite_guideline"
+                app:layout_constraintTop_toBottomOf="@id/map_lite_radio_group"
+                app:liteMode="true"
+                app:mapType="none" />
+
+            <!-- CheckBox -->
+
+            <CheckBox
+                android:id="@+id/map_type_apply_to_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/map_type_apply_to_all"
+                android:textColor="@color/checkbox_enabled_disabled_selector"
+                style="@style/Theme.DiscoverChristchurch.RadioButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/map_lite_terrain_map" /><!--
+                tools:visibility="visible"
+                android:visibility="gone" -->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

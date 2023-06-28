@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import
+            type="android.text.TextUtils"/>
+        <import
+            type="android.view.View" />
+        <variable
+            name="clickListener"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.adapters.CommunityListener" />
+        <variable
+            name="communityItem"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.entities.CommunityItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/item_card_horizontal_padding"
+        android:paddingEnd="@dimen/item_card_horizontal_padding"
+        tools:showIn="@layout/fragment_community">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/item_card_view_1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Theme.DiscoverChristchurch.CardView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/community_constraint_layout_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/list_item_margin_small"
+                android:padding="@dimen/list_item_padding_small"
+                android:onClick="@{ () -> clickListener.onClick(communityItem) }">
+
+                <TextView
+                    android:id="@+id/community_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/community_qty_badge_margin"
+                    android:padding="@dimen/community_qty_badge_padding"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/badge_background"
+                    android:gravity="center"
+                    android:text="@{ @string/generic_count(communityItem.count) }"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/community_qty_badge_text_size"
+                    android:visibility="@{ communityItem.count > 0 ? View.VISIBLE : View.GONE }"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="5839"
+                    tools:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/community_image_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/community_item_vertical_margin"
+                    android:layout_marginTop="@dimen/community_item_vertical_margin"
+                    android:contentDescription="@null"
+                    app:layout_constraintBottom_toTopOf="@id/community_text_1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:imageIndex="@{ communityItem.drawableIndex }"
+                    app:images="@{ @typedArray/community_drawables }"
+                    app:tint="@color/community_icon"
+                    tools:srcCompat="@drawable/ic_baseline_forest_default_24" />
+
+                <TextView
+                    android:id="@+id/community_text_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/community_item_vertical_margin"
+                    android:layout_marginTop="@dimen/community_item_vertical_margin"
+                    android:text="@{ communityItem.name }"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/community_image_1"
+                    tools:text="Fruit Trees" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/item_card_view_2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/item_card_view_1"
+            app:layout_constraintEnd_toEndOf="@id/item_card_view_1"
+            app:layout_constraintStart_toStartOf="@id/item_card_view_1"
+            app:layout_constraintTop_toTopOf="@id/item_card_view_1"
+            style="@style/Theme.DiscoverChristchurch.CardView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/community_constraint_layout_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/list_item_margin_small"
+                android:padding="@dimen/list_item_padding_small">
+
+                <ImageView
+                    android:id="@+id/community_image_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/community_qty_badge_margin"
+                    android:padding="@dimen/community_help_text_padding"
+                    android:contentDescription="@string/flip_back_descr"
+                    android:background="@drawable/badge_background"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_baseline_rotate_left_default_20"
+                    app:tint="@color/white" />
+
+                <TextView
+                    android:id="@+id/community_text_2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/community_help_text_padding"
+                    android:text="@{ communityItem.helpText }"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/community_image_2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Fruit Trees" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

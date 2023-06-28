@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"><!-- See also layout-land -->
+
+    <data>
+        <variable
+            name="searchFragment"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.fragments.SearchFragment" />
+    </data>
+
+    <ScrollView
+        android:id="@+id/search_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/fragment_vertical_padding"
+        android:paddingEnd="@dimen/fragment_horizontal_padding"
+        android:paddingStart="@dimen/fragment_horizontal_padding"
+        android:paddingTop="@dimen/fragment_vertical_padding"
+        android:scrollbars="none"
+        tools:context=".fragments.SearchFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Note mix of RadioButtons and TextViews in referenced ids -->
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/search_barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:barrierDirection="end"
+                app:constraint_referenced_ids="accessibility_search_by_text, dogs_type_controlled, pub_transport_search_by_text, return_journey_search_by_text, shared_use_search_by_text" />
+
+            <TextView
+                android:id="@+id/accessibility_search_by_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/accessibility_search_by_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:drawableStartCompat="@drawable/ic_outline_accessible_black_24"
+                style="@style/Theme.DiscoverChristchurch.SearchByFeatureHeader" />
+            <RadioButton
+                android:id="@+id/accessibility_type_accessible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/accessibility_type_accessible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/accessibility_search_by_text"
+                style="@style/Theme.DiscoverChristchurch.RadioButton" />
+            <RadioButton
+                android:id="@+id/accessibility_type_pram"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/accessibility_type_pram"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/accessibility_type_accessible"
+                style="@style/Theme.DiscoverChristchurch.RadioButton" />
+            <RadioButton
+                android:id="@+id/accessibility_type_either"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/accessibility_either_descr"
+                android:text="@string/search_type_either"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/accessibility_type_pram"
+                style="@style/Theme.DiscoverChristchurch.RadioButton" />
+            <com.michaelrmossman.kotlin.discoverchristchurch.views.FlatRadioGroup
+                android:id="@+id/accessibility_type_radio_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="accessibility_type_accessible, accessibility_type_pram, accessibility_type_either" />
+            <Button
+                android:id="@+id/accessibility_search_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/search_by_feature_vertical_padding"
+                android:contentDescription="@string/accessibility_search_descr"
+                android:enabled="false"
+                android:text="@string/search_button_go"
+                app:layout_constraintStart_toEndOf="@id/search_barrier"
+                app:layout_constraintBottom_toBottomOf="@id/accessibility_type_either"
+                style="?attr/materialButtonOutlinedStyle" />
+
+            <TextView
+                android:id="@+id/dogs_search_by_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dogs_search_by_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/accessibility_type_either"
+                app:drawableStartCompat="@drawable/ic_baseline_pets_black_24"
+                style="@style/Theme.DiscoverChristchurch.SearchByFeatureHeader" />
+            <RadioButton
+                android:id="@+id/dogs_type_controlled"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dogs_type_controlled"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dogs_search_by_text"
+                style="@style/Theme.DiscoverChristchurch.RadioButton" />
+            <RadioButton
+                android:id="@+id/dogs_type_leash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dogs_type_leash"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dogs_type_controlled"
+                style="@style/Theme.DiscoverChristchurch.RadioButton" />
+            <RadioButton
+                android:id="@+id/dogs_type_either"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/dogs_either_descr"
+                android:text="@string/search_type_either"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dogs_type_leash"
+                style="@style/Theme.DiscoverChristchurch.RadioButton" />
+            <com.michaelrmossman.kotlin.discoverchristchurch.views.FlatRadioGroup
+                android:id="@+id/dogs_type_radio_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="dogs_type_controlled, dogs_type_leash, dogs_type_either" />
+            <Button
+                android:id="@+id/dogs_search_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/search_by_feature_vertical_padding"
+                android:contentDescription="@string/dogs_search_descr"
+                android:enabled="false"
+                android:text="@string/search_button_go"
+                app:layout_constraintStart_toEndOf="@id/search_barrier"
+                app:layout_constraintBottom_toBottomOf="@id/dogs_type_either"
+                style="?attr/materialButtonOutlinedStyle" />
+
+            <TextView
+                android:id="@+id/pub_transport_search_by_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pub_transport_search_by_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dogs_type_either"
+                app:drawableStartCompat="@drawable/ic_baseline_directions_bus_black_24"
+                style="@style/Theme.DiscoverChristchurch.SearchByFeatureHeader" />
+            <RadioButton
+                android:id="@+id/pub_transport_type_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/pub_transport_yes_descr"
+                android:text="@string/common_type_yes"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pub_transport_search_by_text"
+                style="@style/Theme.DiscoverChristchurch.RadioButton" />
+            <com.michaelrmossman.kotlin.discoverchristchurch.views.FlatRadioGroup
+                android:id="@+id/pub_transport_type_radio_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="pub_transport_type_yes" />
+            <Button
+                android:id="@+id/pub_transport_search_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/search_by_feature_vertical_padding"
+                android:contentDescription="@string/pub_transport_search_descr"
+                android:enabled="false"
+                android:text="@string/search_button_go"
+                app:layout_constraintStart_toEndOf="@id/search_barrier"
+                app:layout_constraintBottom_toBottomOf="@id/pub_transport_type_yes"
+                style="?attr/materialButtonOutlinedStyle" />
+
+            <TextView
+                android:id="@+id/return_journey_search_by_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/return_journey_search_by_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pub_transport_type_yes"
+                app:drawableStartCompat="@drawable/ic_baseline_refresh_black_24"
+                style="@style/Theme.DiscoverChristchurch.SearchByFeatureHeader" />
+            <RadioButton
+                android:id="@+id/return_journey_type_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/return_journey_yes_descr"
+                android:text="@string/common_type_yes"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/return_journey_search_by_text"
+                style="@style/Theme.DiscoverChristchurch.RadioButton" />
+            <RadioButton
+                android:id="@+id/return_journey_type_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/return_journey_no_descr"
+                android:text="@string/common_type_no"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/return_journey_type_yes"
+                style="@style/Theme.DiscoverChristchurch.RadioButton" />
+            <com.michaelrmossman.kotlin.discoverchristchurch.views.FlatRadioGroup
+                android:id="@+id/return_journey_type_radio_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="return_journey_type_yes, return_journey_type_no" />
+            <Button
+                android:id="@+id/return_journey_search_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/search_by_feature_vertical_padding"
+                android:contentDescription="@string/return_journey_search_descr"
+                android:enabled="false"
+                android:text="@string/search_button_go"
+                app:layout_constraintStart_toEndOf="@id/search_barrier"
+                app:layout_constraintBottom_toBottomOf="@id/return_journey_type_no"
+                style="?attr/materialButtonOutlinedStyle" />
+
+            <TextView
+                android:id="@+id/shared_use_search_by_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/shared_use_search_by_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/return_journey_type_no"
+                app:drawableStartCompat="@drawable/ic_baseline_bike_scooter_black_24"
+                style="@style/Theme.DiscoverChristchurch.SearchByFeatureHeader" />
+            <RadioButton
+                android:id="@+id/shared_use_type_yes"
+                style="@style/Theme.DiscoverChristchurch.RadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/shared_use_yes_descr"
+                android:text="@string/common_type_yes"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/shared_use_search_by_text"
+                tools:ignore="TouchTargetSizeCheck" />
+            <RadioButton
+                android:id="@+id/shared_use_type_no"
+                style="@style/Theme.DiscoverChristchurch.RadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/shared_use_no_descr"
+                android:text="@string/common_type_no"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/shared_use_type_yes"
+                tools:ignore="TouchTargetSizeCheck" />
+            <com.michaelrmossman.kotlin.discoverchristchurch.views.FlatRadioGroup
+                android:id="@+id/shared_use_type_radio_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="shared_use_type_yes, shared_use_type_no" />
+            <Button
+                android:id="@+id/shared_use_search_button"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/shared_use_search_descr"
+                android:enabled="false"
+                android:text="@string/search_button_go"
+                app:layout_constraintBottom_toBottomOf="@id/shared_use_type_no"
+                app:layout_constraintStart_toEndOf="@id/search_barrier"
+                tools:ignore="TouchTargetSizeCheck" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

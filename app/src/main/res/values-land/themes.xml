@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.DiscoverChristchurch.LegendMultiText" parent="@style/Theme.DiscoverChristchurch.GravityStart">
+        <item name="android:layout_marginTop">@dimen/legend_text_multi_margin</item>
+        <item name="android:layout_marginStart">@dimen/legend_text_view_margin</item>
+        <item name="android:layout_marginEnd">@dimen/legend_text_view_margin</item>
+        <item name="android:padding">@dimen/legend_text_view_padding</item>
+        <item name="android:textColor">@color/legend_header</item>
+    </style>
+
+</resources>

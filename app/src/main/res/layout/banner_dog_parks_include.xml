@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="dogParksActivity"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.activities.DogParksActivity" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/banner_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/polyline_progress_padding"
+        style="@style/Theme.DiscoverChristchurch.CardView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/banner_constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/list_item_padding_small">
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/banner_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/polygons_progress_descr"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/banner_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:indicatorColor="@color/ccc_day_night"
+                style="@style/Theme.DiscoverChristchurch.CircularProgressIndicator" />
+
+            <TextView
+                android:id="@+id/banner_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/list_item_margin_medium"
+                android:layout_marginStart="@dimen/list_item_margin_medium"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/banner_button"
+                app:layout_constraintStart_toEndOf="@id/banner_progress"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Adding polygon\n... 87/165 ..." />
+
+            <Button
+                android:id="@+id/banner_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/list_item_margin_medium"
+                android:layout_marginStart="@dimen/list_item_margin_medium"
+                android:onClick="@{ () -> dogParksActivity.cancelCoroutine() }"
+                android:text="@android:string/cancel"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/banner_text"
+                app:layout_constraintTop_toTopOf="parent"
+                style="?attr/materialButtonOutlinedStyle" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

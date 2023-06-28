@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import
+            type="android.view.View" />
+        <variable
+            name="checkBox"
+            type="android.widget.CheckBox"/>
+        <variable
+            name="clickListener"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.listeners.BasicClickListener" />
+        <variable
+            name="longClickListener"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.listeners.BatteryRecyclerLongListener" />
+        <variable
+            name="batteryRecycler"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.entities.BatteryRecyclerKt" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/item_card_horizontal_padding"
+        android:paddingEnd="@dimen/item_card_horizontal_padding"
+        tools:showIn="@layout/fragment_battery_recyclers">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/battery_recycler_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Theme.DiscoverChristchurch.CardView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/battery_recycler_constraint_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/list_item_margin_medium"
+                android:padding="@dimen/list_item_padding_medium"
+                android:onClick="@{ () -> clickListener.onClick(checkBox, 0L) }"
+                android:onLongClick="@{ () -> longClickListener.onLongClick(batteryRecycler) }">
+
+                <ImageView
+                    android:id="@+id/battery_recycler_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/battery_recycler_descr"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_baseline_recycling_black_24"
+                    app:batteryRecyclerColor="@{ batteryRecycler }"
+                    style="@style/Theme.DiscoverChristchurch.ImageView" />
+
+                <TextView
+                    android:id="@+id/battery_recycler_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{ batteryRecycler.zStamp > 0L ? View.VISIBLE : View.GONE }"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/battery_recycler_icon"
+                    app:faveAddedDate="@{ batteryRecycler.zStamp }"
+                    style="@style/Theme.DiscoverChristchurch.CommunityText"
+                    tools:text="@string/date_tools"
+                    tools:visibility="visible" /><!--
+                    android:layout_marginBottom="@dimen/list_item_margin_large"
+                    android:layout_marginEnd="@dimen/list_item_margin_large"
+                    android:layout_marginStart="@dimen/list_item_margin_large"
+                    android:paddingEnd="@dimen/list_item_padding_small"
+                    android:paddingStart="@dimen/list_item_padding_small"
+
+                    android:layout_marginTop="@dimen/list_item_margin_small"
+                    android:gravity="center_horizontal"
+                    app:layout_constraintBottom_toBottomOf="@id/battery_recycler_local"
+                    app:layout_constraintTop_toTopOf="@id/battery_recycler_address"
+                    app:layout_constraintBaseline_toBaselineOf="@id/battery_recycler_hours" -->
+
+                <CheckBox
+                    android:id="@+id/battery_recycler_favourite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/favourite_selector"
+                    android:checked="@{ batteryRecycler.fave }"
+                    android:contentDescription="@string/toggle_fave_descr"
+                    android:onClick="@{ () -> clickListener.onClick(checkBox, batteryRecycler.id) }"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" /><!-- -->
+
+                <TextView
+                    android:id="@+id/battery_recycler_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{ batteryRecycler.name }"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/battery_recycler_address"
+                    app:layout_constraintEnd_toStartOf="@id/battery_recycler_favourite"
+                    app:layout_constraintStart_toEndOf="@id/battery_recycler_icon"
+                    app:layout_constraintTop_toBottomOf="@id/battery_recycler_date"
+                    style="@style/Theme.DiscoverChristchurch.CommunityText"
+                    tools:text="Bunnings Riccarton" /><!--
+                    android:layout_marginBottom="@dimen/list_item_margin_medium"
+                    android:layout_marginEnd="@dimen/list_item_margin_large"
+                    android:layout_marginStart="@dimen/list_item_margin_large"
+                    android:layout_marginTop="@dimen/list_item_margin_medium"
+                    android:paddingEnd="@dimen/list_item_padding_small"
+                    android:paddingStart="@dimen/list_item_padding_small"
+                    style="@style/Theme.DiscoverChristchurch.GravityStart" -->
+
+                <TextView
+                    android:id="@+id/battery_recycler_address"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{ batteryRecycler.address }"
+                    app:layout_constraintBottom_toTopOf="@id/battery_recycler_hours"
+                    app:layout_constraintEnd_toStartOf="@id/battery_recycler_favourite"
+                    app:layout_constraintStart_toEndOf="@id/battery_recycler_icon"
+                    app:layout_constraintTop_toBottomOf="@id/battery_recycler_name"
+                    style="@style/Theme.DiscoverChristchurch.CommunityText"
+                    tools:text="64 Clarence Street, Tower Junction" /><!--
+                    android:layout_marginBottom="@dimen/list_item_margin_medium"
+                    android:layout_marginEnd="@dimen/list_item_margin_large"
+                    android:layout_marginStart="@dimen/list_item_margin_large"
+                    android:layout_marginTop="@dimen/list_item_margin_medium"
+                    android:paddingEnd="@dimen/list_item_padding_small"
+                    android:paddingStart="@dimen/list_item_padding_small" -->
+
+                <TextView
+                    android:id="@+id/battery_recycler_hours"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{ batteryRecycler.hours }"
+                    app:layout_constraintBottom_toTopOf="@id/battery_recycler_local"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/battery_recycler_icon"
+                    app:layout_constraintTop_toBottomOf="@id/battery_recycler_address"
+                    style="@style/Theme.DiscoverChristchurch.CommunityText"
+                    tools:text="Mon - Sun 7am - 4:30pm. Closed on: Good Friday" /><!--
+                    android:layout_marginBottom="@dimen/list_item_margin_medium"
+                    android:layout_marginEnd="@dimen/list_item_margin_large"
+                    android:layout_marginStart="@dimen/list_item_margin_large"
+                    android:layout_marginTop="@dimen/list_item_margin_medium"
+                    android:paddingEnd="@dimen/list_item_padding_small"
+                    android:paddingStart="@dimen/list_item_padding_small" -->
+
+                <TextView
+                    android:id="@+id/battery_recycler_local"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/list_item_margin_medium"
+                    android:layout_marginEnd="@dimen/list_item_margin_mega"
+                    android:layout_marginStart="@dimen/list_item_margin_mega"
+                    android:layout_marginTop="@dimen/list_item_margin_medium"
+                    android:paddingEnd="@dimen/list_item_padding_small"
+                    android:paddingStart="@dimen/list_item_padding_small"
+                    android:text="@{ batteryRecycler.local ? @string/battery_recycler_local : @string/battery_recycler_rural }"
+                    app:layout_constraintEnd_toStartOf="@id/battery_recycler_type"
+                    app:layout_constraintStart_toEndOf="@id/battery_recycler_icon"
+                    app:layout_constraintTop_toBottomOf="@id/battery_recycler_hours"
+                    tools:text="@string/battery_recycler_local" /><!-- Note: no theme --><!--
+                    style="@style/Theme.DiscoverChristchurch.CommunityText"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="@dimen/list_item_margin_medium"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/battery_recycler_hours" -->
+
+                <TextView
+                    android:id="@+id/battery_recycler_type"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/list_item_margin_medium"
+                    android:layout_marginEnd="@dimen/list_item_margin_large"
+                    android:layout_marginStart="@dimen/list_item_margin_large"
+                    android:layout_marginTop="@dimen/list_item_margin_medium"
+                    android:paddingEnd="@dimen/list_item_padding_small"
+                    android:paddingStart="@dimen/list_item_padding_small"
+                    android:text="@{ @string/generic_item_type(batteryRecycler.type) }"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/battery_recycler_local"
+                    app:layout_constraintTop_toBottomOf="@id/battery_recycler_hours"
+                    style="@style/Theme.DiscoverChristchurch.GravityEnd"
+                    tools:text="Type: Transfer Station" /><!-- Note: different theme --><!--
+                    app:layout_constraintBaseline_toBaselineOf="@id/battery_recycler_local" -->
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

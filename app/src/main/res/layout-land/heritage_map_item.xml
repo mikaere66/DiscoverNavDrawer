@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="heritageSite"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.entities.HeritageSiteKt" />
+        <variable
+            name="clickListener"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.adapters.HeritageSiteMapListener" />
+        <variable
+            name="longClickListener"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.adapters.HeritageSiteMapLongListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="@dimen/item_card_horizontal_padding"
+        android:paddingEnd="@dimen/item_card_horizontal_padding"
+        android:paddingBottom="@dimen/item_card_vertical_padding"
+        tools:showIn="@layout/activity_heritage_sites">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/heritage_site_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Theme.DiscoverChristchurch.CardView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/heritage_site_constraint_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="@dimen/list_item_padding_small">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/heritage_site_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{ () -> clickListener.onClick(heritageSite, 0) }"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="spread_inside"
+                    app:heritageSiteArrowLandscape="@{ heritageSite }"
+                    style="@style/Theme.DiscoverChristchurch.ImageButton"
+                    tools:ignore="ImageContrastCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck"
+                    tools:srcCompat="@drawable/ic_baseline_arrow_circle_down_default_24"
+                    tools:tint="@color/color_green" /><!-- Content description set programmatically -->
+
+                <!-- -->
+
+                <TextView
+                    android:id="@+id/heritage_site_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/list_item_margin_medium"
+                    android:paddingEnd="@dimen/list_item_padding_small"
+                    android:paddingStart="@dimen/list_item_padding_small"
+                    android:gravity="center"
+                    android:text="@{ heritageSite.name }"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/heritage_site_arrow"
+                    tools:text="Heritage Site Name" /><!-- Note: no theme -->
+
+                <TextView
+                    android:id="@+id/heritage_site_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/list_item_margin_medium"
+                    android:paddingEnd="@dimen/list_item_padding_small"
+                    android:paddingStart="@dimen/list_item_padding_small"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/heritage_site_name"
+                    app:heritageSiteAddress="@{ heritageSite }"
+                    tools:text="Heritage Site Address" /><!-- Note: no theme -->
+
+                <TextView
+                    android:id="@+id/heritage_site_subtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/list_item_margin_medium"
+                    android:paddingEnd="@dimen/list_item_padding_small"
+                    android:paddingStart="@dimen/list_item_padding_small"
+                    android:textColor="?attr/colorSecondaryVariant"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/heritage_site_address"
+                    app:waypointSubtitle="@{ heritageSite.subtitle }"
+                    style="@style/Theme.DiscoverChristchurch.GravityCenter"
+                    tools:ignore="TextContrastCheck"
+                    tools:layout_margin="8dp"
+                    tools:text="Site 5/55" />
+
+                <TextView
+                    android:id="@+id/heritage_site_type"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/list_item_margin_medium"
+                    android:paddingEnd="@dimen/list_item_padding_small"
+                    android:paddingStart="@dimen/list_item_padding_small"
+                    android:text="@{ heritageSite.type }"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/heritage_site_subtitle"
+                    style="@style/Theme.DiscoverChristchurch.GravityCenter"
+                    tools:text="Heritage Site Type" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/heritage_site_info_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/image_button_margin_medium"
+                    android:layout_marginEnd="@dimen/image_button_margin_small"
+                    android:layout_marginStart="@dimen/image_button_margin_medium"
+                    android:contentDescription="@string/heritage_info_descr"
+                    android:onClick="@{ () -> clickListener.onClick(heritageSite, 1) }"
+                    android:onLongClick="@{ () -> longClickListener.onLongClick(10) }"
+                    app:layout_constraintBottom_toTopOf="@id/heritage_site_zoom_button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@drawable/ic_outline_info_black_24"
+                    style="@style/Theme.DiscoverChristchurch.ImageButton" /><!-- -->
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/heritage_site_zoom_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/image_button_margin_small"
+                    android:layout_marginStart="@dimen/image_button_margin_small"
+                    android:contentDescription="@string/locate_descr"
+                    android:onClick="@{ () -> clickListener.onClick(heritageSite, 2) }"
+                    android:onLongClick="@{ () -> longClickListener.onLongClick(2) }"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@drawable/ic_baseline_zoom_in_map_black_24"
+                    style="@style/Theme.DiscoverChristchurch.ImageButton" /><!-- -->
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

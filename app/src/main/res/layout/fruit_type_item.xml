@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import
+            type="android.view.View" />
+        <variable
+            name="checkBox"
+            type="android.widget.CheckBox"/>
+        <variable
+            name="clickListener"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.listeners.BasicClickListener" />
+        <variable
+            name="longClickListener"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.listeners.FruitTypeLongListener" />
+        <variable
+            name="fruitType"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.entities.FruitTypeKt" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/item_card_horizontal_padding"
+        android:paddingEnd="@dimen/item_card_horizontal_padding"
+        tools:showIn="@layout/fragment_fruit_types">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/fruit_type_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Theme.DiscoverChristchurch.CardView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/fruit_type_constraint_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/list_item_margin_medium"
+                android:padding="@dimen/list_item_padding_medium"
+                android:onClick="@{ () -> clickListener.onClick(checkBox, 0L) }"
+                android:onLongClick="@{ () -> longClickListener.onLongClick(fruitType) }">
+
+                <ImageView
+                    android:id="@+id/fruit_type_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/fruit_type_icon_descr"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_baseline_forest_default_24"
+                    app:fruitTypeIconColor="@{ fruitType }"
+                    style="@style/Theme.DiscoverChristchurch.ImageView" />
+
+                <TextView
+                    android:id="@+id/fruit_type_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{ fruitType.zStamp > 0L ? View.VISIBLE : View.GONE }"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/fruit_type_icon"
+                    app:faveAddedDate="@{ fruitType.zStamp }"
+                    style="@style/Theme.DiscoverChristchurch.CommunityText"
+                    tools:text="@string/date_tools"
+                    tools:visibility="visible" />
+
+                <CheckBox
+                    android:id="@+id/fruit_type_favourite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/favourite_selector"
+                    android:checked="@{ fruitType.fave }"
+                    android:contentDescription="@string/toggle_fave_descr"
+                    android:onClick="@{ () -> clickListener.onClick(checkBox, fruitType.id) }"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+<!-- -->
+
+                <TextView
+                    android:id="@+id/fruit_type_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{ fruitType.type }"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/fruit_type_label"
+                    app:layout_constraintEnd_toStartOf="@id/fruit_type_cat"
+                    app:layout_constraintStart_toEndOf="@id/fruit_type_icon"
+                    app:layout_constraintTop_toBottomOf="@id/fruit_type_date"
+                    style="@style/Theme.DiscoverChristchurch.CommunityText"
+                    tools:text="Fruit Tree Type" />
+
+                <TextView
+                    android:id="@+id/fruit_type_cat"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/list_item_margin_medium"
+                    android:layout_marginStart="@dimen/list_item_margin_small"
+                    android:paddingEnd="@dimen/list_item_padding_small"
+                    android:paddingStart="@dimen/list_item_padding_small"
+                    android:text="@{ fruitType.category }"
+                    app:layout_constraintBottom_toTopOf="@id/fruit_type_count"
+                    app:layout_constraintEnd_toStartOf="@id/fruit_type_favourite"
+                    app:layout_constraintStart_toEndOf="@id/fruit_type_name"
+                    app:layout_constraintTop_toBottomOf="@id/fruit_type_date"
+                    style="@style/Theme.DiscoverChristchurch.GravityEndTop"
+                    tools:text="Fruit Tree Category" /><!--
+                    android:layout_marginTop="@dimen/list_item_margin_medium"
+                    android:layout_marginBottom="@dimen/list_item_margin_medium" -->
+
+<!-- -->
+
+                <TextView
+                    android:id="@+id/fruit_type_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fruit_tree_count_text"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/fruit_type_count"
+                    app:layout_constraintStart_toEndOf="@id/fruit_type_icon"
+                    app:layout_constraintTop_toBottomOf="@id/fruit_type_name"
+                    style="@style/Theme.DiscoverChristchurch.CommunityText" />
+
+                <TextView
+                    android:id="@+id/fruit_type_count"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/list_item_margin_medium"
+                    android:layout_marginEnd="@dimen/list_item_margin_medium"
+                    android:layout_marginStart="@dimen/list_item_margin_small"
+                    android:layout_marginTop="@dimen/list_item_margin_large"
+                    android:paddingEnd="@dimen/list_item_padding_small"
+                    android:paddingStart="@dimen/list_item_padding_small"
+                    android:text="@{ @string/generic_count(fruitType.count) }"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@id/fruit_type_favourite"
+                    app:layout_constraintStart_toEndOf="@id/fruit_type_label"
+                    app:layout_constraintBaseline_toBaselineOf="@id/fruit_type_label"
+                    style="@style/Theme.DiscoverChristchurch.GravityEndTop"
+                    tools:text="11" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

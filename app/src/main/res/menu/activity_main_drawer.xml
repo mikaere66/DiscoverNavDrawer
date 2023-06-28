@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/communityFragment"
+            android:icon="@drawable/ic_outline_home_black_24"
+            android:title="@string/home_screen" />
+    </group>
+    <!-- An id is required to show a divider -->
+    <group
+        android:id="@+id/menu_middle"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/action_anyFragment_to_detailsActivity"
+            android:icon="@drawable/ic_outline_swipe_black_24"
+            android:title="@string/browse_info" /><!-- Note weird ID -->
+        <item
+            android:id="@+id/action_anyFragment_to_routesActivity"
+            android:icon="@drawable/ic_baseline_map_black_24"
+            android:title="@string/browse_maps" /><!-- Note weird ID -->
+    </group>
+    <group
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/areasFragment"
+            android:icon="@drawable/ic_outline_area_chart_black_24"
+            android:title="@string/area_place_list" />
+        <item
+            android:id="@+id/listFragment"
+            android:icon="@drawable/ic_baseline_directions_walk_black_24"
+            android:title="@string/entire_list" />
+        <item
+            android:id="@+id/multiDayFragment"
+            android:icon="@drawable/ic_baseline_hiking_black_24"
+            android:title="@string/multi_day" />
+        <item
+            android:id="@+id/searchFragment"
+            android:icon="@drawable/ic_baseline_image_search_black_24"
+            android:title="@string/search_by" />
+        <item
+            android:id="@+id/favouritesFragment"
+            android:icon="@drawable/ic_outline_bookmarks_dynamic_24"
+            android:title="@string/favourites" /><!-- Enabled state/title set programmatically -->
+    </group>
+    <group
+        android:id="@+id/menu_bottom"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/settingsFragment"
+            android:icon="@drawable/ic_outline_app_settings_alt_black_24"
+            android:title="@string/app_settings" />
+        <item
+            android:id="@+id/legendFragment"
+            android:icon="@drawable/ic_baseline_legend_toggle_black_24"
+            android:title="@string/icons_legend" />
+    </group>
+
+</menu>

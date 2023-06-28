@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="clickListener"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.adapters.FacilitySearchListener" />
+        <variable
+            name="facility"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.entities.FacilityKt" />
+    </data>
+
+    <TextView
+        android:id="@+id/facility_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+        android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+        android:minHeight="?android:attr/listPreferredItemHeightSmall"
+        android:onClick="@{ () -> clickListener.onClick(facility) }"
+        android:text="@{ facility.facility }"
+        android:textAppearance="?android:attr/textAppearanceListItemSmall" />
+
+</layout>

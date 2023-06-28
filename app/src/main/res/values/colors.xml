@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="ccc_light">#8012A4A4</color>
+    <color name="ccc_dark">#F8098484</color>
+    <color name="ccc_day_night">@color/ccc_dark</color>
+
+    <color name="color_red">#FF0000</color>
+    <color name="color_orange">#FFBB33</color>
+    <color name="color_green">#66C547</color>
+    <color name="color_green_darker">#008000</color>
+
+    <color name="community_icon">@android:color/black</color>
+
+    <color name="default_text_color">#808080</color><!-- Android's Default Text -->
+
+    <color name="dialog_text_color">@android:color/black</color>
+
+    <color name="fountain_blue">#4780B9</color>
+
+    <color name="fruit_trees_summer">#FFF383</color>
+    <color name="fruit_trees_autumn">#A2631E</color>
+    <color name="fruit_trees_winter">#0195DB</color>
+    <color name="fruit_trees_spring">#DD167B</color><!-- A5CC76 -->
+
+    <!-- Linked Routes -->
+    <color name="highlight_color">@color/ccc_dark</color><!-- See also values-night -->
+
+    <color name="icon_disabled">#FF9E9E9E</color>
+    <color name="icon_surface">#000000</color>
+
+    <color name="info_header">@android:color/black</color>
+    <color name="info_title_subtitle">@android:color/white</color>
+
+    <color name="legend_header">@android:color/black</color>
+
+    <color name="map_marker_light">@android:color/white</color>
+    <color name="map_marker_dark">@android:color/black</color>
+
+    <color name="polyline_track">#9B0090</color>
+    <color name="polyline_shared">#F58026</color>
+    <color name="polyline_boundary">@color/black</color><!-- See also values-night -->
+
+    <color name="toggle_button">#a8fdfdfd</color>
+    <color name="toggle_icon">#79000000</color>
+
+    <!-- Bike Track Colours  -->
+    <color name="bike_track_color_0">#64a064</color>
+    <color name="bike_track_color_1">#f4aa22</color>
+
+    <!-- Dog Park Types : see also DB  -->
+    <color name="dog_park_color_1">#762a83</color>
+    <color name="dog_park_color_2">#d73027</color>
+    <color name="dog_park_color_3">#fc8d59</color>
+    <color name="dog_park_color_4">#1b7837</color>
+    <color name="dog_park_color_5">#e6f598</color>
+    <color name="dog_park_color_6">#91bfdb</color>
+    <color name="dog_park_color_7">#4575b4</color>
+
+    <!--
+    Hex Opacity Values
+        100% — FF
+        95% — F2
+        90% — E6
+        85% — D9
+        80% — CC
+        75% — BF
+        70% — B3
+        65% — A6
+        60% — 99
+        55% — 8C
+        50% — 80
+        45% — 73
+        40% — 66
+        35% — 59
+        30% — 4D
+        25% — 40
+        20% — 33
+        15% — 26
+        10% — 1A
+        5% — 0D
+        0% — 00
+    -->
+
+    <!-- Refer separate file for Fruit Tree Types -->
+
+    <!-- Heritage Site Types : see also DB  -->
+    <color name="heritage_type_color_1">#FFA800</color>
+    <color name="heritage_type_color_2">#098484</color>
+    <color name="heritage_type_color_3">#767777</color>
+    <color name="heritage_type_color_4">#A20045</color>
+    <color name="heritage_type_color_5">#FFFF00</color>
+    <color name="heritage_type_color_6">#157DBC</color>
+    <color name="heritage_type_color_7">#F05F7C</color>
+    <color name="heritage_type_color_8">#000000</color>
+
+    <!-- Public Park Types : see also DB  -->
+    <color name="park_type_color_1">#000000</color>
+    <color name="park_type_color_2">#FFF76A</color>
+    <color name="park_type_color_3">#DA9FF9</color>
+    <color name="park_type_color_4">#FF8E71</color>
+    <color name="park_type_color_5">#54E346</color>
+    <color name="park_type_color_6">#FF0000</color>
+    <color name="park_type_color_7">#6E99B5</color>
+    <color name="park_type_color_8">#C5A880</color>
+
+    <color name="urban_play_gold">#FFC000</color>
+
+</resources>

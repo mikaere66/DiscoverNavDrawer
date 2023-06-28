@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home_button"
+        android:title="@string/home_button"
+        android:icon="@drawable/ic_baseline_home_default_24"/>
+
+    <item
+        android:id="@+id/areas_button"
+        android:title="@string/areas_button"
+        android:icon="@drawable/ic_baseline_area_chart_default_24"/><!--
+        android:enabled="false" -->
+
+    <item
+        android:id="@+id/places_button"
+        android:title="@string/places_button"
+        android:icon="@drawable/ic_baseline_place_default_24"/><!--
+        android:enabled="false" -->
+
+    <item
+        android:id="@+id/routes_button"
+        android:title="@string/routes_button"
+        android:enabled="false"
+        android:icon="@drawable/ic_baseline_route_default_24"/><!-- -->
+
+</menu>

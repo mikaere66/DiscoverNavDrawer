@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="listIndex"
+            type="Integer" />
+        <variable
+            name="multiDayFragment"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.fragments.MultiDayFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/adjacent_root_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/item_card_horizontal_padding"
+        android:paddingEnd="@dimen/item_card_horizontal_padding"
+        tools:showIn="@layout/fragment_multi_day">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/adjacent_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Theme.DiscoverChristchurch.CardView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/adjacent_header_constraint_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/list_item_margin_small"
+                android:padding="@dimen/list_item_padding_small"
+                android:onClick="@{ () -> multiDayFragment.goMultiDayList(listIndex) }"
+                android:onLongClick="@{ () -> multiDayFragment.goMultiDayMap(listIndex) }">
+
+                <ImageView
+                    android:id="@+id/adjacent_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/head_to_head_logo_descr"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@drawable/head_to_head_logo" /><!-- Image set programmatically -->
+
+                <TextView
+                    android:id="@+id/adjacentText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/adjacent_text_margin"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/adjacent_logo"
+                    app:layout_constraintTop_toTopOf="parent"
+                    style="@style/Theme.DiscoverChristchurch.AdjacentText"
+                    tools:text="@string/head_to_head_text" /><!-- Text set programmatically -->
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="batteryRecyclersFragment"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.fragments.BatteryRecyclersFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/fragment_vertical_padding"
+        android:paddingTop="@dimen/fragment_vertical_padding"
+        tools:context=".fragments.BatteryRecyclersFragment">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:animationCache="true"
+            android:clipToPadding="false"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layoutManager="LinearLayoutManager"
+            tools:itemCount="15"
+            tools:listitem="@layout/battery_recycler_item" />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/maps_menu_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/home_menu_fab_vertical_margin"
+            android:layout_marginEnd="@dimen/home_menu_fab_horizontal_margin"
+            android:layout_marginStart="@dimen/home_menu_fab_horizontal_margin"
+            android:contentDescription="@string/view_all_fab"
+            android:onClick="@{ () -> batteryRecyclersFragment.goBatteryRecyclers() }"
+            android:text="@string/extended_fab_basic_all_items"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:icon="@drawable/ic_baseline_map_white_24" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/back_to_top_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/back_to_top_fab_vertical_margin"
+            android:layout_marginEnd="@dimen/back_to_top_fab_horizontal_margin"
+            android:layout_marginStart="@dimen/back_to_top_fab_horizontal_margin"
+            android:contentDescription="@string/back_to_top_fab_descr"
+            android:onClick="@{ () -> batteryRecyclersFragment.backToTop() }"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_baseline_vertical_align_top_white_24"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

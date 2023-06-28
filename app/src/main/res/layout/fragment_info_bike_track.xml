@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="checkBox"
+            type="android.widget.CheckBox"/>
+        <variable
+            name="bikeTrack"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.entities.BikeTrackKt" />
+        <variable
+            name="infoFragment"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.fragments.InfoBikeTrackFragment" />
+        <variable
+            name="isCollapsed"
+            type="java.lang.Boolean" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/info_coordinator_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="?attr/bottomSheetStyle"
+        tools:context=".fragments.InfoBikeTrackFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/info_constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/info_image"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/details_image_height"
+                android:layout_margin="@dimen/info_image_margin"
+                android:backgroundTint="@android:color/transparent"
+                android:contentDescription="@string/locale_image_descr"
+                android:padding="0dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ImageContrastCheck"
+                tools:srcCompat="@tools:sample/avatars" /><!-- -->
+
+            <TextView
+                android:id="@+id/info_title_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{ bikeTrack.track }"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/info_expand_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/info_image"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                style="@style/Theme.DiscoverChristchurch.InfoTitle"
+                tools:text="Bike Track Name" /><!-- Text color set programmatically -->
+
+            <TextView
+                android:id="@+id/info_subtitle_text"
+                style="@style/Theme.DiscoverChristchurch.InfoTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/bike_info_subtitle"
+                app:layout_constraintEnd_toStartOf="@id/info_collapse_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/info_title_text"
+                tools:ignore="TextContrastCheck" /><!-- Text color set programmatically -->
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/info_expand_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/legend_expand_button_margin"
+                android:contentDescription="@string/expand_descr"
+                android:enabled="@{ isCollapsed }"
+                android:onClick="@{ () -> infoFragment.expandCollapseDialog(false) }"
+                app:layout_constraintEnd_toStartOf="@id/info_collapse_button"
+                app:layout_constraintStart_toEndOf="@id/info_title_text"
+                app:layout_constraintTop_toTopOf="@id/info_image"
+                app:srcCompat="@drawable/ic_baseline_expand_more_white_32"
+                style="@style/Theme.DiscoverChristchurch.ImageButton"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/info_collapse_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/collapse_descr"
+                android:onClick="@{ () -> infoFragment.expandCollapseDialog(true) }"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/info_expand_button"
+                app:layout_constraintTop_toTopOf="@id/info_image"
+                app:srcCompat="@drawable/ic_baseline_expand_less_white_32"
+                style="@style/Theme.DiscoverChristchurch.ImageButton"
+                tools:ignore="TouchTargetSizeCheck,ImageContrastCheck" />
+
+            <CheckBox
+                android:id="@+id/info_favourite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/info_fave_check_box_margin"
+                android:button="@drawable/favourite_selector"
+                android:checked="@{ bikeTrack.fave }"
+                android:contentDescription="@string/toggle_fave_descr"
+                android:onClick="@{ () -> infoFragment.toggleFavourite(checkBox, bikeTrack.id) }"
+                app:layout_constraintBottom_toBottomOf="@id/info_image"
+                app:layout_constraintEnd_toEndOf="@id/info_image" /><!-- -->
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/info_scroll_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/info_maxi_scroll_view_padding"
+                android:fillViewport="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/info_image"
+                app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/inner_constraint_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/info_dialog_view_padding"
+                    android:layout_marginEnd="@dimen/info_dialog_horizontal_margin"
+                    android:layout_marginStart="@dimen/info_dialog_horizontal_margin">
+
+                    <include
+                        android:id="@+id/details_layout"
+                        layout="@layout/bike_details_include"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

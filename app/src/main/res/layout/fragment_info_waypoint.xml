@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="discoverViewModel"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.viewmodel.DiscoverViewModel" />
+        <variable
+            name="infoFragment"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.fragments.InfoWaypointFragment" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/info_coordinator_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        style="?attr/bottomSheetStyle"
+        tools:context=".fragments.InfoWaypointFragment"><!-- Was InfoMiniFragment -->
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/legend_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/info_constraint_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/info_dialog_view_padding"
+                android:layout_marginEnd="@dimen/info_dialog_view_padding"
+                android:layout_marginStart="@dimen/info_dialog_view_padding">
+
+                <!-- Street View link uses different theme from other TextViews -->
+                <TextView
+                    android:id="@+id/info_header_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/info_header_text_margin"
+                    android:text="@{ discoverViewModel.currentWaypoint.waypoint }"
+                    app:layout_constraintEnd_toStartOf="@id/info_collapse_button"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    style="@style/Theme.DiscoverChristchurch.InfoHeader"
+                    tools:text="Waypoint Name" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/info_collapse_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/collapse_descr"
+                    android:onClick="@{ () -> infoFragment.expandCollapseDialog(true) }"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_baseline_expand_less_primary_32"
+                    style="@style/Theme.DiscoverChristchurch.ImageButton"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <!-- TextViews -->
+
+                <TextView
+                    android:id="@+id/info_directions_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/info_header_text"
+                    app:drawableStartCompat="@drawable/ic_baseline_description_black_24"
+                    app:directions="@{ discoverViewModel.currentWaypoint }"
+                    style="@style/Theme.DiscoverChristchurch.InfoText"
+                    tools:text="Waypoint Directions"
+                    tools:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/info_conveniences_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/info_directions_text"
+                    app:conveniencesKt="@{ discoverViewModel.currentRoute }"
+                    app:drawableStartCompat="@drawable/ic_baseline_wc_black_24"
+                    style="@style/Theme.DiscoverChristchurch.InfoText"
+                    tools:text="Conveniences Nearby"
+                    tools:visibility="visible" />
+
+                <!-- ImageButton -->
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/info_street_view_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/info_button_margin_medium"
+                    android:layout_marginStart="@dimen/info_button_margin_small"
+                    android:layout_marginTop="@dimen/info_button_margin_large"
+                    android:contentDescription="@string/street_view_descr"
+                    android:onClick="@{ () -> infoFragment.showStreetView() }"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/info_conveniences_text"
+                    app:srcCompat="@drawable/ic_baseline_streetview_black_24"
+                    style="@style/Theme.DiscoverChristchurch.ImageButton" />
+
+                <TextView
+                    android:id="@+id/info_street_view_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/info_text_view_horizontal_margin"
+                    android:layout_marginStart="@dimen/info_text_view_horizontal_margin"
+                    android:padding="@dimen/info_text_view_padding"
+                    android:onClick="@{ () -> infoFragment.showStreetView() }"
+                    android:textColor="@color/text_view_enabled_disabled_selector"
+                    app:layout_constraintBottom_toBottomOf="@id/info_street_view_button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/info_street_view_button"
+                    app:layout_constraintTop_toTopOf="@id/info_street_view_button"
+                    app:infoMiniStreetViewLink="@{ discoverViewModel.currentWaypoint }"
+                    style="@style/Theme.DiscoverChristchurch.GravityStart"
+                    tools:text="@string/street_view_link_a" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

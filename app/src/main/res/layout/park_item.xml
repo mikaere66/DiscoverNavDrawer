@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import
+            type="android.view.View" />
+        <variable
+            name="checkBox"
+            type="android.widget.CheckBox"/>
+        <variable
+            name="clickListener"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.listeners.BasicClickListener" />
+        <variable
+            name="longClickListener"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.listeners.ParkLongListener" />
+        <variable
+            name="park"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.entities.ParkKt" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/item_card_horizontal_padding"
+        android:paddingEnd="@dimen/item_card_horizontal_padding"
+        tools:showIn="@layout/fragment_parks">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/park_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Theme.DiscoverChristchurch.CardView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/park_constraint_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/list_item_margin_medium"
+                android:padding="@dimen/list_item_padding_medium"
+                android:onClick="@{ () -> clickListener.onClick(checkBox, 0L) }"
+                android:onLongClick="@{ () -> longClickListener.onLongClick(park) }">
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/park_barrier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:barrierDirection="start"
+                    app:constraint_referenced_ids="park_perimeter" />
+
+                <ImageView
+                    android:id="@+id/park_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/park_type_descr"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_baseline_nature_people_default_24"
+                    app:parkTypeIconColor="@{ park }"
+                    style="@style/Theme.DiscoverChristchurch.ImageView" />
+
+                <TextView
+                    android:id="@+id/park_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{ park.zStamp > 0L ? View.VISIBLE : View.GONE }"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/park_icon"
+                    app:faveAddedDate="@{ park.zStamp }"
+                    style="@style/Theme.DiscoverChristchurch.CommunityText"
+                    tools:text="@string/date_tools"
+                    tools:visibility="visible" />
+
+                <CheckBox
+                    android:id="@+id/park_favourite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/favourite_selector"
+                    android:checked="@{ park.fave }"
+                    android:contentDescription="@string/toggle_fave_descr"
+                    android:onClick="@{ () -> clickListener.onClick(checkBox, park.id) }"
+                    app:layout_constraintBottom_toTopOf="@id/park_perimeter"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" /><!--
+                    app:layout_constraintBottom_toTopOf="@id/dog_park_barrier_1" -->
+
+<!--
+                <TextView
+                    android:id="@+id/park_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="24/12"
+                    app:layout_constraintBottom_toBottomOf="@id/park_favourite"
+                    app:layout_constraintEnd_toEndOf="@id/park_favourite"
+                    app:layout_constraintStart_toStartOf="@id/park_favourite"
+                    app:layout_constraintTop_toTopOf="@id/park_favourite" />
+-->
+
+<!-- -->
+
+                <TextView
+                    android:id="@+id/park_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{ park.name }"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/park_type"
+                    app:layout_constraintEnd_toStartOf="@id/park_barrier"
+                    app:layout_constraintStart_toEndOf="@id/park_icon"
+                    app:layout_constraintTop_toBottomOf="@id/park_date"
+                    style="@style/Theme.DiscoverChristchurch.CommunityText"
+                    tools:text="Pasadena Reserve" /><!--
+                    android:layout_marginBottom="@dimen/list_item_margin_medium"
+                    android:layout_marginEnd="@dimen/list_item_margin_small"
+                    android:layout_marginStart="@dimen/list_item_margin_medium"
+                    android:layout_marginTop="@dimen/list_item_margin_medium"
+                    android:paddingEnd="@dimen/list_item_padding_small"
+                    android:paddingStart="@dimen/list_item_padding_small"
+                    app:layout_constraintBottom_toTopOf="@id/park_type" -->
+
+                <TextView
+                    android:id="@+id/park_area"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/list_item_margin_medium"
+                    android:layout_marginEnd="@dimen/list_item_margin_small"
+                    android:layout_marginStart="@dimen/list_item_margin_medium"
+                    android:layout_marginTop="@dimen/list_item_margin_medium"
+                    android:paddingEnd="@dimen/list_item_padding_small"
+                    android:paddingStart="@dimen/list_item_padding_small"
+                    app:layout_constraintBottom_toTopOf="@id/park_perimeter"
+                    app:layout_constraintEnd_toStartOf="@id/park_favourite"
+                    app:layout_constraintStart_toStartOf="@id/park_barrier"
+                    app:layout_constraintTop_toBottomOf="@id/park_date"
+                    app:parkArea="@{ park }"
+                    style="@style/Theme.DiscoverChristchurch.GravityStart"
+                    tools:text="Area: 123m" /><!--
+                    app:layout_constraintStart_toEndOf="@id/park_name"
+                    style="@style/Theme.DiscoverChristchurch.GravityEndTop" -->
+
+<!-- -->
+
+                <TextView
+                    android:id="@+id/park_type"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{ park.type }"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/park_perimeter"
+                    app:layout_constraintStart_toEndOf="@id/park_icon"
+                    app:layout_constraintTop_toBottomOf="@id/park_name"
+                    style="@style/Theme.DiscoverChristchurch.CommunityText"
+                    tools:text="Local/Community Park" /><!--
+                    android:layout_marginBottom="@dimen/list_item_margin_medium"
+                    android:layout_marginEnd="@dimen/list_item_margin_medium"
+                    android:layout_marginStart="@dimen/list_item_margin_small"
+                    android:layout_marginTop="@dimen/list_item_margin_medium"
+                    android:paddingEnd="@dimen/list_item_padding_small"
+                    android:paddingStart="@dimen/list_item_padding_small" -->
+
+                <TextView
+                    android:id="@+id/park_perimeter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/list_item_margin_medium"
+                    android:layout_marginEnd="@dimen/list_item_margin_large"
+                    android:layout_marginStart="@dimen/list_item_margin_small"
+                    android:layout_marginTop="@dimen/list_item_margin_medium"
+                    android:paddingEnd="@dimen/list_item_padding_small"
+                    android:paddingStart="@dimen/list_item_padding_small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/park_barrier"
+                    app:layout_constraintBaseline_toBaselineOf="@id/park_type"
+                    app:parkPerimeter="@{ park }"
+                    tools:text="Perimeter: 456m" /><!--
+                    style="@style/Theme.DiscoverChristchurch.GravityEndTop"
+                    app:layout_constraintEnd_toStartOf="@id/park_favourite" -->
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

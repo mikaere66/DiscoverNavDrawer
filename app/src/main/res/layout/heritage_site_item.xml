@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import
+            type="android.view.View" />
+        <variable
+            name="checkBox"
+            type="android.widget.CheckBox"/>
+        <variable
+            name="clickListener"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.listeners.HeritageSiteListener" />
+        <variable
+            name="longClickListener"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.listeners.HeritageSiteLongListener" />
+        <variable
+            name="heritageSite"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.entities.HeritageSiteKt" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/item_card_horizontal_padding"
+        android:paddingEnd="@dimen/item_card_horizontal_padding"
+        tools:showIn="@layout/fragment_heritage_sites">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/heritage_site_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Theme.DiscoverChristchurch.CardView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/heritage_site_constraint_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/list_item_margin_medium"
+                android:padding="@dimen/list_item_padding_medium"
+                android:onClick="@{ () -> clickListener.onClick(checkBox, heritageSite, 0) }"
+                android:onLongClick="@{ () -> longClickListener.onLongClick(heritageSite) }">
+
+                <ImageView
+                    android:id="@+id/heritage_site_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/heritage_site_descr"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    style="@style/Theme.DiscoverChristchurch.ImageView"
+                    tools:srcCompat="@drawable/ic_baseline_history_black_24" />
+
+                <TextView
+                    android:id="@+id/heritage_site_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{ heritageSite.zStamp > 0L ? View.VISIBLE : View.GONE }"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/heritage_site_image"
+                    app:faveAddedDate="@{ heritageSite.zStamp }"
+                    style="@style/Theme.DiscoverChristchurch.CommunityText"
+                    tools:text="@string/date_tools"
+                    tools:visibility="visible" />
+
+                <CheckBox
+                    android:id="@+id/heritage_site_favourite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/favourite_selector"
+                    android:checked="@{ heritageSite.fave }"
+                    android:contentDescription="@string/toggle_fave_descr"
+                    android:onClick="@{ () -> clickListener.onClick(checkBox, heritageSite, 1) }"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/heritage_site_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{ heritageSite.name }"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/heritage_site_address"
+                    app:layout_constraintEnd_toStartOf="@id/heritage_site_favourite"
+                    app:layout_constraintStart_toEndOf="@id/heritage_site_image"
+                    app:layout_constraintTop_toBottomOf="@id/heritage_site_date"
+                    style="@style/Theme.DiscoverChristchurch.CommunityText"
+                    tools:text="Godley House" />
+
+                <TextView
+                    android:id="@+id/heritage_site_address"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{ heritageSite.address }"
+                    app:layout_constraintBottom_toTopOf="@id/heritage_site_type"
+                    app:layout_constraintEnd_toStartOf="@id/heritage_site_favourite"
+                    app:layout_constraintStart_toEndOf="@id/heritage_site_image"
+                    app:layout_constraintTop_toBottomOf="@id/heritage_site_name"
+                    style="@style/Theme.DiscoverChristchurch.CommunityText"
+                    tools:text="Waipapa Avenue, Diamond Harbour" />
+
+                <TextView
+                    android:id="@+id/heritage_site_type"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{ @string/generic_item_type(heritageSite.type) }"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/heritage_site_favourite"
+                    app:layout_constraintStart_toEndOf="@id/heritage_site_image"
+                    app:layout_constraintTop_toBottomOf="@id/heritage_site_address"
+                    style="@style/Theme.DiscoverChristchurch.CommunityText"
+                    tools:text="Type: Archaeological Site" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

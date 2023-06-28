@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import
+            type="android.view.View" />
+        <variable
+            name="clickListener"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.adapters.WaypointListener" />
+        <variable
+            name="descriptionVisible"
+            type="java.lang.Boolean" />
+        <variable
+            name="longClickListener"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.adapters.WaypointLongListener" />
+        <variable
+            name="waypoint"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.entities.WaypointKt" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="@dimen/item_card_horizontal_padding"
+        android:paddingEnd="@dimen/item_card_horizontal_padding"
+        android:paddingBottom="@dimen/item_card_vertical_padding"
+        tools:showIn="@layout/activity_waypoints">
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/horizontal_barrier_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="waypoint_arrow" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/horizontal_barrier_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="waypoint_arrow, waypoint_title" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/horizontal_barrier_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="waypoint_arrow, waypoint_title, waypoint_subtitle" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/horizontal_barrier_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:barrierDirection="top"
+            app:constraint_referenced_ids="waypoint_info_button" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/waypoint_arrow"
+            style="@style/Theme.DiscoverChristchurch.ImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/list_item_margin_large"
+            android:onClick="@{ () -> clickListener.onClick(0, waypoint) }"
+            android:onLongClick="@{ () -> longClickListener.onLongClick(0, waypoint) }"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread_inside"
+            app:waypointArrowLandscape="@{ waypoint }"
+            tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck"
+            tools:srcCompat="@drawable/ic_baseline_arrow_circle_down_default_24"
+            tools:tint="@color/color_green" /><!-- Content description set programmatically -->
+
+        <!-- TextViews -->
+
+        <TextView
+            android:id="@+id/waypoint_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/list_item_margin_large"
+            android:minLines="2"
+            android:text="@{ waypoint.waypoint }"
+            android:textColor="?attr/colorPrimary"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/horizontal_barrier_1"
+            style="@style/Theme.DiscoverChristchurch.GravityStartTop"
+            tools:text="@string/waypoint_title" />
+
+        <TextView
+            android:id="@+id/waypoint_subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/list_item_margin_large"
+            android:text="@{ waypoint.subtitle }"
+            android:textColor="?attr/colorSecondaryVariant"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/horizontal_barrier_2"
+            style="@style/Theme.DiscoverChristchurch.GravityStartTop"
+            tools:ignore="TextContrastCheck"
+            tools:layout_margin="8dp"
+            tools:text="@string/waypoint_subtitle" />
+
+        <TextView
+            android:id="@+id/waypoint_directions"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/list_item_margin_large"
+            android:text="@{ waypoint.directions }"
+            android:visibility="@{ descriptionVisible ? View.VISIBLE : View.GONE }"
+            app:layout_constraintBottom_toTopOf="@id/horizontal_barrier_4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/horizontal_barrier_3"
+            style="@style/Theme.DiscoverChristchurch.GravityStart"
+            tools:text="@string/waypoint_directions" />
+            <!-- descriptionVisible refers to isXLargeScreen() set in adapter -->
+
+        <!-- ImageButtons -->
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/waypoint_info_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/image_button_margin_medium"
+            android:layout_marginEnd="@dimen/image_button_margin_small"
+            android:layout_marginStart="@dimen/image_button_margin_medium"
+            android:contentDescription="@string/waypoint_info_descr"
+            android:onClick="@{ () -> clickListener.onClick(1, waypoint) }"
+            android:onLongClick="@{ () -> longClickListener.onLongClick(1, waypoint) }"
+            app:layout_constraintBottom_toTopOf="@id/waypoint_zoom_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_outline_info_black_24"
+            style="@style/Theme.DiscoverChristchurch.ImageButton" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/waypoint_zoom_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/image_button_margin_small"
+            android:layout_marginStart="@dimen/image_button_margin_small"
+            android:contentDescription="@string/zoom_descr"
+            android:onClick="@{ () -> clickListener.onClick(2, waypoint) }"
+            android:onLongClick="@{ () -> longClickListener.onLongClick(2, waypoint) }"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_baseline_zoom_in_map_black_24"
+            style="@style/Theme.DiscoverChristchurch.ImageButton" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

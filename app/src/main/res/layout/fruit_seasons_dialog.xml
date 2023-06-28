@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<!--
+    <data>
+        <variable
+            name="fruitTypesFragment"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.fragments.FruitTypesFragment" />
+    </data>
+-->
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/fruit_seasons_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/common_dialog_horizontal_padding"
+        android:paddingEnd="@dimen/common_dialog_horizontal_padding"
+        android:fillViewport="true"
+        tools:showIn="@layout/fragment_fruit_types">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fruit_seasons_constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"><!--  -->
+
+            <TextView
+                android:id="@+id/fruit_seasons_header"
+                style="@style/Theme.DiscoverChristchurch.GravityStart"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/common_dialog_horizontal_margin"
+                android:layout_marginTop="@dimen/common_dialog_vertical_margin"
+                android:layout_marginEnd="@dimen/common_dialog_horizontal_margin"
+                android:drawablePadding="6.5dp"
+                android:gravity="center_vertical"
+                android:text="@string/menu_filter_by_sea"
+                android:textColor="@color/icon_surface"
+                android:textSize="18.5sp"
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/baseline_calendar_month_black_32"
+                app:layout_constraintBottom_toTopOf="@id/fruit_seasons_message"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" /><!--  -->
+
+            <TextView
+                android:id="@+id/fruit_seasons_message"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/common_dialog_horizontal_margin"
+                android:layout_marginStart="@dimen/common_dialog_horizontal_margin"
+                android:layout_marginTop="@dimen/list_item_margin_large"
+                android:text="@string/fruit_trees_message"
+                app:layout_constraintBottom_toTopOf="@id/fruit_seasons_note"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fruit_seasons_header"
+                style="@style/Theme.DiscoverChristchurch.GravityStart" />
+
+            <TextView
+                android:id="@+id/fruit_seasons_note"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/common_dialog_horizontal_margin"
+                android:layout_marginStart="@dimen/common_dialog_horizontal_margin"
+                android:layout_marginTop="@dimen/list_item_margin_large"
+                app:layout_constraintBottom_toTopOf="@id/fruit_seasons_radio_group"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fruit_seasons_message"
+                style="@style/Theme.DiscoverChristchurch.GravityStart"
+                tools:text="@string/fruit_trees_note" />
+
+            <android.widget.RadioGroup
+                android:id="@+id/fruit_seasons_radio_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/common_dialog_horizontal_margin"
+                android:layout_marginStart="@dimen/common_dialog_horizontal_margin"
+                app:layout_constraintBottom_toTopOf="@id/fruit_seasons_applied_to_all"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fruit_seasons_radio_group">
+                <RadioButton
+                    android:id="@+id/fruit_season_summer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/baseline_wb_sunny_yellow_24"
+                    android:text="@string/fruit_trees_summer"
+                    style="@style/Theme.DiscoverChristchurch.SeasonsRadioGroup.RadioButton" /><!-- 
+                    android:button="@null"
+                    android:drawablePadding="8dp" -->
+                <RadioButton
+                    android:id="@+id/fruit_season_autumn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/baseline_energy_savings_leaf_brown_24"
+                    android:text="@string/fruit_trees_autumn"
+                    style="@style/Theme.DiscoverChristchurch.SeasonsRadioGroup.RadioButton" />
+                <RadioButton
+                    android:id="@+id/fruit_season_winter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/baseline_severe_cold_blue_24"
+                    android:text="@string/fruit_trees_winter"
+                    style="@style/Theme.DiscoverChristchurch.SeasonsRadioGroup.RadioButton" />
+                <RadioButton
+                    android:id="@+id/fruit_season_spring"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/baseline_local_florist_magenta_24"
+                    android:text="@string/fruit_trees_spring"
+                    style="@style/Theme.DiscoverChristchurch.SeasonsRadioGroup.RadioButton" />
+            </android.widget.RadioGroup>
+
+            <TextView
+                android:id="@+id/fruit_seasons_applied_to_all"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/common_dialog_horizontal_margin"
+                android:layout_marginStart="@dimen/common_dialog_horizontal_margin"
+                android:layout_marginTop="@dimen/list_item_margin_large"
+                android:text="@string/db_applied_to_all"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fruit_seasons_radio_group"
+                style="@style/Theme.DiscoverChristchurch.GravityStart" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

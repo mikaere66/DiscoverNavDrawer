@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"><!--
+    xmlns:tools="http://schemas.android.com/tools" -->
+
+    <!-- Enabled state set programmatically for ALL menu items -->
+    <item
+        android:id="@+id/menu_show_all"
+        android:enabled="false"
+        android:icon="@drawable/ic_baseline_zoom_out_map_white_24"
+        android:title="@string/menu_show_all"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/menu_show_location"
+        android:checkable="true"
+        android:enabled="false"
+        android:title="@string/menu_show_location"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_show_zoom"
+        android:checkable="true"
+        android:enabled="false"
+        android:title="@string/menu_show_zoom"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_layers"
+        android:enabled="false"
+        android:icon="@drawable/ic_baseline_layers_white_24"
+        android:title="@string/menu_layers"
+        app:showAsAction="ifRoom" /><!-- Note: Out of order -->
+
+<!--
+    <item
+        android:id="@+id/menu_show_hide"
+        android:title="@string/menu_show"
+        android:visible="false"
+        app:showAsAction="never"
+        tools:visible="true" />
+
+    <item
+        android:id="@+id/menu_show_linked"
+        android:checkable="true"
+        android:enabled="false"
+        android:title="@string/menu_show_linked"
+        app:showAsAction="never" />
+-->
+
+</menu>

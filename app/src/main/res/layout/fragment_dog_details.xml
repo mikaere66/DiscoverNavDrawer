@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import
+            type="android.text.TextUtils"/>
+        <import
+            type="android.view.View" />
+        <variable
+            name="dogDetailsFragment"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.fragments.DogDetailsFragment" />
+        <variable
+            name="dogPark"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.entities.DogParkKt" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="false"
+        android:scrollbars="none"
+        tools:context=".fragments.DogDetailsFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/dog_park_constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/details_fragment_padding_bottom"
+            android:paddingTop="@dimen/details_fragment_padding_top">
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/dog_park_barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:barrierDirection="end"
+                app:constraint_referenced_ids="dog_park_access_icon, dog_park_description_icon, dog_park_linked_icon, dog_park_facilities_icon, dog_park_note_icon" />
+
+            <ImageView
+                android:id="@+id/dog_park_access_icon"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:contentDescription="@null"
+                android:visibility="@{ TextUtils.isEmpty(dogPark.startPoint) ? View.GONE : View.VISIBLE }"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_outline_directions_car_black_24"
+                style="@style/Theme.DiscoverChristchurch.DetailsIcon"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/dog_park_access_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/dog_park_barrier"
+                app:layout_constraintTop_toTopOf="@id/dog_park_access_icon"
+                app:accessText="@{ dogPark }"
+                style="@style/Theme.DiscoverChristchurch.DetailsSingleLine"
+                tools:text="Access off * Road"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/dog_park_description_icon"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:contentDescription="@null"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dog_park_access_text"
+                app:srcCompat="@drawable/ic_outline_description_black_24"
+                style="@style/Theme.DiscoverChristchurch.DetailsIcon" />
+
+            <TextView
+                android:id="@+id/dog_park_description_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{ dogPark.dogInfo }"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/dog_park_barrier"
+                app:layout_constraintTop_toTopOf="@id/dog_park_description_icon"
+                style="@style/Theme.DiscoverChristchurch.DetailsMultiLine"
+                tools:text="Dog Park Description" />
+
+            <ImageView
+                android:id="@+id/dog_park_facilities_icon"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:contentDescription="@null"
+                android:visibility="@{ TextUtils.isEmpty(dogPark.dogFacilities) ? View.GONE : View.VISIBLE }"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dog_park_description_text"
+                app:srcCompat="@drawable/ic_outline_fact_check_black_24"
+                style="@style/Theme.DiscoverChristchurch.DetailsIcon"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/dog_park_facilities_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/dog_park_barrier"
+                app:layout_constraintTop_toTopOf="@id/dog_park_facilities_icon"
+                app:facilitiesText="@{ dogPark }"
+                style="@style/Theme.DiscoverChristchurch.DetailsMultiLine"
+                tools:text="Dog Park Facilities"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/dog_park_note_icon"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:contentDescription="@null"
+                android:visibility="@{ TextUtils.isEmpty(dogPark.dogNote) ? View.GONE : View.VISIBLE }"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dog_park_facilities_text"
+                app:srcCompat="@drawable/ic_baseline_notes_black_24"
+                style="@style/Theme.DiscoverChristchurch.DetailsIcon"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/dog_park_note_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/dog_park_barrier"
+                app:layout_constraintTop_toTopOf="@id/dog_park_note_icon"
+                app:noteText="@{ dogPark }"
+                style="@style/Theme.DiscoverChristchurch.DetailsMultiLine"
+                tools:text="Dog Park Note"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/dog_park_linked_icon"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:contentDescription="@null"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dog_park_note_text"
+                app:srcCompat="@drawable/ic_baseline_link_black_24"
+                style="@style/Theme.DiscoverChristchurch.DetailsIcon"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/dog_park_linked_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:onClick="@{ () -> dogDetailsFragment.processOnClick() }"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintEnd_toStartOf="@id/dog_park_toggle_button"
+                app:layout_constraintStart_toEndOf="@id/dog_park_barrier"
+                app:layout_constraintTop_toTopOf="@id/dog_park_linked_icon"
+                style="@style/Theme.DiscoverChristchurch.DetailsMultiLine"
+                tools:text="Linked tracks/routes (show):"
+                tools:visibility="visible" /><!-- Text set programmatically -->
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/dog_park_toggle_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:backgroundTint="@android:color/transparent"
+                android:contentDescription="@string/expand_descr"
+                android:minWidth="@dimen/image_button_width_height"
+                android:minHeight="@dimen/image_button_width_height"
+                android:onClick="@{ () -> dogDetailsFragment.processOnClick() }"
+                android:src="@drawable/ic_baseline_code_rotated_primary_32"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/dog_park_linked_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/dog_park_linked_text"
+                tools:ignore="TouchTargetSizeCheck,ImageContrastCheck"
+                tools:visibility="visible" />
+
+            <!-- Note that margins & padding need to be SAME as DetailsText theme -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dog_park_linked_constraint_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/details_text_horizontal_margin"
+                android:layout_marginStart="@dimen/details_text_horizontal_margin"
+                android:paddingEnd="@dimen/details_text_horizontal_padding"
+                android:paddingStart="@dimen/details_text_horizontal_padding"
+                android:animateLayoutChanges="true"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/dog_park_barrier"
+                app:layout_constraintTop_toBottomOf="@id/dog_park_linked_text"
+                tools:visibility="visible">
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/dog_park_toggle_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    tools:visibility="visible"/><!-- Referenced views added programmatically -->
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+</layout>

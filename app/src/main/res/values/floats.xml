@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources><!-- See also values-land -->
+
+    <item name="bike_tracks_initial_zoom" format="float" type="dimen">10.46</item>
+
+    <item name="common_initial_zoom" format="float" type="dimen">9.753428</item>
+
+    <item name="conveniences_initial_zoom" format="float" type="dimen">9.438135</item>
+
+    <item name="dog_parks_initial_zoom" format="float" type="dimen">9.643968</item>
+
+    <item name="facilities_initial_zoom" format="float" type="dimen">9.650034</item>
+
+    <item name="street_art_initial_zoom" format="float" type="dimen">9.957252</item>
+
+</resources>

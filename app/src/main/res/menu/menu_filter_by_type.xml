@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Used in Conveniences|DogParks|Facilities|Fountains|HeritageSites|Parks fragments -->
+    <item
+        android:id="@+id/menu_filter_by_type"
+        android:icon="@drawable/ic_outline_filter_alt_white_24"
+        android:title="@string/menu_filter_by_type"
+        app:showAsAction="ifRoom" />
+
+</menu>

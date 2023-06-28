@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_name"
+            android:title="@string/menu_name"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/menu_accessibility"
+            android:title="@string/menu_accessibility"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/menu_dogs_ok"
+            android:title="@string/menu_dogs_ok"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/menu_shared"
+            android:title="@string/menu_shared"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/menu_transport"
+            android:title="@string/menu_transport"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/menu_time"
+            android:title="@string/menu_time"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/menu_distance"
+            android:title="@string/menu_distance"
+            app:showAsAction="never" />
+    </group>
+    <!-- An id is required to show a divider -->
+    <group android:id="@+id/menu_bottom">
+        <!-- showAsAction set programmatically, IF landscape -->
+        <item
+            android:id="@+id/menu_sort_order"
+            android:checkable="true"
+            android:title="@string/menu_sort_asc"
+            app:showAsAction="never"
+            tools:icon="@drawable/ic_baseline_sort_white_24">
+        </item>
+    </group>
+
+</menu>

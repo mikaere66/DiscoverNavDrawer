@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import
+            type="android.view.View" />
+        <variable
+            name="discoverViewModel"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.viewmodel.DiscoverViewModel" />
+        <variable
+            name="infoFragment"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.fragments.InfoChCh362Fragment" />
+        <variable
+            name="isCollapsed"
+            type="java.lang.Boolean" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/info_coordinator_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        style="?attr/bottomSheetStyle"
+        tools:context=".fragments.InfoChCh362Fragment"><!-- Was InfoMegaFragment -->
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/legend_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/info_constraint_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/info_dialog_view_padding"
+                android:layout_marginEnd="@dimen/info_dialog_view_padding"
+                android:layout_marginStart="@dimen/info_dialog_view_padding">
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/info_toggle_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    app:constraint_referenced_ids="info_description_toggle_text"/>
+
+                <!-- Street View link uses different theme from other TextViews -->
+                <TextView
+                    android:id="@+id/info_header_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/info_header_text_margin"
+                    android:text="@{ discoverViewModel.chCh360Item.leg }"
+                    app:layout_constraintEnd_toStartOf="@id/info_expand_button"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    style="@style/Theme.DiscoverChristchurch.InfoHeader"
+                    tools:text="Route Name" />
+
+            <!-- ImageButtons -->
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/info_expand_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/legend_expand_button_margin"
+                    android:contentDescription="@string/expand_descr"
+                    android:enabled="@{ isCollapsed }"
+                    android:onClick="@{ () -> infoFragment.expandCollapseDialog(false) }"
+                    app:layout_constraintEnd_toStartOf="@id/info_collapse_button"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_baseline_expand_more_primary_32"
+                    app:tint="@color/legend_enabled_disabled_selector"
+                    style="@style/Theme.DiscoverChristchurch.ImageButton"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/info_collapse_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/collapse_descr"
+                    android:onClick="@{ () -> infoFragment.expandCollapseDialog(true) }"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_baseline_expand_less_primary_32"
+                    style="@style/Theme.DiscoverChristchurch.ImageButton"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <!-- TextViews -->
+
+                <TextView
+                    android:id="@+id/info_intro_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{ discoverViewModel.chCh360Item.intro }"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/info_header_text"
+                    app:drawableStartCompat="@drawable/ic_outline_info_black_24"
+                    style="@style/Theme.DiscoverChristchurch.InfoText"
+                    tools:text="Route Introduction" />
+
+                <TextView
+                    android:id="@+id/info_start_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{ discoverViewModel.chCh360Item.start }"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/info_intro_text"
+                    app:drawableStartCompat="@drawable/ic_baseline_start_black_24"
+                    style="@style/Theme.DiscoverChristchurch.InfoText"
+                    tools:text="Route Start Point" />
+
+                <TextView
+                    android:id="@+id/info_finish_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{ discoverViewModel.chCh360Item.finish }"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/info_start_text"
+                    app:drawableStartCompat="@drawable/ic_baseline_start_rotated_black_24"
+                    style="@style/Theme.DiscoverChristchurch.InfoText"
+                    tools:text="Route End Point" />
+
+                <ImageView
+                    android:id="@+id/info_ch_ch_360_leg_color"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/ch_ch_360_leg_color_height"
+                    android:layout_marginEnd="@dimen/info_image_view_end_margin"
+                    android:layout_marginStart="@dimen/info_image_view_start_margin"
+                    android:layout_marginTop="@dimen/info_image_view_vertical_margin"
+                    tools:background="@drawable/ch_ch_360_leg_color"
+                    android:contentDescription="@string/ch_ch_360_leg_color_descr"
+                    app:chCh360BackgroundColor="@{ discoverViewModel.chCh360Item }"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/info_finish_text"
+                    tools:ignore="ImageContrastCheck" />
+
+                <TextView
+                    android:id="@+id/info_description_header"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ch_ch_360_description_leg"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@id/info_description_more_less"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/info_ch_ch_360_leg_color"
+                    app:drawableStartCompat="@drawable/ic_outline_description_black_24"
+                    style="@style/Theme.DiscoverChristchurch.InfoText"
+                    tools:text="Description Header" />
+
+                <TextView
+                    android:id="@+id/info_description_more_less"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ch_ch_360_more"
+                    app:layout_constraintEnd_toEndOf="@id/info_description_toggle_button"
+                    app:layout_constraintStart_toStartOf="@id/info_description_toggle_button"
+                    app:layout_constraintBaseline_toBaselineOf="@id/info_description_header" />
+
+                <TextView
+                    android:id="@+id/info_description_static_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@id/info_description_toggle_button"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/info_description_header"
+                    app:drawableStartCompat="@drawable/ic_outline_description_black_24"
+                    app:drawableTint="@android:color/transparent"
+                    app:infoMegaStatic="@{ discoverViewModel.chCh360Item }"
+                    style="@style/Theme.DiscoverChristchurch.InfoText"
+                    tools:text="Route Description, First Paragraph" /><!-- Note dummy icon placeholder -->
+
+                <!-- Expandable -->
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/info_description_toggle_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:backgroundTint="@android:color/transparent"
+                    android:contentDescription="@string/expand_descr"
+                    android:minWidth="@dimen/image_button_width_height"
+                    android:minHeight="@dimen/image_button_width_height"
+                    android:onClick="@{ () -> infoFragment.processOnClick() }"
+                    android:padding="@dimen/info_drawable_padding"
+                    android:src="@drawable/ic_baseline_code_rotated_primary_32"
+                    app:layout_constraintBottom_toBottomOf="@id/info_description_static_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/info_description_static_text"
+                    app:layout_constraintTop_toTopOf="@id/info_description_static_text"
+                    tools:ignore="TouchTargetSizeCheck,ImageContrastCheck" />
+
+                <TextView
+                    android:id="@+id/info_description_toggle_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/info_description_static_text"
+                    app:drawableStartCompat="@drawable/ic_outline_description_black_24"
+                    app:drawableTint="@android:color/transparent"
+                    app:infoMegaToggled="@{ discoverViewModel.chCh360Item }"
+                    style="@style/Theme.DiscoverChristchurch.InfoBaseText"
+                    tools:text="Route Description, Subsequent" /><!-- Note dummy icon placeholder -->
+
+                <!-- ImageButton -->
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/info_street_view_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/info_button_margin_medium"
+                    android:layout_marginStart="@dimen/info_button_margin_small"
+                    android:layout_marginTop="@dimen/info_button_margin_large"
+                    android:contentDescription="@string/street_view_descr"
+                    android:onClick="@{ () -> infoFragment.showStreetView() }"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/info_description_toggle_text"
+                    app:srcCompat="@drawable/ic_baseline_streetview_black_24"
+                    style="@style/Theme.DiscoverChristchurch.ImageButton" />
+
+                <TextView
+                    android:id="@+id/info_street_view_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/info_text_view_horizontal_margin"
+                    android:layout_marginStart="@dimen/info_text_view_horizontal_margin"
+                    android:padding="@dimen/info_text_view_padding"
+                    android:onClick="@{ () -> infoFragment.showStreetView() }"
+                    android:textColor="@color/text_view_enabled_disabled_selector"
+                    app:layout_constraintBottom_toBottomOf="@id/info_street_view_button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/info_street_view_button"
+                    app:layout_constraintTop_toTopOf="@id/info_street_view_button"
+                    app:infoMegaStreetViewLink="@{ discoverViewModel.chCh360Item }"
+                    style="@style/Theme.DiscoverChristchurch.GravityStart"
+                    tools:text="@string/street_view_link_a" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

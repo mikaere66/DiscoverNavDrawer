@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="area"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.entities.AreaKt" />
+        <variable
+            name="clickListener"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.adapters.AreaListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/item_card_horizontal_padding"
+        android:paddingEnd="@dimen/item_card_horizontal_padding"
+        tools:showIn="@layout/fragment_areas">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/item_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Theme.DiscoverChristchurch.CardView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/area_constraint_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/list_item_margin_small"
+                android:padding="@dimen/list_item_padding_small"
+                android:onClick="@{ () -> clickListener.onClick(area) }">
+
+                <ImageView
+                    android:id="@+id/area_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/area_descr"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_baseline_area_chart_black_24"
+                    style="@style/Theme.DiscoverChristchurch.ImageView" />
+
+                <TextView
+                    android:id="@+id/area_route"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/list_item_margin_small"
+                    android:text="@{ area.area }"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/area_quantities"
+                    app:layout_constraintEnd_toStartOf="@id/area_dogs"
+                    app:layout_constraintStart_toEndOf="@id/area_icon"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Area Name" />
+
+                <TextView
+                    android:id="@+id/area_quantities"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/list_item_margin_small"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/area_accessibility"
+                    app:layout_constraintStart_toEndOf="@id/area_icon"
+                    app:layout_constraintTop_toBottomOf="@id/area_route"
+                    app:areaQuantities="@{ area }"
+                    tools:text="6 Places | 6 Routes" />
+
+                <ImageView
+                    android:id="@+id/area_accessibility"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="@dimen/indicator_padding_medium"
+                    android:paddingStart="@dimen/indicator_padding_large"
+                    android:contentDescription="@string/accessibility_descr"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/area_dogs"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:areaAccessibilityIcon="@{ area.accessible }"
+                    app:srcCompat="@drawable/ic_baseline_accessible_default_18"
+                    style="@style/Theme.DiscoverChristchurch.StatusIcon.Normal" />
+
+                <ImageView
+                    android:id="@+id/area_dogs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="@dimen/indicator_padding_medium"
+                    android:paddingStart="@dimen/indicator_padding_medium"
+                    android:contentDescription="@string/dogs_descr"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/area_shared"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:areaPlaceDogsAllowedColor="@{ area.dogs }"
+                    app:srcCompat="@drawable/ic_baseline_pets_default_18"
+                    style="@style/Theme.DiscoverChristchurch.StatusIcon.Normal" />
+
+                <ImageView
+                    android:id="@+id/area_shared"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="@dimen/indicator_padding_medium"
+                    android:paddingStart="@dimen/indicator_padding_medium"
+                    android:contentDescription="@string/shared_descr"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/area_transport"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:areaPlaceSharedUseColor="@{ area.shared }"
+                    app:srcCompat="@drawable/ic_baseline_bike_scooter_default_18"
+                    style="@style/Theme.DiscoverChristchurch.StatusIcon.Normal" />
+
+                <ImageView
+                    android:id="@+id/area_transport"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="@dimen/indicator_padding_medium"
+                    android:paddingStart="@dimen/indicator_padding_medium"
+                    android:contentDescription="@string/transport_descr"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/area_linked"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:areaPlaceTransportReqdColor="@{ area.transport }"
+                    app:srcCompat="@drawable/ic_baseline_directions_bus_default_18"
+                    style="@style/Theme.DiscoverChristchurch.StatusIcon.Normal" />
+
+                <ImageView
+                    android:id="@+id/area_linked"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="@dimen/indicator_padding_medium"
+                    android:paddingStart="@dimen/indicator_padding_medium"
+                    android:contentDescription="@string/linked_descr"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:areaPlaceLinkedRoutesColor="@{ area.linked }"
+                    app:srcCompat="@drawable/ic_baseline_link_default_24"
+                    style="@style/Theme.DiscoverChristchurch.StatusIcon.Normal" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

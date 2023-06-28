@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="legend_header">Common Icons</string>
+    <string name="legend_header_home">Community Items</string>
+    <string name="legend_community_filter">Filter by Category/Type</string>
+    <string name="legend_community_filter_off">Filter currently Active</string>
+    <string name="legend_community_search">Search list by Name</string>
+    <string name="legend_header_routes">Areas &#187; Places &#187; Routes</string>
+    <string name="legend_sort">Sort by Menu (also Asc/Desc) &#8230;\nIcon
+        varies, showing current sort</string><!-- See also values-land -->
+    <string name="legend_sort_asc">Indicates current sort order
+        (Ascending)\n&#8230; only shown in landscape mode</string>
+    <string name="legend_sort_desc">Tap to toggle (Descending order)</string>
+
+    <string name="legend_linked_multi">Multiple linked routes</string>
+
+    <string name="legend_header_maps">Most Maps</string>
+
+    <string name="legend_header_details">Detailed Info</string>
+    <string name="details_start">Start point</string>
+    <string name="details_finish">Finish point</string>
+    <string name="details_conveniences">Conveniences nearby, if applicable</string>
+    <string name="details_dogs">Additional dog info</string>
+
+    <string name="journey_types">Distance/Duration</string>
+           <string name="journey_one_way_basic">Distance/duration for basic One Way trip</string>
+    <string name="journey_one_way_extended">Distance/duration for extended One Way</string>
+                   <string name="journey_round_trip">Distance/duration for a Return/round trip</string>
+    <string name="journey_extended_note_a">Extended simply refers to
+        the amount of info shown as you navigate the track/route</string>
+    <string name="journey_extended_note_b">Extended</string>
+    <string name="icon_intro_1a">Note: for areas/places lists, icon state
+        indicates that some tracks/routes may allow for this activity;</string>
+    <string name="icon_intro_1b">some</string>
+    <string name="icon_intro_2a">whereas, for track/route lists,
+        the icon\'s state refers to that specific track/route</string>
+    <string name="icon_intro_2b">that specific</string>
+    <string name="icon_types">Indicator Icon Types</string>
+    <string name="maps_markers_colors">Maps/marker Colours (map dependent)</string>
+    <string name="toggle_markers">Toggle Markers</string>
+    <string name="toggle_polylines">Toggle Polylines</string>
+    <string name="map_info">Map Specific Buttons</string><!-- See also strings.xml -->
+
+    <string name="polylines">Polyline Colours</string>
+    <string name="polyline_track">Walking tracks</string>
+    <string name="polyline_shared">Shared use</string>
+    <string name="polyline_boundary">Boundary tracks
+        (map-type dependent)\nBlack on Normal and Terrain
+        maps\nWhite on Hybrid and Satellite maps</string>
+
+    <string name="street_names">Street View Buttons</string>
+    <string name="street_view">Street View for Waypoint</string>
+
+    <!-- CONTENT DESCRIPTIONS -->
+    <string name="inaccessible_descr">Not wheelchair or pram friendly</string>
+    <string name="stroller_descr">Tracks/routes are pram friendly</string>
+    <string name="accessible_descr">Wheelchair and pram friendly</string>
+    <string name="accessibility_text">Tracks/routes are inaccessible | prams only | accessible</string>
+
+    <string name="no_dogs_descr">Dogs prohibited</string>
+    <string name="dogs_leash_descr">Dogs are allowed, on leash only</string>
+    <string name="dogs_controlled_descr">Dogs under effective control only</string>
+    <string name="dogs_text">Dogs prohibited | allowed on leash only | allowed under effective control</string>
+
+    <string name="not_shared_descr">Not for shared use</string>
+    <string name="some_shared_descr">Some shared use</string>
+    <string name="all_shared_descr">All for shared use</string>
+    <string name="shared_text">None of the tracks/routes are shared use | some shared use | all shared use </string>
+
+         <string name="no_buses_descr">No tracks/routes accessible via public transport</string>
+    <string name="some_buses_descr">Some tracks/routes accessible via public transport</string>
+             <string name="bus_ok_descr">All tracks/routes accessible via public transport</string>
+    <string name="buses_text">No tracks/routes accessible via public transport | some are | all are</string>
+
+         <string name="no_linked_descr">No tracks/routes have links</string>
+    <string name="some_linked_descr">Some tracks/routes have links</string>
+             <string name="all_linked_descr">All tracks/routes have links</string>
+    <string name="linked_text">No links with this track/route | some links | all have links</string>
+    <string name="linked_note">Links refer to links within this app, to other connected, nearby, or related tracks</string>
+
+    <string name="waypoint_start">Start point for this track/route</string>
+    <string name="waypoint_point">Waypoint for this track/route</string>
+    <string name="waypoint_end">End point, unless it\'s a round trip</string>
+
+</resources>

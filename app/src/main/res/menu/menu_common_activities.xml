@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/menu_show_all"
+        android:enabled="false"
+        android:icon="@drawable/ic_baseline_zoom_out_map_white_24"
+        android:title="@string/menu_show_all"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menu_show_location"
+        android:checkable="true"
+        android:enabled="false"
+        android:title="@string/menu_show_location"
+        app:showAsAction="never" />
+
+    <!-- This one only relevant to ParksActivity -->
+    <item
+        android:id="@+id/menu_hide_polygons"
+        android:title="@string/menu_hide_polygons"
+        android:visible="false"
+        app:showAsAction="never"
+        tools:visible="true" />
+
+    <!-- This one only relevant to DogParks|Facilities|Parks activities -->
+    <item
+        android:id="@+id/menu_search"
+        android:title="@string/menu_search"
+        android:visible="false"
+        app:showAsAction="never"
+        tools:visible="true" />
+
+</menu>

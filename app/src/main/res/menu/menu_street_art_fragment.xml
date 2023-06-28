@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/menu_search"
+        android:icon="@drawable/ic_baseline_search_white_24"
+        android:title="@string/menu_search"
+        android:visible="false"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="always"
+        tools:ignore="AlwaysShowAction" /><!--
+        app:showAsAction="always|collapseActionView" -->
+
+    <item
+        android:id="@+id/menu_random"
+        android:title="@string/menu_random"
+        app:showAsAction="never" />
+
+</menu>

@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="facilitiesFragment"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.fragments.FacilitiesFragment" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/common_dialog_horizontal_padding"
+        android:paddingEnd="@dimen/common_dialog_horizontal_padding"
+        android:fillViewport="true"
+        tools:showIn="@layout/fragment_facilities">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/facility_types_constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/facility_types_barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:barrierDirection="end"
+                app:constraint_referenced_ids="facility_type_color_01, facility_type_color_02, facility_type_color_03, facility_type_color_04, facility_type_color_05, facility_type_color_06, facility_type_color_07, facility_type_color_08, facility_type_color_09, facility_type_color_10, facility_type_color_11, facility_type_color_12, facility_type_color_13" />
+
+            <CheckBox
+                android:id="@+id/facility_types_select_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/list_item_margin_medium"
+                android:onCheckedChanged="@{ () -> facilitiesFragment.toggleSelectAll() }"
+                android:text="@string/filter_by_type_select_all"
+                style="@style/Theme.DiscoverChristchurch.CheckBox"
+                app:layout_constraintStart_toEndOf="@id/facility_types_barrier"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Actual categories -->
+
+            <ImageView
+                android:id="@+id/facility_type_color_01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/list_item_margin_large"
+                android:layout_marginStart="@dimen/list_item_margin_large"
+                android:layout_marginTop="@dimen/list_item_margin_large"
+                android:contentDescription="@string/facility_type_descr"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/facility_types_select_all"
+                app:srcCompat="@drawable/ic_baseline_circle_default_24" /><!--
+                app:tint="@color/facility_type_color_01" -->
+
+            <CheckBox
+                android:id="@+id/facility_type_select_01"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/Theme.DiscoverChristchurch.CheckBox"
+                app:layout_constraintBottom_toBottomOf="@id/facility_type_color_01"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/facility_types_barrier"
+                app:layout_constraintTop_toTopOf="@id/facility_type_color_01"
+                tools:text="@string/facility_type_01" />
+
+            <ImageView
+                android:id="@+id/facility_type_color_02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/list_item_margin_large"
+                android:layout_marginStart="@dimen/list_item_margin_large"
+                android:layout_marginTop="@dimen/common_dialog_vertical_margin"
+                android:contentDescription="@string/facility_type_descr"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/facility_type_color_01"
+                app:srcCompat="@drawable/ic_baseline_circle_default_24" /><!--
+                app:tint="@color/facility_type_color_02" -->
+
+            <CheckBox
+                android:id="@+id/facility_type_select_02"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/Theme.DiscoverChristchurch.CheckBox"
+                app:layout_constraintBottom_toBottomOf="@id/facility_type_color_02"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/facility_types_barrier"
+                app:layout_constraintTop_toTopOf="@id/facility_type_color_02"
+                tools:text="@string/facility_type_02" />
+
+            <ImageView
+                android:id="@+id/facility_type_color_03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/list_item_margin_large"
+                android:layout_marginStart="@dimen/list_item_margin_large"
+                android:layout_marginTop="@dimen/common_dialog_vertical_margin"
+                android:contentDescription="@string/facility_type_descr"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/facility_type_color_02"
+                app:srcCompat="@drawable/ic_baseline_circle_default_24" /><!--
+                app:tint="@color/facility_type_color_03"
+                tools:ignore="ImageContrastCheck" -->
+
+            <CheckBox
+                android:id="@+id/facility_type_select_03"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/Theme.DiscoverChristchurch.CheckBox"
+                app:layout_constraintBottom_toBottomOf="@id/facility_type_color_03"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/facility_types_barrier"
+                app:layout_constraintTop_toTopOf="@id/facility_type_color_03"
+                tools:text="@string/facility_type_03" />
+
+            <ImageView
+                android:id="@+id/facility_type_color_04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/list_item_margin_large"
+                android:layout_marginStart="@dimen/list_item_margin_large"
+                android:layout_marginTop="@dimen/common_dialog_vertical_margin"
+                android:contentDescription="@string/facility_type_descr"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/facility_type_color_03"
+                app:srcCompat="@drawable/ic_baseline_circle_default_24" /><!--
+                app:tint="@color/facility_type_color_04" -->
+
+            <CheckBox
+                android:id="@+id/facility_type_select_04"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/Theme.DiscoverChristchurch.CheckBox"
+                app:layout_constraintBottom_toBottomOf="@id/facility_type_color_04"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/facility_types_barrier"
+                app:layout_constraintTop_toTopOf="@id/facility_type_color_04"
+                tools:text="@string/facility_type_04" />
+
+            <ImageView
+                android:id="@+id/facility_type_color_05"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/list_item_margin_large"
+                android:layout_marginStart="@dimen/list_item_margin_large"
+                android:layout_marginTop="@dimen/common_dialog_vertical_margin"
+                android:contentDescription="@string/facility_type_descr"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/facility_type_color_04"
+                app:srcCompat="@drawable/ic_baseline_circle_default_24" /><!--
+                app:tint="@color/facility_type_color_05"
+                tools:ignore="ImageContrastCheck" -->
+
+            <CheckBox
+                android:id="@+id/facility_type_select_05"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/Theme.DiscoverChristchurch.CheckBox"
+                app:layout_constraintBottom_toBottomOf="@id/facility_type_color_05"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/facility_types_barrier"
+                app:layout_constraintTop_toTopOf="@id/facility_type_color_05"
+                tools:text="@string/facility_type_05" />
+
+            <ImageView
+                android:id="@+id/facility_type_color_06"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/list_item_margin_large"
+                android:layout_marginStart="@dimen/list_item_margin_large"
+                android:layout_marginTop="@dimen/common_dialog_vertical_margin"
+                android:contentDescription="@string/facility_type_descr"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/facility_type_color_05"
+                app:srcCompat="@drawable/ic_baseline_circle_default_24" /><!--
+                app:tint="@color/facility_type_color_06"
+                tools:ignore="ImageContrastCheck" -->
+
+            <CheckBox
+                android:id="@+id/facility_type_select_06"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/Theme.DiscoverChristchurch.CheckBox"
+                app:layout_constraintBottom_toBottomOf="@id/facility_type_color_06"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/facility_types_barrier"
+                app:layout_constraintTop_toTopOf="@id/facility_type_color_06"
+                tools:text="@string/facility_type_06" />
+
+            <ImageView
+                android:id="@+id/facility_type_color_07"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/list_item_margin_large"
+                android:layout_marginStart="@dimen/list_item_margin_large"
+                android:layout_marginTop="@dimen/common_dialog_vertical_margin"
+                android:contentDescription="@string/facility_type_descr"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/facility_type_color_06"
+                app:srcCompat="@drawable/ic_baseline_circle_default_24" /><!--
+                app:tint="@color/facility_type_color_07" -->
+
+            <CheckBox
+                android:id="@+id/facility_type_select_07"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/Theme.DiscoverChristchurch.CheckBox"
+                app:layout_constraintBottom_toBottomOf="@id/facility_type_color_07"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/facility_types_barrier"
+                app:layout_constraintTop_toTopOf="@id/facility_type_color_07"
+                tools:text="@string/facility_type_07" />
+
+            <ImageView
+                android:id="@+id/facility_type_color_08"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/list_item_margin_large"
+                android:layout_marginStart="@dimen/list_item_margin_large"
+                android:layout_marginTop="@dimen/common_dialog_vertical_margin"
+                android:contentDescription="@string/facility_type_descr"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/facility_type_color_07"
+                app:srcCompat="@drawable/ic_baseline_circle_default_24" /><!--
+                app:tint="@color/facility_type_color_08" -->
+
+            <CheckBox
+                android:id="@+id/facility_type_select_08"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/Theme.DiscoverChristchurch.CheckBox"
+                app:layout_constraintBottom_toBottomOf="@id/facility_type_color_08"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/facility_types_barrier"
+                app:layout_constraintTop_toTopOf="@id/facility_type_color_08"
+                tools:text="@string/facility_type_08" />
+
+            <ImageView
+                android:id="@+id/facility_type_color_09"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/list_item_margin_large"
+                android:layout_marginStart="@dimen/list_item_margin_large"
+                android:layout_marginTop="@dimen/common_dialog_vertical_margin"
+                android:contentDescription="@string/facility_type_descr"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/facility_type_color_08"
+                app:srcCompat="@drawable/ic_baseline_circle_default_24" /><!--
+                app:tint="@color/facility_type_color_09" -->
+
+            <CheckBox
+                android:id="@+id/facility_type_select_09"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/Theme.DiscoverChristchurch.CheckBox"
+                app:layout_constraintBottom_toBottomOf="@id/facility_type_color_09"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/facility_types_barrier"
+                app:layout_constraintTop_toTopOf="@id/facility_type_color_09"
+                tools:text="@string/facility_type_09" />
+
+            <ImageView
+                android:id="@+id/facility_type_color_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/list_item_margin_large"
+                android:layout_marginStart="@dimen/list_item_margin_large"
+                android:layout_marginTop="@dimen/common_dialog_vertical_margin"
+                android:contentDescription="@string/facility_type_descr"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/facility_type_color_09"
+                app:srcCompat="@drawable/ic_baseline_circle_default_24" /><!--
+                app:tint="@color/facility_type_color_10" -->
+
+            <CheckBox
+                android:id="@+id/facility_type_select_10"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/Theme.DiscoverChristchurch.CheckBox"
+                app:layout_constraintBottom_toBottomOf="@id/facility_type_color_10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/facility_types_barrier"
+                app:layout_constraintTop_toTopOf="@id/facility_type_color_10"
+                tools:text="@string/facility_type_10" />
+
+            <ImageView
+                android:id="@+id/facility_type_color_11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/list_item_margin_large"
+                android:layout_marginStart="@dimen/list_item_margin_large"
+                android:layout_marginTop="@dimen/common_dialog_vertical_margin"
+                android:contentDescription="@string/facility_type_descr"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/facility_type_color_10"
+                app:srcCompat="@drawable/ic_baseline_circle_default_24" /><!--
+                app:tint="@color/facility_type_color_11" -->
+
+            <CheckBox
+                android:id="@+id/facility_type_select_11"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/Theme.DiscoverChristchurch.CheckBox"
+                app:layout_constraintBottom_toBottomOf="@id/facility_type_color_11"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/facility_types_barrier"
+                app:layout_constraintTop_toTopOf="@id/facility_type_color_11"
+                tools:text="@string/facility_type_11" />
+
+            <ImageView
+                android:id="@+id/facility_type_color_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/list_item_margin_large"
+                android:layout_marginStart="@dimen/list_item_margin_large"
+                android:layout_marginTop="@dimen/common_dialog_vertical_margin"
+                android:contentDescription="@string/facility_type_descr"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/facility_type_color_11"
+                app:srcCompat="@drawable/ic_baseline_circle_default_24" /><!--
+                app:tint="@color/facility_type_color_12" -->
+
+            <CheckBox
+                android:id="@+id/facility_type_select_12"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/Theme.DiscoverChristchurch.CheckBox"
+                app:layout_constraintBottom_toBottomOf="@id/facility_type_color_12"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/facility_types_barrier"
+                app:layout_constraintTop_toTopOf="@id/facility_type_color_12"
+                tools:text="@string/facility_type_12" />
+
+            <ImageView
+                android:id="@+id/facility_type_color_13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/list_item_margin_large"
+                android:layout_marginStart="@dimen/list_item_margin_large"
+                android:layout_marginTop="@dimen/common_dialog_vertical_margin"
+                android:contentDescription="@string/facility_type_descr"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/facility_type_color_12"
+                app:srcCompat="@drawable/ic_baseline_circle_default_24" /><!--
+                app:tint="@color/facility_type_color_13" -->
+
+            <CheckBox
+                android:id="@+id/facility_type_select_13"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/Theme.DiscoverChristchurch.CheckBox"
+                app:layout_constraintBottom_toBottomOf="@id/facility_type_color_13"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/facility_types_barrier"
+                app:layout_constraintTop_toTopOf="@id/facility_type_color_13"
+                tools:text="@string/facility_type_13" />
+
+            <TextView
+                android:id="@+id/facility_type_applied_to_all"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/common_dialog_horizontal_margin"
+                android:layout_marginStart="@dimen/common_dialog_horizontal_margin"
+                android:layout_marginTop="@dimen/list_item_margin_large"
+                android:text="@string/db_applied_to_all"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/facility_types_barrier"
+                app:layout_constraintTop_toBottomOf="@id/facility_type_color_13"
+                style="@style/Theme.DiscoverChristchurch.GravityStart" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

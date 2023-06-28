@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_overview"
+        android:icon="@drawable/ic_outline_preview_black_24"
+        android:title="@string/menu_360_overview_image"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_360"
+        android:icon="@drawable/ic_baseline_map_black_24"
+        android:title="@string/menu_360_overview_map"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_pie"
+        android:icon="@drawable/ic_outline_pie_chart_black_24"
+        android:title="@string/menu_pie"
+        app:showAsAction="never" />
+
+</menu>

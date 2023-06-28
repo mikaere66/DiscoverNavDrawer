@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="multiDayFragment"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.fragments.MultiDayFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ch_ch_360_root_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/item_card_horizontal_padding"
+        android:paddingEnd="@dimen/item_card_horizontal_padding"
+        tools:showIn="@layout/fragment_multi_day">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/ch_ch_360_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Theme.DiscoverChristchurch.CardView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ch_ch_360_header_constraint_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/list_item_margin_small"
+                android:padding="@dimen/list_item_padding_small"
+                android:onClick="@{ () -> multiDayFragment.goChCh360List() }"
+                android:onLongClick="@{ () -> multiDayFragment.goChCh360Map() }">
+
+                <TextView
+                    android:id="@+id/ch_ch_360_text_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/ch_ch_360_header_text_margin"
+                    android:text="@string/ch_ch_360_text_1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/ch_ch_360_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/ch_ch_360_header_logo_margin"
+                    android:contentDescription="@string/ch_ch_360_logo_descr"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ch_ch_360_text_1"
+                    app:srcCompat="@drawable/ch_ch_360_logo" />
+
+                <TextView
+                    android:id="@+id/ch_ch_360_text_2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/ch_ch_360_header_text_margin"
+                    android:text="@string/ch_ch_360_text_2"
+                    app:layout_constraintBottom_toBottomOf="@id/ch_ch_360_logo"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/ch_ch_360_logo"
+                    app:layout_constraintTop_toTopOf="@id/ch_ch_360_logo"
+                    style="@style/Theme.DiscoverChristchurch.GravityStart" />
+
+                <TextView
+                    android:id="@+id/ch_ch_360_text_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/ch_ch_360_header_text_margin"
+                    android:layout_marginStart="@dimen/ch_ch_360_header_text_margin"
+                    android:text="@string/ch_ch_360_text_3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ch_ch_360_logo" />
+
+                <TextView
+                    android:id="@+id/ch_ch_360_text_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/ch_ch_360_header_text_margin"
+                    android:layout_marginStart="@dimen/ch_ch_360_header_text_margin"
+                    android:layout_marginTop="@dimen/ch_ch_360_header_text_margin"
+                    android:text="@string/ch_ch_360_text_4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ch_ch_360_text_3" />
+
+                <TextView
+                    android:id="@+id/ch_ch_360_text_tip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/ch_ch_360_header_text_margin"
+                    android:layout_marginStart="@dimen/ch_ch_360_header_text_margin"
+                    android:layout_marginTop="@dimen/ch_ch_360_header_text_margin"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ch_ch_360_text_4"
+                    tools:text="@string/multi_day_tip_text" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

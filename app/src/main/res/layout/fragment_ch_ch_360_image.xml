@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="imageFragment"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.fragments.ChCh360ImageFragment" />
+        <variable
+            name="isCollapsed"
+            type="java.lang.Boolean" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/ch_ch_360_image_coordinator_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        style="?attr/bottomSheetStyle"
+        tools:context=".fragments.ChCh360ImageFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/info_dialog_view_padding"
+            android:layout_marginEnd="@dimen/info_dialog_view_padding"
+            android:layout_marginStart="@dimen/info_dialog_view_padding">
+
+            <TextView
+                android:id="@+id/info_header_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/info_header_text_margin"
+                app:layout_constraintEnd_toStartOf="@id/info_collapse_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                style="@style/Theme.DiscoverChristchurch.InfoHeader"
+                tools:text="Image Name" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/info_collapse_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/collapse_descr"
+                android:onClick="@{ () -> imageFragment.expandCollapseDialog(true) }"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_baseline_expand_less_primary_32"
+                style="@style/Theme.DiscoverChristchurch.ImageButton"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <TextView
+                android:id="@+id/fullscreen_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/ch_ch_360_text_margin"
+                android:layout_marginStart="@dimen/ch_ch_360_text_margin"
+                android:text="@string/fullscreen_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/info_header_text" />
+
+            <com.michaelrmossman.kotlin.discoverchristchurch.views.TouchImageView
+                android:id="@+id/fullscreen_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/fullscreen_image_descr"
+                android:scaleType="fitXY"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fullscreen_text"
+                tools:ignore="ImageContrastCheck"
+                tools:src="@drawable/ch_ch_360_overview" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

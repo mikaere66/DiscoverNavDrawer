@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activities.BatteryRecyclersActivity|.activities.ConveniencesActivity|.activities.FacilitiesActivity|.activities.FountainsActivity|.activities.FreeWiFiActivity|.activities.FruitTreesActivity|.activities.ParksActivity|.activities.UrbanPlayActivity">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragment_map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/toggle_fave_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/toggle_button_horizontal_margin"
+            android:layout_marginTop="@dimen/toggle_fave_vertical_margin"
+            android:contentDescription="@string/toggle_fave_descr"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@id/fragment_map"
+            app:layout_constraintTop_toTopOf="@id/fragment_map"
+            style="@style/Theme.DiscoverChristchurch.TranslucentButton"
+            tools:icon="@drawable/ic_outline_bookmark_add_translucent_24"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+

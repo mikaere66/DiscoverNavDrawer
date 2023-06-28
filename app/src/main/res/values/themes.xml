@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources><!-- See also values-land -->
+
+    <!-- Base application theme -->
+    <style name="Theme.DiscoverChristchurch" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here -->
+    </style>
+
+    <style name="Theme.DiscoverChristchurch.AdjacentText" parent="Theme.DiscoverChristchurch.GravityStart">
+        <item name="android:paddingBottom">@dimen/adjacent_header_vertical_padding</item>
+        <item name="android:paddingEnd">@dimen/adjacent_header_horizontal_padding</item>
+        <item name="android:paddingStart">@dimen/adjacent_header_horizontal_padding</item>
+        <item name="android:paddingTop">@dimen/adjacent_header_vertical_padding</item>
+    </style>
+
+    <style name="Theme.DiscoverChristchurch.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.DiscoverChristchurch.CommunityText" parent="Theme.DiscoverChristchurch.GravityStart">
+        <item name="android:layout_marginBottom">@dimen/list_item_margin_medium</item>
+        <item name="android:layout_marginEnd">@dimen/list_item_margin_mega</item>
+        <item name="android:layout_marginStart">@dimen/list_item_margin_mega</item>
+        <item name="android:layout_marginTop">@dimen/list_item_margin_medium</item>
+        <item name="android:paddingEnd">@dimen/list_item_padding_small</item>
+        <item name="android:paddingStart">@dimen/list_item_padding_small</item>
+    </style>
+
+    <style name="Theme.DiscoverChristchurch.CardView" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_marginBottom">@dimen/card_bottom_margin</item>
+        <item name="android:layout_marginEnd">@dimen/card_horizontal_margin</item>
+        <item name="android:layout_marginStart">@dimen/card_horizontal_margin</item>
+        <item name="android:layout_marginTop">@dimen/card_top_margin</item>
+        <item name="android:padding">@dimen/card_view_padding</item>
+        <item name="cardBackgroundColor">?attr/colorSurface</item>
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+        <item name="cardElevation">@dimen/card_elevation</item>
+    </style>
+
+    <style name="Theme.DiscoverChristchurch.CheckBox" parent="Theme.DiscoverChristchurch">
+        <item name="android:layout_marginStart">@dimen/list_item_margin_large</item>
+        <item name="android:layout_marginEnd">@dimen/list_item_margin_large</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:textColor">@color/checkbox_enabled_disabled_selector</item>
+    </style>
+
+    <style name="Theme.DiscoverChristchurch.CircularProgressIndicator" parent="Widget.MaterialComponents.CircularProgressIndicator">
+        <item name="trackThickness">20dp</item>
+    </style>
+
+    <style name="Theme.DiscoverChristchurch.DetailsIcon" parent="Theme.DiscoverChristchurch">
+        <item name="android:paddingBottom">@dimen/details_icon_vertical_padding</item>
+        <item name="android:paddingEnd">@dimen/details_icon_horizontal_padding</item>
+        <item name="android:paddingStart">@dimen/details_icon_horizontal_padding</item>
+        <item name="android:paddingTop">@dimen/details_icon_vertical_padding</item>
+        <item name="android:layout_marginEnd">@dimen/details_icon_horizontal_margin</item>
+        <item name="android:layout_marginStart">@dimen/details_icon_horizontal_margin</item>
+    </style>
+    <style name="Theme.DiscoverChristchurch.DetailsBase" parent="Theme.DiscoverChristchurch.GravityStart">
+        <item name="android:layout_marginEnd">@dimen/details_text_horizontal_margin</item>
+        <item name="android:layout_marginStart">@dimen/details_text_horizontal_margin</item>
+        <item name="android:paddingEnd">@dimen/details_text_horizontal_padding</item>
+        <item name="android:paddingStart">@dimen/details_text_horizontal_padding</item>
+    </style>
+    <style name="Theme.DiscoverChristchurch.DetailsSingleLine" parent="Theme.DiscoverChristchurch.DetailsBase">
+        <item name="android:layout_marginTop">@dimen/details_single_line_vertical_margin</item>
+    </style>
+    <style name="Theme.DiscoverChristchurch.DetailsMultiLine" parent="Theme.DiscoverChristchurch.DetailsBase">
+        <item name="android:layout_marginTop">@dimen/details_multi_line_vertical_margin</item>
+    </style>
+
+    <style name="Theme.DiscoverChristchurch.FullScreen" parent="@style/Theme.DiscoverChristchurch">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="Theme.DiscoverChristchurch.Gravity" parent="@android:style/Widget.Material.TextView">
+        <item name="android:textAlignment">gravity</item>
+    </style>
+    <style name="Theme.DiscoverChristchurch.GravityStart" parent="@style/Theme.DiscoverChristchurch.Gravity">
+        <item name="android:gravity">start</item>
+    </style>
+    <style name="Theme.DiscoverChristchurch.GravityCenter" parent="@style/Theme.DiscoverChristchurch.Gravity">
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="Theme.DiscoverChristchurch.GravityEnd" parent="@style/Theme.DiscoverChristchurch.Gravity">
+        <item name="android:gravity">end</item>
+    </style>
+    <style name="Theme.DiscoverChristchurch.GravityEndTop" parent="@style/Theme.DiscoverChristchurch.Gravity">
+        <item name="android:gravity">end|top</item>
+    </style>
+    <style name="Theme.DiscoverChristchurch.GravityStartTop" parent="@style/Theme.DiscoverChristchurch.Gravity">
+        <item name="android:gravity">start|top</item>
+    </style>
+    <style name="Theme.DiscoverChristchurch.GravityBottom" parent="@style/Theme.DiscoverChristchurch.Gravity">
+        <item name="android:gravity">start|bottom</item>
+    </style>
+
+    <style name="Theme.DiscoverChristchurch.ImageButton" parent="Theme.DiscoverChristchurch">
+        <item name="android:backgroundTint">@android:color/transparent</item>
+        <item name="android:clickable">true</item>
+        <item name="android:minWidth">@dimen/image_button_width_height</item>
+        <item name="android:minHeight">@dimen/image_button_width_height</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
+    <style name="Theme.DiscoverChristchurch.ImageView" parent="Theme.DiscoverChristchurch">
+        <item name="android:padding">@dimen/image_view_padding</item>
+        <item name="android:minWidth">@dimen/image_view_width_height</item>
+        <item name="android:minHeight">@dimen/image_view_width_height</item>
+    </style>
+
+    <style name="Theme.DiscoverChristchurch.InfoHeader" parent="Theme.DiscoverChristchurch.GravityStartTop">
+        <item name="android:padding">@dimen/info_text_view_padding</item>
+        <item name="android:textColor">@color/info_header</item>
+        <item name="android:textSize">@dimen/info_header_text_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="Theme.DiscoverChristchurch.InfoBaseText" parent="Theme.DiscoverChristchurch.GravityStart">
+        <item name="android:layout_marginEnd">@dimen/info_text_view_horizontal_margin</item>
+        <item name="android:layout_marginStart">@dimen/info_text_view_horizontal_margin</item>
+        <item name="android:paddingEnd">@dimen/info_text_view_padding</item>
+        <item name="android:paddingStart">@dimen/info_text_view_padding</item>
+        <item name="android:drawablePadding">@dimen/info_drawable_padding</item>
+    </style>
+    <style name="Theme.DiscoverChristchurch.InfoText" parent="Theme.DiscoverChristchurch.InfoBaseText">
+        <item name="android:layout_marginTop">@dimen/info_text_view_vertical_margin</item>
+        <item name="android:paddingTop">@dimen/info_text_view_padding</item>
+    </style>
+    <style name="Theme.DiscoverChristchurch.InfoTitle" parent="Theme.DiscoverChristchurch.GravityStart">
+        <item name="android:layout_margin">@dimen/info_header_text_margin</item>
+        <item name="android:padding">@dimen/info_text_view_padding</item>
+        <item name="android:textColor">@color/info_title_subtitle</item>
+        <item name="android:textSize">@dimen/info_header_text_size</item>
+    </style>
+
+    <style name="Theme.DiscoverChristchurch.LegendHeader" parent="@style/Theme.DiscoverChristchurch.GravityStart">
+        <item name="android:padding">@dimen/legend_header_text_padding</item>
+        <item name="android:textColor">@color/legend_header</item>
+        <item name="android:textSize">@dimen/legend_header_text_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="Theme.DiscoverChristchurch.LegendMultiIconStart" parent="@style/Theme.DiscoverChristchurch">
+        <item name="android:paddingStart">@dimen/legend_icon_margin_medium</item>
+        <item name="android:paddingEnd">@dimen/legend_icon_margin_medium</item>
+        <item name="android:tint">@color/color_red</item>
+    </style>
+    <style name="Theme.DiscoverChristchurch.LegendMultiIconCentre" parent="@style/Theme.DiscoverChristchurch">
+        <item name="android:paddingStart">@dimen/legend_icon_margin_large</item>
+        <item name="android:paddingEnd">@dimen/legend_icon_margin_large</item>
+        <item name="android:tint">@color/color_orange</item>
+    </style>
+    <style name="Theme.DiscoverChristchurch.LegendMultiIconEnd" parent="@style/Theme.DiscoverChristchurch">
+        <item name="android:paddingStart">@dimen/legend_icon_margin_large</item>
+        <item name="android:paddingEnd">@dimen/legend_icon_margin_large</item>
+        <item name="android:tint">@color/color_green</item>
+    </style>
+    <style name="Theme.DiscoverChristchurch.LegendMultiText" parent="@style/Theme.DiscoverChristchurch.Gravity">
+        <item name="android:gravity">start|center_vertical</item><!-- See also values-land -->
+        <item name="android:layout_marginStart">@dimen/legend_text_view_margin</item>
+        <item name="android:layout_marginEnd">@dimen/legend_text_view_margin</item>
+        <item name="android:padding">@dimen/legend_text_view_padding</item>
+        <item name="android:textColor">@color/legend_header</item>
+    </style>
+    <style name="Theme.DiscoverChristchurch.LegendText" parent="@style/Theme.DiscoverChristchurch">
+        <item name="android:layout_marginTop">@dimen/legend_text_view_margin</item>
+        <item name="android:padding">@dimen/legend_text_view_padding</item>
+        <item name="android:drawablePadding">@dimen/legend_drawable_padding</item>
+        <item name="drawableTint">@color/legend_header</item>
+    </style>
+
+    <style name="Theme.DiscoverChristchurch.NavHeaderLink">
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="Theme.DiscoverChristchurch.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.DiscoverChristchurch.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Theme.DiscoverChristchurch.RadioButton" parent="Theme.DiscoverChristchurch">
+        <item name="android:minHeight">48dp</item>
+        <item name="android:textColor">@color/dialog_text_color</item>
+    </style>
+
+    <style name="Theme.DiscoverChristchurch.FlatRadioGroup.RadioButton" parent="Theme.DiscoverChristchurch.RadioButton">
+        <item name="android:layout_marginEnd">@dimen/search_by_feature_horizontal_margin</item>
+        <item name="android:layout_marginStart">@dimen/search_by_feature_horizontal_margin</item>
+        <item name="android:paddingBottom">@dimen/search_by_feature_vertical_padding</item><!-- See also values-land -->
+    </style>
+
+    <style name="Theme.DiscoverChristchurch.RadioGridGroup.RadioButton" parent="Theme.DiscoverChristchurch.RadioButton">
+        <item name="android:layout_marginStart">@dimen/map_type_radio_margin</item>
+        <item name="android:layout_marginEnd">@dimen/map_type_radio_margin</item>
+    </style>
+
+    <style name="Theme.DiscoverChristchurch.SeasonsRadioGroup.RadioButton" parent="Theme.DiscoverChristchurch.RadioButton">
+        <item name="android:button">@null</item>
+        <item name="android:drawablePadding">8dp</item>
+    </style>
+
+    <style name="Theme.DiscoverChristchurch.SearchByFeatureBase" parent="@style/Theme.DiscoverChristchurch.GravityStart">
+        <item name="android:layout_marginEnd">@dimen/search_by_feature_horizontal_margin</item>
+        <item name="android:layout_marginStart">@dimen/search_by_feature_horizontal_margin</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:drawablePadding">@dimen/search_by_feature_drawable_padding</item>
+    </style>
+    <style name="Theme.DiscoverChristchurch.SearchByFeatureHeader" parent="@style/Theme.DiscoverChristchurch.SearchByFeatureBase">
+        <item name="android:layout_marginTop">@dimen/search_by_feature_vertical_margin</item>
+    </style>
+
+    <style name="Theme.DiscoverChristchurch.SettingsSwitch" parent="@style/Widget.MaterialComponents.CompoundButton.Switch">
+        <item name="android:textColor">@color/default_text_color</item>
+    </style>
+
+    <style name="Theme.DiscoverChristchurch.StatusIcon.Base" parent="Theme.DiscoverChristchurch">
+        <item name="android:minWidth">@dimen/status_icon_width_height</item>
+        <item name="android:minHeight">@dimen/status_icon_width_height</item>
+    </style>
+    <style name="Theme.DiscoverChristchurch.StatusIcon.Normal" parent="Theme.DiscoverChristchurch.StatusIcon.Base">
+        <item name="android:paddingBottom">@dimen/indicator_padding_medium</item>
+    </style>
+    <style name="Theme.DiscoverChristchurch.StatusIcon.Linked" parent="Theme.DiscoverChristchurch.StatusIcon.Base">
+        <item name="android:paddingBottom">@dimen/indicator_padding_small</item>
+    </style>
+
+    <style name="Theme.DiscoverChristchurch.StreetViewButton" parent="Theme.DiscoverChristchurch.ToggleButton">
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="iconTint">?attr/colorPrimary</item><!-- Default, but necessary -->
+    </style>
+
+    <style name="Theme.DiscoverChristchurch.ToggleButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="iconPadding">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">48dp</item>
+    </style>
+
+    <style name="Theme.DiscoverChristchurch.TranslucentButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:inset">0dp</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:minWidth">36dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="backgroundTint">@color/toggle_button</item>
+        <item name="iconPadding">0dp</item>
+        <item name="iconTint">@color/toggle_icon</item>
+        <item name="shapeAppearance">@style/Theme.DiscoverChristchurch.TranslucentButton.ShapeAppearance</item>
+    </style>
+    <style name="Theme.DiscoverChristchurch.TranslucentButton.ShapeAppearance" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">1dp</item>
+    </style>
+
+</resources>

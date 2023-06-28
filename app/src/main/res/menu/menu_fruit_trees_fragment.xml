@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Although icon is set programmatically, if one is NOT
+       defined here, the menu flashes the title text briefly -->
+    <item
+        android:id="@+id/menu_filter_by_cat"
+        android:title="@string/menu_filter_by_cat"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_filter_by_sea"
+        android:title="@string/menu_filter_by_sea"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_filter_clear"
+        android:title="@string/menu_filter_clear"
+        app:showAsAction="never" />
+
+</menu>

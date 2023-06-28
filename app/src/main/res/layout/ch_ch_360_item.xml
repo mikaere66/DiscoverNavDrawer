@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import
+            type="android.view.View" />
+        <variable
+            name="checkBox"
+            type="android.widget.CheckBox"/>
+        <variable
+            name="chCh360"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.entities.ChCh360Kt" />
+        <variable
+            name="clickListener"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.listeners.ChCh360Listener" />
+        <variable
+            name="longClickListener"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.listeners.ChCh360LongListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/item_card_horizontal_padding"
+        android:paddingEnd="@dimen/item_card_horizontal_padding"
+        tools:showIn="@layout/fragment_ch_ch_360_list">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/item_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Theme.DiscoverChristchurch.CardView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ch_ch_360_item_constraint_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/list_item_margin_large"
+                android:padding="@dimen/list_item_padding_small"
+                android:onClick="@{ () -> clickListener.onClick(chCh360, checkBox, 0) }"
+                android:onLongClick="@{ () -> longClickListener.onLongClick(chCh360) }">
+
+                <ImageView
+                    android:id="@+id/ch_ch_360_logo_small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/ch_ch_360_item_logo_margin"
+                    android:contentDescription="@string/ch_ch_360_logo_descr"
+                    app:layout_constraintBottom_toTopOf="@id/ch_ch_360_leg_color"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@drawable/ch_ch_360_logo_small" />
+
+                <ImageView
+                    android:id="@+id/ch_ch_360_leg_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/ch_ch_360_leg_color_descr"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/ch_ch_360_logo_small"
+                    app:layout_constraintStart_toStartOf="@id/ch_ch_360_logo_small"
+                    app:layout_constraintTop_toBottomOf="@id/ch_ch_360_logo_small"
+                    app:chCh360IconColor="@{ chCh360 }"
+                    app:srcCompat="@drawable/ic_baseline_timeline_default_48"
+                    tools:ignore="ImageContrastCheck" />
+
+                <TextView
+                    android:id="@+id/ch_ch_360_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/list_item_padding_medium"
+                    android:paddingEnd="@dimen/ch_ch_360_text_padding"
+                    android:paddingStart="@dimen/ch_ch_360_text_padding"
+                    android:visibility="@{ chCh360.zStamp > 0L ? View.VISIBLE : View.GONE }"
+                    app:layout_constraintStart_toEndOf="@id/ch_ch_360_logo_small"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:faveAddedDate="@{ chCh360.zStamp }"
+                    tools:text="@string/date_tools"
+                    tools:visibility="visible" />
+
+                <!-- First paragraph -->
+                <TextView
+                    android:id="@+id/ch_ch_360_intro_first"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingEnd="@dimen/ch_ch_360_text_padding"
+                    android:paddingStart="@dimen/ch_ch_360_text_padding"
+                    app:layout_constraintEnd_toStartOf="@id/ch_ch_360_favourite"
+                    app:layout_constraintStart_toEndOf="@id/ch_ch_360_logo_small"
+                    app:layout_constraintTop_toBottomOf="@id/ch_ch_360_date"
+                    app:introChCh360First="@{ chCh360 }"
+                    style="@style/Theme.DiscoverChristchurch.GravityStart"
+                    tools:text="The Sugarloaf Leg of the Christchurch 360 Trail runs from the Halswell Quarry Park to the Mt Cavendish Gondola station." />
+
+                <CheckBox
+                    android:id="@+id/ch_ch_360_favourite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/favourite_selector"
+                    android:checked="@{ chCh360.fave }"
+                    android:contentDescription="@string/toggle_fave_descr"
+                    android:onClick="@{ () -> clickListener.onClick(chCh360, checkBox, 1) }"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Subsequent paragraph(s) -->
+                <TextView
+                    android:id="@+id/ch_ch_360_intro_subs"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingEnd="@dimen/ch_ch_360_text_padding"
+                    android:paddingStart="@dimen/ch_ch_360_text_padding"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/ch_ch_360_logo_small"
+                    app:layout_constraintTop_toBottomOf="@id/ch_ch_360_intro_first"
+                    app:introChCh360Subs="@{ chCh360 }"
+                    style="@style/Theme.DiscoverChristchurch.GravityStart"
+                    tools:text="The track is approximately 18.2 km long, and could take a typical walker as much as 12 hrs." />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

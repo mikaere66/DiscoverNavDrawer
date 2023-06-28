@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Central City South Walk .. used as tools:text in waypoint_item -->
+    <string name="waypoint_title">Canterbury Earthquake National Memorial</string>
+    <string name="waypoint_subtitle">Waypoint 2/10</string>
+    <string name="waypoint_directions">Walk south (upstream) with the Avon River on your right-hand side. Follow the City Promenade to Oi Manawa – Canterbury Earthquake National Memorial which opened in 2016 to remember those who lost their lives or were seriously injured in the Canterbury earthquake in 2011.</string>
+
+</resources>

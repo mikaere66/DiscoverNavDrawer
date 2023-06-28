@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import
+            type="android.view.View" />
+        <variable
+            name="checkBox"
+            type="android.widget.CheckBox"/>
+        <variable
+            name="clickListener"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.listeners.UrbanPlayListener" />
+        <variable
+            name="longClickListener"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.listeners.UrbanPlayLongListener" />
+        <variable
+            name="urbanPlay"
+            type="com.michaelrmossman.kotlin.discoverchristchurch.entities.UrbanPlayKt" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/item_card_horizontal_padding"
+        android:paddingEnd="@dimen/item_card_horizontal_padding"
+        tools:showIn="@layout/fragment_urban_play">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/item_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Theme.DiscoverChristchurch.CardView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/urban_play_item_constraint_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/list_item_margin_small"
+                android:padding="@dimen/list_item_padding_small"
+                android:onClick="@{ () -> clickListener.onClick(checkBox, 0, urbanPlay) }"
+                android:onLongClick="@{ () -> longClickListener.onLongClick(urbanPlay) }">
+
+                <ImageView
+                    android:id="@+id/urban_play_logo_small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/urban_play_item_logo_margin"
+                    android:padding="@dimen/urban_play_item_logo_padding"
+                    android:contentDescription="@string/urban_play_logo_descr"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@mipmap/ic_launcher" />
+
+                <TextView
+                    android:id="@+id/urban_play_date"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/urban_play_text_margin"
+                    android:layout_marginStart="@dimen/urban_play_text_margin"
+                    android:padding="@dimen/urban_play_text_padding"
+                    android:visibility="@{ urbanPlay.zStamp > 0L ? View.VISIBLE : View.GONE }"
+                    app:layout_constraintEnd_toStartOf="@id/urban_play_favourite"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/urban_play_logo_small"
+                    app:faveAddedDate="@{ urbanPlay.zStamp }"
+                    style="@style/Theme.DiscoverChristchurch.GravityStart"
+                    tools:text="@string/date_tools"
+                    tools:visibility="visible" /><!--
+                    style="@style/Theme.DiscoverChristchurch.CommunityText" -->
+
+                <TextView
+                    android:id="@+id/urban_play_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/urban_play_text_margin"
+                    android:layout_marginStart="@dimen/urban_play_text_margin"
+                    android:padding="@dimen/urban_play_text_padding"
+                    android:text="@{ urbanPlay.name }"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@id/urban_play_favourite"
+                    app:layout_constraintStart_toEndOf="@id/urban_play_logo_small"
+                    app:layout_constraintTop_toBottomOf="@id/urban_play_date"
+                    style="@style/Theme.DiscoverChristchurch.GravityStart"
+                    tools:text="Dances with Leaves" />
+
+                <TextView
+                    android:id="@+id/urban_play_address"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/urban_play_text_margin"
+                    android:layout_marginStart="@dimen/urban_play_text_margin"
+                    android:padding="@dimen/urban_play_text_padding"
+                    android:text="@{ urbanPlay.address }"
+                    app:layout_constraintBottom_toTopOf="@id/urban_play_cost"
+                    app:layout_constraintEnd_toStartOf="@id/urban_play_favourite"
+                    app:layout_constraintStart_toEndOf="@id/urban_play_logo_small"
+                    app:layout_constraintTop_toBottomOf="@id/urban_play_name"
+                    style="@style/Theme.DiscoverChristchurch.GravityStart"
+                    tools:text="Victoria Square, cnr Armagh St and Oxford Tce" />
+
+                <CheckBox
+                    android:id="@+id/urban_play_favourite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/favourite_selector"
+                    android:checked="@{ urbanPlay.fave }"
+                    android:contentDescription="@string/toggle_fave_descr"
+                    android:onClick="@{ () -> clickListener.onClick(checkBox, 1, urbanPlay) }"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- -->
+
+                <TextView
+                    android:id="@+id/urban_play_cost"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/urban_play_text_margin"
+                    android:layout_marginStart="@dimen/urban_play_text_margin"
+                    android:padding="@dimen/urban_play_text_padding"
+                    android:text="@{ @string/urban_play_cost(urbanPlay.cost) }"
+                    app:layout_constraintBottom_toTopOf="@id/urban_play_descr"
+                    app:layout_constraintEnd_toStartOf="@id/urban_play_hours"
+                    app:layout_constraintStart_toEndOf="@id/urban_play_logo_small"
+                    app:layout_constraintTop_toBottomOf="@id/urban_play_address"
+                    style="@style/Theme.DiscoverChristchurch.GravityStartTop"
+                    tools:text="Cost: Free" />
+
+                <TextView
+                    android:id="@+id/urban_play_hours"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/urban_play_text_margin"
+                    android:layout_marginStart="@dimen/urban_play_text_margin"
+                    android:padding="@dimen/urban_play_text_padding"
+                    android:text="@{ @string/urban_play_hours(urbanPlay.hours) }"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/urban_play_cost"
+                    app:layout_constraintBaseline_toBaselineOf="@id/urban_play_cost"
+                    style="@style/Theme.DiscoverChristchurch.GravityEndTop"
+                    tools:text="Seasonal: Autumn Only" />
+
+                <!-- -->
+
+                <TextView
+                    android:id="@+id/urban_play_descr"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/urban_play_text_margin"
+                    android:layout_marginStart="@dimen/urban_play_text_margin"
+                    android:padding="@dimen/urban_play_text_padding"
+                    android:text="@{ urbanPlay.description }"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/urban_play_logo_small"
+                    app:layout_constraintTop_toBottomOf="@id/urban_play_hours"
+                    style="@style/Theme.DiscoverChristchurch.GravityStart"
+                    tools:text="Play opportunities galore! Create an ephemeral art work of leaves, hide in the leaves and jump out when the rest of your family walk past. You could start a Leaf Throwing competition with your friends, or just enjoy the soundscape created by the leaves as you walk through them" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

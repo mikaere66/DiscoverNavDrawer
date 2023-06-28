@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer name="community_extra_max_lines">2</integer>
+
+    <integer name="community_grid_layout_span_count">4</integer>
+
+    <integer name="community_logo_image_width_height">280</integer>
+
+    <integer name="street_art_grid_layout_span_count">2</integer>
+
+    <integer name="waypoint_directions_max_lines">3</integer>
+
+</resources>

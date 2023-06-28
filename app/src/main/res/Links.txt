@@ -1,0 +1,198 @@
+
+Options menu flicker when switching between fragments and using MenuProvider:
+https://issuetracker.google.com/issues/243679672
+
+https://stackoverflow.com/questions/6945678/storing-r-drawable-ids-in-xml-array
+
+Set nav home programmatically: see answer by Dino Sunny
+https://stackoverflow.com/questions/51173002/how-to-change-start-destination-of-a-navigation-graph-programmatically
+
+https://medium.com/androiddevelopers/livedata-with-snackbar-navigation-and-other-events-the-singleliveevent-case-ac2622673150
+
+https://stackoverflow.com/questions/55928012/how-to-close-navigation-drawerlayout-onbackpressed-in-navigation-controls-fragme
+
+https://github.com/SmartToolFactory/NavigationComponents-Tutorials
+
+https://blog.codemagic.io/android-navigation-introduction/
+
+Intents to launch a map view or directions request:
+By default, a toolbar at the bottom right of the map contains icons that provide access to a map view or directions request in the Google Maps mobile app. You can disable the toolbar by calling UiSettings.setMapToolbarEnabled(false). For more details, see the toolbar documentation.
+https://developers.google.com/maps/documentation/android-sdk/controls#toolbar
+Also by default when a user taps the map, the API starts the Google Maps mobile app. You can override this by using GoogleMap.setOnMapClickListener() to set your own listener. You can also disable click events on the map, by calling setClickable() on the view that contains the MapView or MapFragment. For details of these two techniques, see the events documentation.
+https://developers.google.com/maps/documentation/android-sdk/events
+
+https://developer.android.com/develop/ui/views/components/appbar/action-views
+
+https://developer.android.com/reference/android/app/Activity.html#getRequestedOrientation%28%29
+
+https://www.codevscolor.com/kotlin-negative-to-positive
+
+https://material.io/components/progress-indicators/android
+https://stackoverflow.com/questions/58156090/how-to-calculate-percentage-in-kotlin
+
+https://stackoverflow.com/questions/11734470/how-does-one-use-resources-getfraction
+
+https://github.com/kcochibili/TinyDB--Android-Shared-Preferences-Turbo
+https://github.com/google/gson
+https://stackoverflow.com/questions/47006254/how-to-get-current-local-date-and-time-in-kotlin
+https://stackoverflow.com/questions/9277747/android-simpledateformat-how-to-use-it
+
+https://developers.google.com/maps/documentation/android-sdk/events#kotlin
+
+Android two rows of Radio Buttons:
+https://andresand.medium.com/android-two-rows-of-radio-buttons-de616f44f6ef
+https://gist.github.com/saiaspire/a73135cfee1110a64cb0ab3451b6ca33
+
+https://www.anycodings.com/1questions/617194/constraintlayoutwidgetgroup-animation-not-working-with-transitionmanager
+
+https://stackoverflow.com/questions/30933133/get-error-in-filter-name-with-regex-android
+https://stackoverflow.com/questions/21828323/how-can-restrict-my-edittext-input-to-some-special-character-like-backslash-t
+
+https://medium.com/androiddevelopers/restore-recyclerview-scroll-position-a8fbdc9a9334
+
+https://medium.com/hootsuite-engineering/handling-orientation-changes-on-android-41a6b62cb43f
+https://stackoverflow.com/questions/64303335/kotlin-hashmap-change-key-value-and-subelement-value
+
+https://stackoverflow.com/questions/27745299/how-to-add-title-snippet-and-icon-to-clusteritem/27745681#27745681
+https://stackoverflow.com/questions/35663420/defaultclusterrenderer-getmarker-returning-null-when-zooming
+
+https://www.techotopia.com/index.php/Creating_and_Managing_Android_Overflow_Menus_on_the_Kindle_Fire
+                actionMenu?.getItem(3)?.isChecked = true // TODO
+
+https://stackoverflow.com/questions/73198099/duplicating-menu-items-via-different-fragments
+
+https://stackoverflow.com/questions/6239163/android-checkable-menu-item
+
+https://stackoverflow.com/questions/9733312/changing-overflow-icon-in-the-action-bar
+
+https://developer.android.com/reference/android/view/ViewGroup#attr_android:animationCache
+
+https://www.sqlitetutorial.net/sqlite-is-null/
+
+https://stackoverflow.com/questions/23373257/how-to-detect-that-the-drawerlayout-started-opening
+
+https://developer.android.com/reference/androidx/appcompat/widget/SearchView
+https://stackoverflow.com/questions/13613791/how-to-completely-collapse-a-searchview-after-an-item-selected
+
+https://stackoverflow.com/questions/73476837/how-can-i-prevent-options-menu-icons-flickering-in-the-action-bar-when-switching
+
+https://stackoverflow.com/questions/11285961/how-to-make-a-background-20-transparent-on-android
+
+https://stackoverflow.com/questions/69245197/searching-multiple-tables-in-android-room-using-a-single-query
+
+https://developers.google.com/android/reference/com/google/android/gms/maps/CameraUpdateFactory#newLatLngBounds(com.google.android.gms.maps.model.LatLngBounds,%20int)
+https://stackoverflow.com/questions/13692579/movecamera-with-cameraupdatefactory-newlatlngbounds-crashes
+
+Hexadecimal color codes for transparency:
+https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4
+
+https://stackoverflow.com/questions/3282390/add-floating-point-value-to-android-resources-values
+
+https://stackoverflow.com/questions/18440823/how-do-i-calculate-the-center-of-a-polygon-in-google-maps-android-api-v2
+
+https://www.android--code.com/2016/03/android-circle-shape-in-xml-drawable.html
+
+https://stackoverflow.com/questions/17611544/center-a-map-marker-in-android
+
+https://stackoverflow.com/questions/38989287/access-integer-array-using-databinding
+
+https://stackoverflow.com/questions/37609328/how-to-make-bold-text-with-android-data-binding-library
+
+https://stackoverflow.com/questions/3543454/subscript-and-superscript-a-string-in-android
+
+https://stackoverflow.com/questions/49930683/how-to-change-the-visibility-of-markers-on-google-map-using-cluster-manager-an
+
+https://github.com/googlemaps/android-maps-utils/issues/738
+
+https://stackoverflow.com/questions/30577252/expand-search-view-to-use-entire-action-bar-hide-other-things
+
+https://code2care.org/pages/force-android-app-to-run-in-landscape-mode-programatically
+
+https://stackoverflow.com/questions/3407256/height-of-status-bar-in-android
+
+https://stackoverflow.com/questions/48119875/constraintlayout-barrier-not-working-properly-when-parent-dimensions-are-set-to/48123424#48123424
+
+https://github.com/material-components/material-components-android/blob/master/docs/components/BadgeDrawable.md
+https://stackoverflow.com/questions/58402039/badge-drawable-not-showing
+
+https://stackoverflow.com/questions/35795284/android-displaying-snackbar-inside-fragment
+
+https://stackoverflow.com/questions/45467052/android-binding-double-value-to-view-using-string-resources
+
+https://stackoverflow.com/questions/9114587/how-can-i-save-colors-in-array-xml-and-get-it-back-to-a-color-array
+
+https://askubuntu.com/questions/631689/cropping-images-using-command-line-tools-only
+
+https://www.baeldung.com/kotlin/initialize-array
+
+https://stackoverflow.com/questions/36227194/data-binding-set-property-if-it-isnt-null
+
+https://stackoverflow.com/questions/3973512/java-hashmap-how-to-get-a-key-and-value-by-index
+
+https://stackoverflow.com/questions/63326582/how-to-shuffle-elements-of-mutable-list-in-kotlin
+
+https://stackoverflow.com/questions/36902890/how-i-can-call-showinfowindow-in-a-marker-within-cluster-manager
+
+https://stackoverflow.com/questions/51385067/android-navigation-architecture-component-get-current-visible-fragment
+
+https://www.tabnine.com/code/java/methods/androidx.navigation.NavController/navigate
+
+https://stackoverflow.com/questions/38077736/android-data-binding-reference-to-view
+
+https://stackoverflow.com/questions/71506139/cant-use-typeconverter-to-convert-between-latlng-and-string-to-store-in-room-da
+
+https://stackoverflow.com/questions/44244508/room-persistance-library-delete-all
+
+https://www.baeldung.com/kotlin/enum
+
+Sql collate localized:
+https://groups.google.com/g/robolectric/c/IJkk55y1RJI
+
+https://www.rapidtables.com/web/color/green-color.html
+
+https://developers.google.com/android/reference/com/google/android/gms/maps/GoogleMap#MAP_TYPE_NORMAL
+
+https://developers.google.com/android/reference/com/google/android/gms/maps/GoogleMap#setOnCameraMoveStartedListener(com.google.android.gms.maps.GoogleMap.OnCameraMoveStartedListener)
+
+https://stackoverflow.com/questions/40076251/databinding-how-to-use-baseactivity-how-to-use-abstraction
+
+https://stackoverflow.com/questions/29866610/differenciate-between-onmarkerclick-and-onclusteritemclick-event-in-android
+
+https://stackoverflow.com/questions/60910978/how-to-return-value-from-async-coroutine-scope-such-as-viewmodelscope-to-your-ui
+
+https://developers.google.com/maps/documentation/android-sdk/shapes#polygon_events
+
+https://stackoverflow.com/questions/37642869/recyclerview-gridlayoutmanager-with-full-width-header
+
+https://blog.logrocket.com/initializing-lazy-lateinit-variables-kotlin/
+
+https://stackoverflow.com/questions/43369484/setting-the-color-of-a-textview-drawable
+
+https://www.baeldung.com/kotlin/initialize-empty-mutable-collections
+
+https://stackoverflow.com/questions/66489605/is-constructor-locationrequest-deprecated-in-google-maps-v2
+
+https://developers.google.com/maps/documentation/android-sdk/views#centering_the_map_within_an_area
+
+SEASONS
+Almonds (3-4): https://treecrops.org.nz/almond-factsheet/
+Apples (2-6): https://www.ccc.govt.nz/assets/Documents/Environment/Sustainability/AppleTreesSuitableforCanterbury2015.pdf
+Apricots (12-2): https://www.stuff.co.nz/life-style/homed/garden/110447752/how-to-grow-apricots-in-new-zealand
+Cherries (12-1): https://www.daltons.co.nz/gardening-guides/cherries
+Crab Apples (3-5): https://www.palmers.co.nz/blogs/gardening-inspiration/crab-apple
+Elderberries (2-4): https://wilddispensary.co.nz/blogs/news/elderberry-harvest
+European Beech (3-5): https://www.doc.govt.nz/nature/native-plants/beech-forest/
+Hazelnuts (3-4): https://www.hazelnutnurseries.co.nz/seasons.html
+Honey Locust (9-12): https://en.wikipedia.org/wiki/Honey_locust
+Juniper (6-10): https://pollenandmold.stlouisco.com/html/CypressJuniper.html
+Loquat (9-11): https://www.bunnings.co.nz/diy-advice/garden/planting-and-growing/how-to-grow-and-care-for-loquats
+Mulberry (8-12): https://www.bunnings.co.nz/diy-advice/garden/planting-and-growing/how-to-grow-and-care-for-a-mulberry-tree
+Olives (3-5): https://olivesunlimited.com/harvesting-olive-trees/
+Peaches (1-3): https://tuigarden.co.nz/how-to-guide/peach-growing-guide/
+Pears (2-5): https://www.mcgrathnurseries.co.nz/fruit-trees/pear/pear-maturity-chart
+Plums (12-3): https://tuigarden.co.nz/how-to-guide/plum-growing-guide/
+Quince (3-4): https://www.odt.co.nz/regions/queenstown-lakes/quince-tree-offers-treats-all-seasons
+Strawberry Trees (5-7): https://www.growables.org/information/TropicalFruit/StrawbTree.htm
+Sweet Bay (11-2): https://www.gardeningknowhow.com/edible/herbs/bay/sweet-bay-leaf-tree.htm | https://herbs.org.nz/herbs/bay-tree/
+Sweet Chestnuts (2-4): https://www.chestnut-traders.co.nz/nzchestnuts.htm
+Walnuts (3-4): https://www.hortnz.co.nz/news-events-and-media/media-releases/full-potential-of-walnut-industry-yet-to-be-cracked/

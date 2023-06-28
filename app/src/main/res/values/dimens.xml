@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. --><!--
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen> -->
+
+    <dimen name="activity_horizontal_padding">16dp</dimen>
+    <dimen name="activity_vertical_padding">16dp</dimen>
+
+    <dimen name="adjacent_header_horizontal_padding">5dp</dimen>
+    <dimen name="adjacent_header_vertical_padding">2dp</dimen>
+    <dimen name="adjacent_text_margin">6dp</dimen>
+
+    <dimen name="app_bar_height">180dp</dimen>
+
+    <dimen name="back_to_top_fab_horizontal_margin">14dp</dimen>
+    <dimen name="back_to_top_fab_vertical_margin">8dp</dimen>
+
+    <dimen name="bottom_bar_badge_text">12sp</dimen>
+    <dimen name="bottom_bar_view_height">64dp</dimen>
+
+    <dimen name="card_horizontal_margin">8dp</dimen>
+    <dimen name="card_top_margin">8dp</dimen>
+    <dimen name="card_bottom_margin">6dp</dimen>
+    <dimen name="card_view_padding">8dp</dimen>
+
+    <dimen name="card_elevation">5dp</dimen>
+    <dimen name="card_corner_radius">8dp</dimen>
+
+    <dimen name="ch_ch_360_leg_color_height">8dp</dimen>
+    <dimen name="ch_ch_360_text_padding">16dp</dimen><!-- Was 12dp -->
+    <dimen name="ch_ch_360_header_logo_margin">8dp</dimen>
+    <dimen name="ch_ch_360_header_text_margin">6dp</dimen>
+    <dimen name="ch_ch_360_item_logo_margin">10dp</dimen>
+    <dimen name="ch_ch_360_text_margin">4dp</dimen><!-- BottomSheet -->
+
+    <!-- DogParks|FruitTrees -->
+    <dimen name="common_dialog_horizontal_padding">20dp</dimen>
+    <dimen name="common_dialog_vertical_margin">20dp</dimen>
+    <dimen name="common_dialog_horizontal_margin">16dp</dimen>
+
+    <dimen name="community_help_text_padding">4dp</dimen>
+    <dimen name="community_icon_width_height">32dp</dimen>
+    <dimen name="community_qty_badge_margin">4dp</dimen>
+    <dimen name="community_qty_badge_padding">6dp</dimen>
+    <dimen name="community_qty_badge_text_size">12sp</dimen><!--
+    <dimen name="community_header_horizontal_margin">80dp</dimen> -->
+    <dimen name="community_header_vertical_margin">1.5dp</dimen>
+    <dimen name="community_footer_top_margin">20dp</dimen>
+    <dimen name="community_footer_bottom_margin">24dp</dimen>
+    <dimen name="community_item_vertical_margin">6dp</dimen><!-- Was 8dp -->
+
+    <dimen name="details_image_height">200dp</dimen><!-- Shared: InfoMaxi -->
+    <dimen name="details_fab_margin">16dp</dimen>
+    <dimen name="details_fragment_padding_top">4dp</dimen>
+    <dimen name="details_fragment_padding_bottom">4dp</dimen>
+    <dimen name="details_icon_horizontal_margin">4dp</dimen>
+    <dimen name="details_icon_vertical_margin">8dp</dimen>
+    <dimen name="details_icon_horizontal_padding">8dp</dimen>
+    <dimen name="details_icon_vertical_padding">12dp</dimen>
+    <dimen name="details_double_line_vertical_margin">24dp</dimen><!-- See also values-land -->
+    <dimen name="details_single_line_vertical_margin">14dp</dimen>
+    <dimen name="details_multi_line_vertical_margin">10dp</dimen>
+    <dimen name="details_text_horizontal_margin">4dp</dimen>
+    <dimen name="details_text_horizontal_padding">4dp</dimen>
+
+    <dimen name="dog_map_item_vertical_margin">20dp</dimen>
+    <dimen name="dog_map_item_horizontal_margin">4dp</dimen>
+
+    <dimen name="dog_links_icon_width_height">24dp</dimen>
+
+    <dimen name="fountain_drawable_padding">6dp</dimen>
+
+    <dimen name="fragment_horizontal_padding">12dp</dimen>
+    <dimen name="fragment_vertical_padding">6dp</dimen>
+
+<!--
+    <dimen name="fruit_cats_dialog_vertical_margin">20dp</dimen>
+    <dimen name="fruit_cats_dialog_horizontal_margin">16dp</dimen>
+-->
+
+    <dimen name="fullscreen_button_margin">10dp</dimen>
+    <dimen name="fullscreen_text_margin">12dp</dimen>
+
+    <!-- These two shared with DogsParksFragment fabs -->
+    <dimen name="home_menu_fab_horizontal_margin">14dp</dimen>
+    <dimen name="home_menu_fab_vertical_margin">8dp</dimen>
+
+    <dimen name="item_card_horizontal_padding">4dp</dimen>
+    <dimen name="item_card_vertical_padding">10dp</dimen><!-- See also values-land -->
+
+    <dimen name="image_view_width_height">50dp</dimen>
+    <dimen name="image_view_padding">2dp</dimen>
+
+    <dimen name="image_button_margin_small">2dp</dimen>
+    <dimen name="image_button_margin_medium">4dp</dimen>
+    <dimen name="image_button_width_height">48dp</dimen>
+
+    <dimen name="indicator_padding_small">1dp</dimen>
+    <dimen name="indicator_padding_medium">4dp</dimen>
+    <dimen name="indicator_padding_large">8dp</dimen>
+
+    <dimen name="info_fave_check_box_margin">2.5dp</dimen>
+    <dimen name="info_dialog_horizontal_margin">12dp</dimen>
+    <dimen name="info_dialog_vertical_margin">8dp</dimen>
+    <dimen name="info_dialog_view_padding">12dp</dimen>
+    <dimen name="info_header_text_margin">8dp</dimen>
+    <dimen name="info_header_text_size">18sp</dimen>
+    <dimen name="info_image_margin">2.5dp</dimen><!-- Was 4dp -->
+    <!-- NestedScrollView margin: needs to be sum of ALL margins above it -->
+    <dimen name="info_maxi_scroll_view_padding">200dp</dimen>
+    <dimen name="info_drawable_padding">24dp</dimen>
+    <dimen name="info_text_view_horizontal_margin">8dp</dimen>
+    <dimen name="info_image_view_start_margin">12dp</dimen>
+    <dimen name="info_image_view_end_margin">8dp</dimen>
+    <dimen name="info_image_view_vertical_margin">16dp</dimen>
+    <dimen name="info_text_view_vertical_margin">16dp</dimen>
+    <dimen name="info_text_view_padding">2.5dp</dimen>
+    <dimen name="info_button_margin_small">0.5dp</dimen>
+    <dimen name="info_button_margin_medium">4dp</dimen>
+    <dimen name="info_button_margin_large">16dp</dimen>
+
+    <dimen name="legend_jump_down_fab_margin">6dp</dimen>
+    <dimen name="legend_jump_up_fab_margin">4dp</dimen>
+    <dimen name="legend_dialog_view_padding">8dp</dimen>
+    <dimen name="legend_header_text_size">18sp</dimen>
+    <dimen name="legend_expand_button_margin">8dp</dimen>
+    <dimen name="legend_header_text_margin">12dp</dimen>
+    <dimen name="legend_header_text_padding">2dp</dimen>
+    <dimen name="legend_icon_margin_medium">4dp</dimen>
+    <dimen name="legend_icon_margin_large">8dp</dimen>
+    <dimen name="legend_text_multi_margin">16dp</dimen><!-- See also values-land-->
+    <dimen name="legend_text_view_margin">16dp</dimen>
+    <dimen name="legend_text_view_padding">4dp</dimen>
+    <dimen name="legend_drawable_padding">8dp</dimen>
+
+    <dimen name="list_item_margin_micro">1dp</dimen><!-- Faves checkbox -->
+    <dimen name="list_item_margin_small">2dp</dimen>
+    <dimen name="list_item_margin_medium">4dp</dimen>
+    <dimen name="list_item_margin_large">8dp</dimen>
+    <dimen name="list_item_margin_maxi">12dp</dimen>
+    <dimen name="list_item_margin_mega">16dp</dimen>
+    <dimen name="list_item_padding_small">2dp</dimen>
+    <dimen name="list_item_padding_medium">6dp</dimen>
+
+    <dimen name="loading_progress_margin">8dp</dimen>
+
+    <dimen name="map_type_width_height">128dp</dimen>
+    <dimen name="map_type_radio_margin">10dp</dimen>
+
+    <dimen name="nav_header_logo_padding">16dp</dimen>
+    <dimen name="nav_header_title_margin">16dp</dimen>
+    <dimen name="nav_header_link_padding">20dp</dimen>
+    <dimen name="nav_header_text_margin">24dp</dimen>
+    <dimen name="nav_header_text_padding">8dp</dimen><!-- Was 4dp -->
+    <dimen name="nav_header_drawable_padding">2dp</dimen>
+    <dimen name="nav_header_height">200dp</dimen><!-- Was 176dp -->
+
+    <dimen name="polyline_layout_margin">6dp</dimen>
+    <dimen name="polyline_progress_padding">10dp</dimen>
+
+    <dimen name="reset_camera_horizontal_margin">3.5dp</dimen>
+    <dimen name="reset_camera_vertical_margin">14dp</dimen>
+
+    <dimen name="search_by_feature_vertical_margin">8dp</dimen><!-- See also values-land -->
+    <dimen name="search_by_feature_vertical_padding">8dp</dimen><!-- See also values-land -->
+    <dimen name="search_by_feature_horizontal_margin">4dp</dimen>
+    <dimen name="search_by_feature_drawable_padding">8dp</dimen>
+
+    <dimen name="search_edit_text_top_margin">16dp</dimen>
+    <dimen name="search_edit_text_bottom_padding">6.5dp</dimen>
+    <dimen name="search_edit_text_horizontal_margin">16dp</dimen>
+    <dimen name="search_list_top_margin">62.5dp</dimen><!-- EditText min height + bottom padding -->
+    <dimen name="search_list_bottom_margin">8dp</dimen>
+    <dimen name="search_list_top_padding">2.5dp</dimen>
+
+    <dimen name="settings_vertical_margin_small">4dp</dimen>
+    <dimen name="settings_vertical_margin_medium">8dp</dimen>
+    <dimen name="settings_vertical_margin_large">16dp</dimen>
+    <dimen name="settings_horizontal_margin">4dp</dimen>
+    <dimen name="settings_padding">10dp</dimen>
+
+    <dimen name="status_icon_width_height">24dp</dimen>
+
+    <dimen name="street_art_image_height">200dp</dimen><!--
+    <dimen name="street_artist_horizontal_margin">6dp</dimen> -->
+
+    <dimen name="street_view_button_margin">8dp</dimen>
+    <dimen name="street_view_text_margin">4dp</dimen>
+
+    <dimen name="toggle_button_width_height">30dp</dimen>
+    <dimen name="toggle_button_horizontal_margin">12dp</dimen>
+    <dimen name="toggle_fave_vertical_margin">6dp</dimen>
+    <dimen name="toggle_polyline_vertical_margin">36dp</dimen>
+
+    <dimen name="urban_play_item_logo_margin">4dp</dimen>
+    <dimen name="urban_play_item_logo_padding">4dp</dimen>
+    <dimen name="urban_play_text_margin">@dimen/list_item_margin_medium</dimen>
+    <dimen name="urban_play_text_padding">@dimen/list_item_padding_small</dimen>
+
+</resources>

@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- See also images.xml for DB image ids -->
+
+    <integer-array name="bike_track_colors">
+        <item>@color/bike_track_color_0</item>
+        <item>@color/bike_track_color_1</item>
+        <item>@color/bike_track_color_1</item>
+    </integer-array>
+
+    <!-- For dark maps (satellite/hybrid) -->
+    <integer-array name="bike_track_colors_alt">
+        <item>@color/color_green</item>
+        <item>@color/bike_track_color_1</item>
+        <item>@color/bike_track_color_1</item>
+    </integer-array>
+
+    <string-array name="bike_track_colors_text">
+        <item>Green</item>
+        <item>Orange</item>
+        <item>Orange</item>
+    </string-array>
+
+    <!-- Referenced programmatically in bike_map_item -->
+    <integer-array
+        name="bike_track_grades"
+        tools:ignore="UnusedResources">
+        <item>@drawable/ic_baseline_bike_scooter_black_24</item><!-- Unspecified -->
+        <item>@drawable/ic_outline_looks_one_black_24</item>
+        <item>@drawable/ic_outline_looks_two_black_24</item>
+        <item>@drawable/ic_outline_looks_3_black_24</item>
+        <item>@drawable/ic_outline_looks_4_black_24</item>
+        <item>@drawable/ic_outline_looks_5_black_24</item>
+    </integer-array>
+
+    <string-array name="bike_track_shared">
+        <item>No</item><!-- 0 -->
+        <item>Partially</item><!-- 1 -->
+        <item>Yes</item><!-- 2 -->
+    </string-array>
+
+    <!-- Referenced programmatically in community_item -->
+    <integer-array
+        name="community_drawables"
+        tools:ignore="UnusedResources">
+        <item>@drawable/ic_baseline_recycling_default_dynamic</item>
+        <item>@drawable/ic_baseline_interests_default_dynamic</item>
+        <item>@drawable/ic_baseline_pets_default_dynamic</item>
+        <item>@drawable/ic_baseline_local_drink_default_dynamic</item>
+        <item>@drawable/ic_baseline_wifi_default_dynamic</item>
+        <item>@drawable/ic_baseline_forest_default_dynamic</item>
+        <item>@drawable/ic_baseline_history_default_dynamic</item>
+        <item>@drawable/ic_baseline_directions_bike_default_dynamic</item>
+        <item>@drawable/ic_baseline_wc_default_dynamic</item>
+        <item>@drawable/ic_baseline_nature_people_default_dynamic</item>
+        <item>@drawable/ic_baseline_imagesearch_roller_default_dynamic</item>
+        <item>@drawable/ic_baseline_toys_default_dynamic</item>
+    </integer-array>
+
+    <string-array name="content_descr">
+        <item>@string/waypoint_info_descr</item>
+        <item>@string/zoom_descr</item>
+        <item>@string/toggle_fave_descr</item>
+        <item>@string/toggle_markers_descr</item>
+        <item>@string/toggle_polyline_descr</item>
+        <item>@string/locale_descr</item>
+        <item>@string/locate_descr</item>
+        <item>@string/bike_info_descr</item>
+        <item>@string/dog_info_descr</item>
+        <item>@string/heritage_info_descr</item>
+        <item>@string/street_art_info_descr</item>
+    </string-array>
+
+    <string-array name="dog_park_bylaws">
+        <item>@string/dog_park_type_1</item>
+        <item>@string/dog_park_type_2</item>
+        <item>@string/dog_park_type_3</item>
+        <item>@string/dog_park_type_4</item>
+        <item>@string/dog_park_type_5</item>
+        <item>@string/dog_park_type_6</item>
+        <item>@string/dog_park_type_7</item>
+        <item>@string/dog_park_type_8</item>
+        <item>@string/dog_park_type_9</item>
+    </string-array>
+
+    <string-array name="facility_types">
+        <item>@string/facility_type_01</item>
+        <item>@string/facility_type_02</item>
+        <item>@string/facility_type_03</item>
+        <item>@string/facility_type_04</item>
+        <item>@string/facility_type_05</item>
+        <item>@string/facility_type_06</item>
+        <item>@string/facility_type_07</item>
+        <item>@string/facility_type_08</item>
+        <item>@string/facility_type_09</item>
+        <item>@string/facility_type_10</item>
+        <item>@string/facility_type_11</item>
+        <item>@string/facility_type_12</item>
+        <item>@string/facility_type_13</item>
+    </string-array>
+
+    <!-- New : for FruitTreesFragment.overflowIcon -->
+    <string-array name="filter_by_icons">
+        <item>@drawable/ic_outline_filter_alt_white_24</item><!-- Placeholder -->
+        <item>@drawable/ic_outline_filter_alt_white_24</item>
+        <item>@drawable/ic_outline_filter_alt_off_white_24</item>
+    </string-array>
+
+    <!-- New : for FruitTreesFragment.seasons -->
+    <string-array name="fruit_tree_seasons">
+        <item>@string/fruit_trees_summer</item>
+        <item>@string/fruit_trees_autumn</item>
+        <item>@string/fruit_trees_winter</item>
+        <item>@string/fruit_trees_spring</item>
+    </string-array>
+
+    <string-array name="heritage_site_types">
+        <item>@string/heritage_site_type_1</item>
+        <item>@string/heritage_site_type_2</item>
+        <item>@string/heritage_site_type_3</item>
+        <item>@string/heritage_site_type_4</item>
+        <item>@string/heritage_site_type_5</item>
+        <item>@string/heritage_site_type_6</item>
+        <item>@string/heritage_site_type_7</item>
+        <item>@string/heritage_site_type_8</item>
+    </string-array>
+
+    <string-array name="overflow_icon">
+        <item>@drawable/ic_menu_overflow_white_24</item>
+    </string-array>
+
+    <string-array name="park_types">
+        <item>@string/park_type_1</item>
+        <item>@string/park_type_2</item>
+        <item>@string/park_type_3</item>
+        <item>@string/park_type_4</item>
+        <item>@string/park_type_5</item>
+        <item>@string/park_type_6</item>
+        <item>@string/park_type_7</item>
+        <item>@string/park_type_8</item>
+    </string-array>
+
+    <string-array name="route_dogs">
+        <!-- 0 --><item>Dogs prohibited</item>
+        <!-- 1 --><item>Dogs must be on a leash</item>
+        <!-- 2 --><item>Under effective control</item>
+        <!-- 3 --><item>Prohibited for the protection of wildlife</item>
+        <!-- 4 --><item>Under effective control at all times; on a leash in the cemeteries</item>
+        <!-- 5 --><item>Must be kept on a leash around the estuary</item>
+        <!-- 6 --><item>Check the maps on-site to see where you must keep dogs on a leash, and where they can be under effective control</item>
+        <!-- 7 --><item>Can be exercised off the leash, but must be kept under control at all times</item><!-- Bottle Lake -->
+        <!-- 8 --><item>Must be on a leash on the promenade.
+            Summer (from 1 November to 31 March between 9am and 7pm) dog prohibition applies on beach 100 metres north of the Sumner Surf Life Saving Club\'s pavilion to Cave Rock in the south, except for the purpose of passing through on a short leash.
+            Outside of these times, dogs are permitted under effective control</item>
+        <!-- 9 --><item>Dogs are not permitted in the Botanic Gardens</item><!-- Botanic Gardens -->
+        <!-- 10 --><item>Dogs must be on a leash on paths and kept under effective control elsewhere. Dogs are not permitted once you cross the Woodland Bridge and head into the Botanic Gardens</item>
+        <!-- 11 --><item>Must be on a leash. Please ensure you pick up dog waste out of respect for graves</item>
+        <!-- 12 --><item>To protect native plantings and wildlife values, dogs are prohibited from the Reserve</item>
+        <!-- 13 --><item>Must be on a leash in Central City, until you pass over Fitzgerald Avenue, and then again between Wainoni and Pages Roads.
+            Prohibited in Cockayne Reserve, everywhere except walkway.
+            Under effective control everywhere else</item>
+        <!-- 14 --><item>Must be on a leash everywhere, except for the eastern lawn area.
+            Dogs are also prohibited from being within one metre of playground equipment</item>
+        <!-- 15 --><item>On a leash when walking on paths. Elsewhere, keep dogs under effective control</item><!-- North/South Hagley Park -->
+        <!-- 16 --><item>On a leash only. Dogs prohibited on foreshore</item>
+        <!-- 17 --><item>Under effective control on track, leashed on footpaths.
+            On Hays Bay beach, dogs are prohibited during summer (from 1 November to 31 March between 9am and 7pm), except for the purposes of passing through, where dogs must be on a short leash. Outside these times, dogs are permitted under effective control</item>
+        <!-- 18 --><item>On a leash at all times to protect wildlife</item>
+        <!-- 19 --><item>To protect wildlife, dogs are prohibited from anywhere in Travis Wetland</item><!-- Travis Bird Hide/Wetland -->
+        <!-- 20 --><item>On a leash on walking track only. Dogs are prohibited from Brooklands Lagoon to protect wildlife</item>
+        <!-- 21 --><item>On a leash only. Dogs are prohibited in the lagoon, and on the beach north of Heyders Road</item>
+        <!-- 22 --><item>Dogs are prohibited in the Groynes, except for on the Ōtukaikino Track Track, where they must be leashed and in the designated dog park</item><!-- Island River/Waimairi -->
+        <!-- 23 --><item>On a leash at all times on the walkway. There is a designated dog exercise park in Styx Mill Reserve</item>
+        <!-- 24 --><item>On a leash at all times; not permitted on some tracks. There is a designated dog exercise park within Styx Mill Reserve</item>
+        <!-- 25 --><item>Dogs are allowed to be exercised off leash in the reserve, but must be under effective control, and responsive to voice commands.
+            Please be courteous around other visitors to the park, sharing the space.
+            Dogs are prohibited from being on and within one metre of the playground</item>
+        <!-- 26 --><item>Can be exercised off the leash on the track and on the beach, but must be under effective control. On leash only in Southshore Spit</item>
+        <!-- 27 --><item>Dogs must be leashed, and can only be on the walking track. Prohibited from the foreshore and mudflats</item>
+        <!-- 28 --><item>Must be on leash on the tracks and under effective control on the beaches, except in summer.
+            Between 9am and 7pm from November to the end of February, dogs must be kept on a short leash while walking through the beaches.</item>
+        <!-- 29 --><item>Under effective control. Dogs are prohibited from the Coastal Cliff Reserve and foreshore, for the protection of wildlife such as penguins, reef heron, and roosting shags.</item>
+        <!-- 30 --><item>Must be under effective control at all times. During lambing season, dogs must be on a leash</item>
+        <!-- 31 --><item>Dogs are allowed on this track, but must be leashed. Dogs are prohibited elsewhere in The Groynes, except at the designated dog park</item>
+        <!-- 32 --><item>Must be kept on a leash at all times; not permitted in the wetland areas</item>
+    </string-array>
+
+    <string-array name="route_warnings">
+        <!-- 1 --><item>During winter, tracks can be wet and slippery, so please proceed with caution</item>
+        <!-- 2 --><item>Track access from Stony Bay and Lighthouse Roads are on steep, windy, gravel roads, and 4WDs are advised</item>
+        <!-- 3 --><item>After wet weather, the track can get very muddy and slippery. Wear sturdy footwear and take care</item>
+        <!-- 4 --><item>Some sections of this track are being realigned to follow the legal road, and private property boundaries are being fenced. Please follow marked route, and keep clear of contractors</item>
+        <!-- 5 --><item>Parts of the Godley Head track, including the gun emplacements, toilets and carpark, are temporarily closed. A marked pole route after Boulder Bay links to the carpark road, where it will re-join the Godley Head Loop Track.</item>
+        <!-- 6 --><item>This is a shared-use track, so watch out for mountain bikers coming downhill.</item>
+        <!-- 7 --><item>Please walk carefully downhill, along the side of the road, to get to the beach.</item>
+        <!-- 8 --><item>This is a shared use track for walkers and cyclists. It is not an MTB track, and cyclists must reduce speed and give way to walkers. There are many blind corners and narrow sections of track: please be courteous</item><!--
+        <item></item> -->
+    </string-array>
+
+    <string-array name="search_by_accessibility_types">
+        <item>@string/accessibility_type_accessible</item>
+        <item>@string/accessibility_type_pram</item>
+        <item>@string/search_type_either</item>
+    </string-array>
+
+    <string-array name="search_by_dogs_types">
+        <item>@string/dogs_type_controlled</item>
+        <item>@string/dogs_type_leash</item>
+        <item>@string/search_type_either</item>
+    </string-array>
+
+    <string-array name="search_by_common_types">
+        <item>@string/common_type_yes</item>
+        <item>@string/common_type_no</item>
+    </string-array>
+
+    <string-array name="sort_bikes_icons">
+        <item>@drawable/ic_baseline_sort_by_alpha_white_24</item>
+        <item>@drawable/ic_outline_grade_white_24</item>
+        <item>@drawable/ic_baseline_trending_flat_white_24</item>
+        <item>@drawable/ic_baseline_horizontal_distribute_white_24</item>
+        <item>@drawable/ic_baseline_bike_scooter_white_24</item>
+    </string-array>
+
+    <string-array name="sort_by_icons">
+        <item>@drawable/ic_baseline_sort_by_alpha_white_24</item>
+        <item>@drawable/ic_baseline_accessible_white_24</item>
+        <item>@drawable/ic_baseline_pets_white_24</item>
+        <item>@drawable/ic_baseline_bike_scooter_white_24</item>
+        <item>@drawable/ic_baseline_directions_bus_white_24</item>
+        <item>@drawable/ic_outline_timer_white_24</item>
+        <item>@drawable/ic_baseline_horizontal_distribute_white_24</item>
+    </string-array>
+
+    <string-array name="street_art_viewable">
+        <item>@string/unspecified</item><!-- Placeholder -->
+        <item>Yes</item><!-- 1 -->
+        <item>Partially</item><!-- 2 -->
+        <item>No</item><!-- 3 -->
+    </string-array>
+
+    <string-array name="street_view_subtitles">
+        <item>@string/street_view_ch_ch_360_subtitle</item>
+        <item>@string/street_view_start_point_subtitle</item>
+        <item>@string/street_view_start_point_subtitle</item>
+        <item>@string/street_view_waypoint_subtitle</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ImageView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/footer_image"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/community_footer_bottom_margin"
+    android:layout_marginTop="@dimen/community_footer_top_margin"
+    android:contentDescription="@null"
+    tools:srcCompat="@drawable/ic_baseline_local_florist_black_24" />
