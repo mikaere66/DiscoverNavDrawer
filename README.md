@@ -1,7 +1,7 @@
 # DiscoverNavDrawer
-Discover Christchurch app (Navigation Drawer version)
+Discover Christchurch, Android app (Navigation Drawer version)
 
-Discover Christchurch, New Zealand with this Google Maps-based Android application.
+Discover *Christchurch, New Zealand* with this Google Maps-based Android application.
 
 TLDR: the libraries implemented indicate technologies used within the app ...
 
@@ -46,7 +46,7 @@ Urban/rural walking routes/tracks, listed by area & place
 
 Can be filtered by accessibility, dog-friendly, public transport, return journeys, shared-use
 
-Searchable by name, feature (as above)
+Searchable by name or feature, as above
 
 Multi-day walks:
 1. Christchurch 360
@@ -68,6 +68,8 @@ Community Resources:
 * Street Art
 * Urban Play
 
-Favourites (multiple view-types can be displayed in one list)
+All of the above are linked with built-in Google maps
+
+Favourites (multiple view-types are displayed in one list)
 
 Icons legend and App settings
