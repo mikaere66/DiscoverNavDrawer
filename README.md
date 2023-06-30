@@ -78,18 +78,22 @@ Favourites (multiple view-types are displayed in one list)
 
 Icons legend and App settings. See below for screenshots:
 
-![Home Screen](images/Screenshot_1.png "Home Screen")
+![Home Screen](images/Screenshot_0.png "Home Screen")
 
-![Navigation Drawer](images/Screenshot_2.png "Navigation Drawer")
+![Navigation Drawer](images/Screenshot_1.png "Navigation Drawer")
 
-![List Areas](images/Screenshot_3.png "List Areas")
+![List Areas](images/Screenshot_2.png "List Areas")
 
-![List Places](images/Screenshot_4.png "List Places")
+![List Places](images/Screenshot_3.png "List Places")
 
-![List Routes](images/Screenshot_5.png "List Routes")
+![List Routes](images/Screenshot_4.png "List Routes")
 
-![Route Info](images/Screenshot_6.png "Route Info")
+![Route Info](images/Screenshot_5.png "Route Info")
 
-![Route Map](images/Screenshot_7.png "Route Map")
+![Route Map](images/Screenshot_6.png "Route Map")
 
-![Street View](images/Screenshot_8.png "Street View")
+![Street View](images/Screenshot_7.png "Street View")
+
+![App Settings](images/Screenshot_8.png "App Settings")
+
+![Map Type Dialog](images/Screenshot_9.png "Map Type Dialog")
