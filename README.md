@@ -6,7 +6,7 @@ Discover *Christchurch, New Zealand* with this Google Maps-based Android applica
 TLDR: the libraries implemented indicate technologies used within the app ...
 
 **Android/Google libraries**:
-* Kotlin programming language
+* 99% Kotlin programming language
 * Dagger/Hilt dependency injection
 * Maps platform Secrets plugin to secure Google API keys
 * AndroidX Core
