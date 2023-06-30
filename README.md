@@ -80,13 +80,13 @@ Icons legend and App settings. See below for screenshots:
 
 ![Home Screen](images/Screenshot_1.png "Home Screen")
 
-![Nav Drawer](images/Screenshot_2.png "Nav Drawer")
+![Navigation Drawer](images/Screenshot_2.png "Navigation Drawer")
 
-![By Area](images/Screenshot_3.png "By Area")
+![List Areas](images/Screenshot_3.png "List Areas")
 
-![By Place](images/Screenshot_4.png "By Place")
+![List Places](images/Screenshot_4.png "List Places")
 
-![By Route](images/Screenshot_5.png "By Route")
+![List Routes](images/Screenshot_5.png "List Routes")
 
 ![Route Info](images/Screenshot_6.png "Route Info")
 
