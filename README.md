@@ -76,7 +76,7 @@ All of the above are linked with built-in Google maps
 
 Favourites (multiple view-types are displayed in one list)
 
-Icons legend and App settings
+Icons legend and App settings. See below for screenshots:
 
 ![Home Screen](images/Screenshot_1.png "Home Screen")
 
