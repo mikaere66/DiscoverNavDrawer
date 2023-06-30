@@ -77,3 +77,19 @@ All of the above are linked with built-in Google maps
 Favourites (multiple view-types are displayed in one list)
 
 Icons legend and App settings
+
+![Home Screen](images/Screenshot_1.png "Home Screen")
+
+![Nav Drawer](images/Screenshot_2.png "Nav Drawer")
+
+![By Area](images/Screenshot_3.png "By Area")
+
+![By Place](images/Screenshot_4.png "By Place")
+
+![By Route](images/Screenshot_5.png "By Route")
+
+![Route Info](images/Screenshot_6.png "Route Info")
+
+![Route Map](images/Screenshot_7.png "Route Map")
+
+![Street View](images/Screenshot_8.png "Street View")
