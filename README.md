@@ -48,7 +48,7 @@ Can be filtered by accessibility, dog-friendly, public transport, return journey
 
 Searchable by name or feature, as above
 
-Each route/track includes photo, map, street view (if available) & help info, including description, distance, directions, start/end points, nearby conveniences (if available), dog bylaws, etc.
+Each route/track includes photo, map, street view (if available) & helpful info: brief description, distance, directions, start/end points, nearby conveniences (if available), dog bylaws, etc.
 
 Nearby routes/tracks are linked internally
 

@@ -11,3 +11,4 @@ local.properties
 .gitsecret/keys/random_seed
 !*.secret
 /apk/DiscoverChristchurch.apk
+/GitHub.txt
