@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Refer separate file for Legend -->
+    <!-- Refer to separate file for Legend -->
 
     <!-- COMMUNITY/HOME -->
     <string name="battery_recyclers">Battery Recycling</string>
@@ -467,7 +467,7 @@
     <!-- e.g. Distance/Duration: 2.0 kms ⇄ 30 mins -->
     <string name="route_distance">%1$s: %2$s</string>
     <string name="route_image">Fullscreen image: %s</string>
-    <string name="fullscreen_text">Pinch to Zoom image</string>
+    <string name="fullscreen_text">Pinch and Zoom image</string>
     <plurals name="linked_text_show">
         <item quantity="one">Linked track/route (show):</item>
         <item quantity="other">Linked tracks/routes (show):</item>
