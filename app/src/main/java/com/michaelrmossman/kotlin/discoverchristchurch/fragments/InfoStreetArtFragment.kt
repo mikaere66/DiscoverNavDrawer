@@ -64,7 +64,7 @@ class InfoStreetArtFragment: InfoBaseFragment<FragmentInfoStreetArtBinding>(R.la
     fun toggleFavourite(checkBox: CheckBox, itemId: Long) {
         toggleFave( // Called from xml
             checkBox.isChecked, itemId,
-            ITEM_VIEW_TYPE_ITEM_11,true
-        )
+            ITEM_VIEW_TYPE_ITEM_11,false // Was true
+        ) // Calling setCurrentRoute() in VM causes NPE
     }
 }

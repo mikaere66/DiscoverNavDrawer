@@ -657,8 +657,8 @@ class DiscoverViewModel @Inject constructor(
     // END URBAN PLAY
 
     suspend fun toggleFavourite(
-        checked: Boolean, itemId: Long, itemType: Int,
-        reInit: Boolean = false
+        checked: Boolean, itemId: Long,
+        itemType: Int, reInit: Boolean = false
     ) : Pair<Long, Int> {
         val result = repository.toggleFavouriteAsync(
             checked, itemId, itemType
@@ -679,7 +679,8 @@ class DiscoverViewModel @Inject constructor(
                         repository.getChCh360ItemById(itemId)
                     setChCh360Item(chCh360)
                 }
-                else -> { // ITEM_VIEW_TYPE_ITEM_01|ITEM_VIEW_TYPE_ITEM_02
+                else -> {
+                    // Log.d("HERE", itemId.toString())
                     val route = repository.getRouteKtById(itemId)
                     setCurrentRoute(route)
                 }

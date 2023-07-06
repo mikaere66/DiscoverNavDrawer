@@ -104,8 +104,9 @@ open class InfoBaseFragment<T: ViewDataBinding>(
         }
     }
 
+    // Called from InfoBikeTrack | InfoDetail fragments
     fun toggleFave(checked: Boolean, itemId: Long, itemType: Int, reInit: Boolean) {
-        lifecycleScope.launch { // Called from InfoBikeTrack|InfoDetail fragments
+        lifecycleScope.launch {
             val result = viewModel.toggleFavourite(checked, itemId, itemType, reInit)
             val messagePair = getFavouritesMessagePair(result)
             fancyToast(requireContext(), messagePair.first, messagePair.second)
