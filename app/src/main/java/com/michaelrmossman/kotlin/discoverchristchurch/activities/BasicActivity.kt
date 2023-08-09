@@ -47,7 +47,7 @@ class BasicActivity: BaseActivity() {
         addPolyline(true, currentRoute)
 
         binding.buttonsLayout.apply {
-            // For visibility, refer addPolyline() in BaseActivity
+            // For visibility, refer addPolyline() in Base activity
             toggleMarkersButton.setOnClickListener {
                 showHideMarkers()
             }

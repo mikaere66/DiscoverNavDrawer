@@ -178,6 +178,8 @@ class DiscoverRepository @Inject constructor(
         _bikeTrackItems = items
     }
 
+    // END BIKE TRACKS
+
     // CHRISTCHURCH 360
 
     val chCh360ItemsFlow: Flow<List<ChCh360Kt>> =
@@ -292,7 +294,7 @@ class DiscoverRepository @Inject constructor(
     }
 
     private var _currentFacilityId: Long =
-        (DEBUG_PARK_ID).toLong()
+        (DEBUG_FACILITY_ID).toLong()
     val currentFacilityId: Long
         get() = _currentFacilityId
     fun setCurrentFacilityId(id: Long) {
@@ -337,7 +339,7 @@ class DiscoverRepository @Inject constructor(
     }
 
     private var _currentParkId: Long =
-        (DEBUG_FACILITY_ID).toLong()
+        (DEBUG_PARK_ID).toLong()
     val currentParkId: Long
         get() = _currentParkId
     fun setCurrentParkId(id: Long) {
@@ -589,7 +591,7 @@ class DiscoverRepository @Inject constructor(
     }
     suspend fun getHeritageTypesSelectedCount() : Int =
             dao.getHeritageTypesSelectedCount()
-    suspend fun getHeritageTypeSelected(): FacilityType =
+    suspend fun getHeritageTypeSelected(): HeritageType =
         dao.getHeritageTypeSelected() // Limit 1
     suspend fun updateHeritageTypesSelected(
         types: List<HeritageType>

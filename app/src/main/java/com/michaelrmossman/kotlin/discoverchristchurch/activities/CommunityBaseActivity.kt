@@ -118,7 +118,7 @@ abstract class CommunityBaseActivity<T: ViewDataBinding>(
     override fun onRestart() {
         super.onRestart()
         enableDisableMyLocation(sharedPrefs
-            .getBoolean(SHOW_MY_LOCATION_PREF, true))
+            .getBoolean(SHOW_MY_LOCATION_PREF,true))
     }
 
     override fun enableDisableMyLocation(enable: Boolean) {

@@ -11,6 +11,7 @@ import com.michaelrmossman.kotlin.discoverchristchurch.utils.FULLSCREEN_IMAGE_LA
 import com.michaelrmossman.kotlin.discoverchristchurch.utils.FULLSCREEN_IMAGE_NAME_EXTRA
 import com.michaelrmossman.kotlin.discoverchristchurch.utils.SysUtils.isXLargeScreen
 
+// Displays full-screen image for any full-size image (see SysUtils.goFullscreen())
 class ImagesActivity: AppCompatActivity() {
 
     lateinit var binding: ActivityImagesBinding

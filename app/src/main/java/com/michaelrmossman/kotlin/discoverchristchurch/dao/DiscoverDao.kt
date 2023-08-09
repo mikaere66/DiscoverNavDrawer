@@ -416,7 +416,7 @@ interface DiscoverDao {
 
     @Query("SELECT * FROM heritage_types_table " +
            "WHERE selected = 1 LIMIT 1")
-    suspend fun getHeritageTypeSelected(): FacilityType
+    suspend fun getHeritageTypeSelected(): HeritageType
 
     // PARKS
 

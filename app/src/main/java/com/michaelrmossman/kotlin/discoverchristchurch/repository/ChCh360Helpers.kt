@@ -13,7 +13,6 @@ object ChCh360Helpers {
 
         sb.append("SELECT C.*,")
         sb.append(" ")
-        sb.append(" ")
         sb.append("V.fave AS fave") //
         sb.append(" ")
         sb.append("FROM $CH_CH_360_TABLE_NAME AS C")

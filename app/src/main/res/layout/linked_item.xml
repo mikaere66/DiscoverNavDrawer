@@ -9,10 +9,7 @@
             type="com.michaelrmossman.kotlin.discoverchristchurch.fragments.DetailedFragment" />
         <variable
             name="route"
-            type="com.michaelrmossman.kotlin.discoverchristchurch.entities.RouteKt" /><!--
-        <variable
-            name="discoverViewModel"
-            type="com.michaelrmossman.kotlin.discoverchristchurch.viewmodel.DiscoverViewModel" /> -->
+            type="com.michaelrmossman.kotlin.discoverchristchurch.entities.RouteKt" />
     </data>
 
     <TextView

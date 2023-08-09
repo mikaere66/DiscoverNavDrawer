@@ -1,4 +1,8 @@
 
+NEW 20230725:
+RecyclerView Tips & Tricks
+https://medium.com/nerd-for-tech/nested-recyclerview-in-android-e5afb2b9771a
+
 Options menu flicker when switching between fragments and using MenuProvider:
 https://issuetracker.google.com/issues/243679672
 

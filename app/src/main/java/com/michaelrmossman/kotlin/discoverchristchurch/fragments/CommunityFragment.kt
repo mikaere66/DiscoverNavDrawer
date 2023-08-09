@@ -31,8 +31,9 @@ class CommunityFragment: BaseFragment<FragmentCommunityBinding>(R.layout.fragmen
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (sharedPrefs.getBoolean(FIRST_LAUNCH_PREF, true) &&
+        if (sharedPrefs.getBoolean(FIRST_LAUNCH_PREF,true) &&
                 sharedPrefs.edit().putBoolean(FIRST_LAUNCH_PREF, false).commit()) {
+            // In xml, viewGroup is GONE by default
             binding.emptyViewGroup.isVisible = true
         }
 
@@ -46,7 +47,7 @@ class CommunityFragment: BaseFragment<FragmentCommunityBinding>(R.layout.fragmen
         binding.apply {
             recyclerView.adapter = adapter
 
-            if (sharedPrefs.getBoolean(SHOW_FOOTER_PREF, true)) {
+            if (sharedPrefs.getBoolean(SHOW_FOOTER_PREF,true)) {
                 footerLayout.apply {
                     communityFragment = this@CommunityFragment
                     itemConstraintLayout.isVisible = true

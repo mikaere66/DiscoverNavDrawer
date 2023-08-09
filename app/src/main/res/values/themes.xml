@@ -25,15 +25,6 @@
 
     <style name="Theme.DiscoverChristchurch.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="Theme.DiscoverChristchurch.CommunityText" parent="Theme.DiscoverChristchurch.GravityStart">
-        <item name="android:layout_marginBottom">@dimen/list_item_margin_medium</item>
-        <item name="android:layout_marginEnd">@dimen/list_item_margin_mega</item>
-        <item name="android:layout_marginStart">@dimen/list_item_margin_mega</item>
-        <item name="android:layout_marginTop">@dimen/list_item_margin_medium</item>
-        <item name="android:paddingEnd">@dimen/list_item_padding_small</item>
-        <item name="android:paddingStart">@dimen/list_item_padding_small</item>
-    </style>
-
     <style name="Theme.DiscoverChristchurch.CardView" parent="Widget.MaterialComponents.CardView">
         <item name="android:layout_marginBottom">@dimen/card_bottom_margin</item>
         <item name="android:layout_marginEnd">@dimen/card_horizontal_margin</item>
@@ -54,6 +45,15 @@
 
     <style name="Theme.DiscoverChristchurch.CircularProgressIndicator" parent="Widget.MaterialComponents.CircularProgressIndicator">
         <item name="trackThickness">20dp</item>
+    </style>
+
+    <style name="Theme.DiscoverChristchurch.CommunityText" parent="Theme.DiscoverChristchurch.GravityStart">
+        <item name="android:layout_marginBottom">@dimen/list_item_margin_medium</item>
+        <item name="android:layout_marginEnd">@dimen/list_item_margin_mega</item>
+        <item name="android:layout_marginStart">@dimen/list_item_margin_mega</item>
+        <item name="android:layout_marginTop">@dimen/list_item_margin_medium</item>
+        <item name="android:paddingEnd">@dimen/list_item_padding_small</item>
+        <item name="android:paddingStart">@dimen/list_item_padding_small</item>
     </style>
 
     <style name="Theme.DiscoverChristchurch.DetailsIcon" parent="Theme.DiscoverChristchurch">

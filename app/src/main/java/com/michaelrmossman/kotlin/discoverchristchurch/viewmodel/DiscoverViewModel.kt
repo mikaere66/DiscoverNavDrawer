@@ -413,7 +413,7 @@ class DiscoverViewModel @Inject constructor(
         repository.getHeritageTypes()
     suspend fun getHeritageTypesSelectedCount() : Int =
         repository.getHeritageTypesSelectedCount()
-    suspend fun getHeritageTypeSelected(): FacilityType =
+    suspend fun getHeritageTypeSelected(): HeritageType =
         repository.getHeritageTypeSelected()
     suspend fun updateHeritageTypesSelected(
         types: List<HeritageType>

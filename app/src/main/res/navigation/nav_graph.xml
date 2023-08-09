@@ -503,7 +503,7 @@
     <activity
         android:id="@+id/streetArtActivity"
         android:name="com.michaelrmossman.kotlin.discoverchristchurch.activities.StreetArtActivity"
-        tools:layout="@layout/activity_common" />
+        tools:layout="@layout/activity_street_art" />
     <activity
         android:id="@+id/streetDetailsActivity"
         android:name="com.michaelrmossman.kotlin.discoverchristchurch.activities.StreetDetailsActivity"

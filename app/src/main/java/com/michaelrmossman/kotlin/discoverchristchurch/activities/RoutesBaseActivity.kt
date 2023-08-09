@@ -135,7 +135,7 @@ abstract class RoutesBaseActivity: MapsBaseActivity<ActivityRoutesBinding>(
 
     override fun onPolylineClick(polyline: Polyline?) {
         /* Applies to ChCh362|Routes activities,
-           overridden in MultiDayActivity */
+           overridden in MultiDay activity */
         polyline?.let {
             val waypointId = it.tag as Long
             val index = waypoints.indexOfFirst { waypoint ->
