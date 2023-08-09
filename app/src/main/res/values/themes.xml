@@ -39,8 +39,8 @@
     <style name="Theme.DiscoverChristchurch.CheckBox" parent="Theme.DiscoverChristchurch">
         <item name="android:layout_marginStart">@dimen/list_item_margin_large</item>
         <item name="android:layout_marginEnd">@dimen/list_item_margin_large</item>
-        <item name="android:minHeight">48dp</item>
-        <item name="android:textColor">@color/checkbox_enabled_disabled_selector</item>
+        <item name="android:minHeight">48dp</item><!-- Crashes on Nougat
+        <item name="android:textColor">@color/checkbox_enabled_disabled_selector</item> -->
     </style>
 
     <style name="Theme.DiscoverChristchurch.CircularProgressIndicator" parent="Widget.MaterialComponents.CircularProgressIndicator">
