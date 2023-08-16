@@ -416,14 +416,14 @@
     <string name="track_count">Track %1$d/%2$d</string>
 
     <!-- ChCh360 List -->
-    <string name="ch_ch_360_text_1">The Christchurch 360 Trail is divided into eight legs, each
-        averaging about 17 kilometres long.  A map board is at the start and finish of each leg.</string>
+    <string name="ch_ch_360_text_1">The Christchurch 360 Trail is divided into eight legs, each averaging
+        about 17 kilometres in length. A map board is located at the start and finish of each leg.</string>
     <string name="ch_ch_360_text_2">The trail\'s logo and arrows
         are the route markers, both in parks and on city streets.</string>
     <string name="ch_ch_360_text_3">One section of the trail, from McLeans Forest to
         Avonhead Park, is not yet open, as there is no walking infrastructure at present.</string>
     <string name="ch_ch_360_text_4">The trail highlights many of the city\'s natural features,
-        from the beach, estuary, Port Hills, waterways, and tree-lined streets.</string>
+        from the beaches, estuaries, Port Hills, and waterways, to tree-lined streets.</string>
 
     <!-- ChCh360 Maps -->
     <string name="ch_ch_360_a_p_count">Access point %1$d/%2$d</string>
@@ -584,7 +584,7 @@
     <string name="coastal_pathway_text">Coastal Pathway is not really a multi-day walk, but it\'s included here regardless,
         because the routes are adjacent. The pathway extends from Ferrymead to Sumner, following the coastline.</string>
     <string name="crater_rim_text">Crater Rim Walkways stretch from Godley Head in the east to Ahuriri in the southwest. Split
-        into multiple sections, you can choose where to start/finish your walk based in fitness levels and time constraints.</string>
+        into multiple sections, you can choose where to start/finish your walk based on fitness levels and time constraints.</string>
     <string name="head_to_head_text">The Head to Head Walkway is an aspirational project to create a continuous walkway
         around the coastline of Whakaraupō/Lyttelton Harbour, from Awaroa/Godley Head to Te Piaka/Adderley Head.</string>
 

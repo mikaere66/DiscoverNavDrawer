@@ -912,7 +912,7 @@ fun TextView.setNoteText(dogPark: DogParkKt?) {
 fun TextView.setNullableText(string: String?) {
     string?.let {
         isVisible = it.isNotBlank() == true
-        if (it.isNotBlank() == true) {
+        if (it.isNotBlank()) {
             text = it
         }
     }

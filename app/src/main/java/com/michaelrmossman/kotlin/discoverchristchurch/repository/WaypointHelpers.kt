@@ -93,7 +93,7 @@ object WaypointHelpers {
                 WaypointKt(
                     items[i].id,
                     items[i].leg,
-                    items[i].start,
+                    items[i].leg, // Was start
                     items[i].intro,
                     1,
                     items[i].latLng,
