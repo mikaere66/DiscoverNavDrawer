@@ -1,6 +1,5 @@
 package com.michaelrmossman.kotlin.discoverchristchurch.activities
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
@@ -12,7 +11,6 @@ import com.michaelrmossman.kotlin.discoverchristchurch.adapters.StreetArtMapAdap
 import com.michaelrmossman.kotlin.discoverchristchurch.adapters.StreetArtMapListener
 import com.michaelrmossman.kotlin.discoverchristchurch.adapters.StreetArtMapLongListener
 import com.michaelrmossman.kotlin.discoverchristchurch.databinding.ActivityStreetArtBinding
-import com.michaelrmossman.kotlin.discoverchristchurch.entities.Coords
 import com.michaelrmossman.kotlin.discoverchristchurch.entities.MarkerItem
 import com.michaelrmossman.kotlin.discoverchristchurch.entities.StreetArtKt
 import com.michaelrmossman.kotlin.discoverchristchurch.fragments.InfoStreetArtFragment
@@ -22,9 +20,7 @@ import com.michaelrmossman.kotlin.discoverchristchurch.utils.ITEM_VIEW_TYPE_ITEM
 import com.michaelrmossman.kotlin.discoverchristchurch.utils.MapUtils.getColorId
 import com.michaelrmossman.kotlin.discoverchristchurch.utils.SysUtils.isLandscape
 import com.michaelrmossman.kotlin.discoverchristchurch.utils.UiUtils.contentDescrToast
-import com.michaelrmossman.kotlin.discoverchristchurch.utils.UiUtils.fancyToast
 import com.michaelrmossman.kotlin.discoverchristchurch.utils.UiUtils.getStreetArtExtraText
-import com.michaelrmossman.kotlin.discoverchristchurch.utils.UiUtils.getWaypointSubtitleText
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -89,13 +85,6 @@ class StreetArtActivity: CommunityBaseActivity<ActivityStreetArtBinding>(R.layou
         viewModel.streetArtKt.observe(this) { streetArt ->
             adapter.submitList(streetArt)
         }
-
-        viewModel.showStreetView.observe(this) { show ->
-            if (show) {
-                goStreetView()
-                viewModel.setShowStreetView(false)
-            }
-        }
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -150,36 +139,6 @@ class StreetArtActivity: CommunityBaseActivity<ActivityStreetArtBinding>(R.layou
             }
             .findFirst()
             .orElse(null)
-    }
-
-    // Called from viewModel.showStreetView observer (see above)
-    private fun goStreetView() {
-        val site = viewModel.currentHeritageSite
-        when (site.angle) {
-            // Shouldn't actually be able to get this far, so just for safety
-            -1 -> fancyToast(this,4, R.string.no_street_view_a)
-            else -> {
-                val coords = Coords(
-                    String.format(
-                        getString(R.string.app_title),
-                        site.name
-                    ),
-                    String.format(
-                        getString(R.string.street_view_address_subtitle),
-                        site.address
-                    ),
-                    site.latLng,
-                    site.angle,
-                    getWaypointSubtitleText(1,2)
-                )
-                viewModel.setCurrentCoords(coords)
-                startActivity(
-                    Intent(
-                        this, StreetViewActivity::class.java
-                    )
-                )
-            }
-        }
     }
 
     private fun scrollToPosition(init: Boolean, position: Int?) {
